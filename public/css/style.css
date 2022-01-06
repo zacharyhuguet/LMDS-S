@@ -495,8 +495,7 @@ input[type="radio"] {
   color: #666666;
 }
 
-.form-devis input[type="submit"],
-.form-devis input[type="button"] {
+.form-devis button[type="submit"] {
   position: relative;
   display: block;
   padding: 19px 39px 18px 39px;
@@ -514,8 +513,7 @@ input[type="radio"] {
   -webkit-appearance: none;
   border: none;
 }
-.form-devis input[type="submit"]:hover,
-.form-devis input[type="button"]:hover {
+.form-devis button[type="submit"]:hover {
   box-shadow: rgb(0, 0, 0, 0.3) 0px 19px 38px, rgb(0, 0, 0, 0.22) 0px 15px 12px;
 }
 .devis-envoyer {

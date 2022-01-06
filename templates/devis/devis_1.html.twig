@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<ol class="progress">
+  <li class="is-active" data-step="1">
+    Client
+  </li>
+  <li data-step="2">
+    Téléphone
+  </li>
+  <li data-step="3">
+    Problème(s)
+  </li>
+  <li data-step="4">
+    Commentaire &<br/>Protection écran
+  </li>
+  <li data-step="5">
+    Récapitulatif
+  </li>
+  <li data-step="6">
+    Envoi
+  </li>
+</ol>
+
+{{ form_start(form, {'attr': {'class': 'form-devis', 'action': '/devis_2'}}) }}
+<fieldset>
+<legend><span class="number">1</span>Informations clients</legend>
+{{ form_widget(form.nom) }}
+{{ form_widget(form.prenom) }}
+{{ form_widget(form.email) }}
+{{ form_widget(form.telephone) }}
+</fieldset>
+{{ form_end(form) }}
+{% endblock %}
