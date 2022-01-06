@@ -1,0 +1,12 @@
+{% extends 'magasin.html.twig' %}
+
+
+{% block body %}
+    <h1>Edit Marque</h1>
+
+    {{ include('marque/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('marque_index') }}">back to list</a>
+
+    {{ include('marque/_delete_form.html.twig') }}
+{% endblock %}

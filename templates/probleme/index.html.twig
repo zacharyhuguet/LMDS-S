@@ -1,0 +1,34 @@
+{% extends 'magasin.html.twig' %}
+
+
+{% block body %}
+    <h1>Probleme index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>NomProbleme</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for probleme in problemes %}
+            <tr>
+                <td>{{ probleme.id }}</td>
+                <td>{{ probleme.NomProbleme }}</td>
+                <td>
+                    <a href="{{ path('probleme_show', {'id': probleme.id}) }}">show</a>
+                    <a href="{{ path('probleme_edit', {'id': probleme.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('probleme_new') }}">Create new</a>
+{% endblock %}

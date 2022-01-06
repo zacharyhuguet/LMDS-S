@@ -1,0 +1,36 @@
+{% extends 'magasin.html.twig' %}
+
+
+{% block body %}
+    <h1>InformationAccueil index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Emplacement</th>
+                <th>Titre</th>
+                <th>Texte</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for information_accueil in information_accueils %}
+            <tr>
+                <td>{{ information_accueil.emplacement }}</td>
+                <td>{{ information_accueil.titre }}</td>
+                <td>{{ information_accueil.texte }}</td>
+                <td>
+                    <a href="{{ path('information_accueil_show', {'id': information_accueil.id}) }}">show</a>
+                    <a href="{{ path('information_accueil_edit', {'id': information_accueil.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('information_accueil_new') }}">Create new</a>
+{% endblock %}

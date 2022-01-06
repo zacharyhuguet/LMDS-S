@@ -1,0 +1,12 @@
+{% extends 'magasin.html.twig' %}
+
+
+{% block body %}
+    <h1>Edit Probleme</h1>
+
+    {{ include('probleme/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('probleme_index') }}">back to list</a>
+
+    {{ include('probleme/_delete_form.html.twig') }}
+{% endblock %}
