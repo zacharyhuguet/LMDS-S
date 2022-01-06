@@ -1,0 +1,10 @@
+{% extends 'magasin.html.twig' %}
+
+
+{% block body %}
+    <h1>Create new Modele</h1>
+
+    {{ include('modele/_form.html.twig') }}
+
+    <a href="{{ path('modele_index') }}">back to list</a>
+{% endblock %}

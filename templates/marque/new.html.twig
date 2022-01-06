@@ -1,0 +1,10 @@
+{% extends 'magasin.html.twig' %}
+
+
+{% block body %}
+    <h1>Create new Marque</h1>
+
+    {{ include('marque/_form.html.twig') }}
+
+    <a href="{{ path('marque_index') }}">back to list</a>
+{% endblock %}

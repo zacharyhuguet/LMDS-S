@@ -1,0 +1,73 @@
+{% extends 'magasin.html.twig' %}
+
+
+{% block body %}
+    <h1>Devis</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ devi.id }}</td>
+            </tr>
+            <tr>
+                <th>Status</th>
+                <td>{{ devi.status }}</td>
+            </tr>
+            <tr>
+                <th>Date</th>
+                <td>{{ devi.date ? devi.date|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ devi.nom }}</td>
+            </tr>
+            <tr>
+                <th>Prenom</th>
+                <td>{{ devi.prenom }}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>{{ devi.email }}</td>
+            </tr>
+            <tr>
+                <th>Telephone</th>
+                <td>{{ devi.telephone }}</td>
+            </tr>
+            <tr>
+                <th>Marque</th>
+                <td>{{ devi.marque }}</td>
+            </tr>
+            <tr>
+                <th>Modele</th>
+                <td>{{ devi.modele }}</td>
+            </tr>
+            <tr>
+                <th>Probleme1</th>
+                <td>{{ devi.probleme1 }}</td>
+            </tr>
+            <tr>
+                <th>Probleme2</th>
+                <td>{{ devi.probleme2 }}</td>
+            </tr>
+            <tr>
+                <th>Probleme3</th>
+                <td>{{ devi.probleme3 }}</td>
+            </tr>
+            <tr>
+                <th>Commentaire</th>
+                <td>{{ devi.commentaire }}</td>
+            </tr>
+            <tr>
+                <th>Protection</th>
+                <td>{{ devi.protection }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('devis_admin_index') }}">back to list</a>
+
+    <a href="{{ path('devis_admin_edit', {'id': devi.id}) }}">edit</a>
+
+    {{ include('devis_admin/_delete_form.html.twig') }}
+{% endblock %}
