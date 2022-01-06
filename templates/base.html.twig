@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <script src="https://kit.fontawesome.com/36d8ba31b1.js" crossorigin="anonymous"></script>
     <script src="{{ asset('js/hamburger.js') }}"></script>
-    <!-- <link rel="shortcut icon" href="images/logo.png" type="image/x-icon"/> -->
+    <link rel="shortcut icon" href="{{ asset('images/logo.png') }}" type="image/x-icon"/>
     {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
     {% block stylesheets %}
     {{ encore_entry_link_tags('app') }}
