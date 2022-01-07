@@ -2,57 +2,61 @@
 
 
 {% block body %}
-    <h1>Devis index</h1>
-
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Status</th>
-                <th>Date</th>
-                <th>Nom</th>
-                <th>Prenom</th>
-                <th>Email</th>
-                <th>Telephone</th>
-                <th>Marque</th>
-                <th>Modele</th>
-                <th>Probleme1</th>
-                <th>Probleme2</th>
-                <th>Probleme3</th>
-                <th>Commentaire</th>
-                <th>Protection</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for devi in devis %}
-            <tr>
-                <td>{{ devi.id }}</td>
-                <td>{{ devi.status }}</td>
-                <td>{{ devi.date ? devi.date|date('Y-m-d') : '' }}</td>
-                <td>{{ devi.nom }}</td>
-                <td>{{ devi.prenom }}</td>
-                <td>{{ devi.email }}</td>
-                <td>{{ devi.telephone }}</td>
-                <td>{{ devi.marque }}</td>
-                <td>{{ devi.modele }}</td>
-                <td>{{ devi.probleme1 }}</td>
-                <td>{{ devi.probleme2 }}</td>
-                <td>{{ devi.probleme3 }}</td>
-                <td>{{ devi.commentaire }}</td>
-                <td>{{ devi.protection }}</td>
-                <td>
-                    <a href="{{ path('devis_admin_show', {'id': devi.id}) }}">show</a>
-                    <a href="{{ path('devis_admin_edit', {'id': devi.id}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="15">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-
-    <a href="{{ path('devis_admin_new') }}">Create new</a>
+	<h1 class="text-center">Affichage des devis</h1>
+	<table class="table table-bordered table-striped table-responsive-stack">
+		<thead>
+			<tr style='background-color:#212529; color:white;'>
+                <th>Actions</th>
+				<th>Id</th>
+				<th>Status</th>
+				<th>Date</th>
+				<th>Nom</th>
+				<th>Prenom</th>
+				<th>Email</th>
+				<th>Telephone</th>
+				<th>Marque</th>
+				<th>Modele</th>
+				<th>Probleme1</th>
+				<th>Probleme2</th>
+				<th>Probleme3</th>
+				<th>Commentaire</th>
+				<th>Protection</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for devi in devis %}
+				<tr>
+					<td>
+						<a class='btn btn-primary mb-2' href='{{ path('devis_admin_show', {'id': devi.id}) }}'>
+							<i class='fas fa-eye'></i>
+						</a>
+						<br/>
+						<a class='btn btn-success mb-2' href=''>
+							<i class='fas fa-paper-plane'></i>
+						</a>
+						<br/>
+						{{ include('devis_admin/_delete_form.html.twig') }}
+					</td>
+					<td>{{ devi.id }}</td>
+					<td>{{ devi.status }}</td>
+					<td>{{ devi.date ? devi.date|date('d/m/Y') : '' }}</td>
+					<td>{{ devi.nom }}</td>
+					<td>{{ devi.prenom }}</td>
+					<td>{{ devi.email }}</td>
+					<td>{{ devi.telephone }}</td>
+					<td>{{ devi.marque }}</td>
+					<td>{{ devi.modele }}</td>
+					<td>{{ devi.probleme1 }}</td>
+					<td>{{ devi.probleme2 }}</td>
+					<td>{{ devi.probleme3 }}</td>
+					<td>{{ devi.commentaire }}</td>
+					<td>{{ devi.protection }}</td>
+				</tr>
+			{% else %}
+				<tr>
+					<td colspan="15">Aucun devis disponible</td>
+				</tr>
+			{% endfor %}
+		</tbody>
+	</table>
 {% endblock %}

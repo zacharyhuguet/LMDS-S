@@ -1,64 +1,61 @@
 <!DOCTYPE html>
 <html>
 
-<head>
-    <meta charset="UTF-8">
-    <title>{% block title %}Magasin{% endblock %}</title>
-    <link rel="stylesheet" href="{{ asset('css/magasin.css') }}">
-    <script src="https://kit.fontawesome.com/36d8ba31b1.js" crossorigin="anonymous"></script>
-    <!-- <link rel="shortcut icon" href="images/logo.png" type="image/x-icon"/> -->
-    {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
+	<head>
+		<meta charset="UTF-8">
+		<title>
+			{% block title %}LMDS - Gestion Magasin
+			{% endblock %}
+		</title>
+		<link rel="stylesheet" href="{{ asset('css/magasin.css') }}">
+		<script src="https://kit.fontawesome.com/36d8ba31b1.js" crossorigin="anonymous"></script>
+		{# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
 
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
-  <script src="https://kit.fontawesome.com/36d8ba31b1.js" crossorigin="anonymous"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js%22%3E</script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js%22%3E</script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" 
-integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
- crossorigin="anonymous"></script> 
- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" 
- integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" 
- crossorigin="anonymous"></script>
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+		<script src="https://kit.fontawesome.com/36d8ba31b1.js" crossorigin="anonymous"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js%22%3E"></script>
+			  <script src=" https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js%22%3e"></script> 
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">>
+			<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+			<link rel="shortcut icon" href="{{ asset('images/logo.png') }}" type="image/x-icon"/>
+			{% block stylesheets %}
+				{{ encore_entry_link_tags('app') }}
+			{% endblock %}
 
-    {% block stylesheets %}
-    {{ encore_entry_link_tags('app') }}
-    {% endblock %}
+			{% block javascripts %}
+				{{ encore_entry_script_tags('app') }}
+			{% endblock %}
+		</head>
 
-    {% block javascripts %}
-    {{ encore_entry_script_tags('app') }}
-    {% endblock %}
-</head>
+		<body>
 
-<body>
+			<div class="text-center">
+				<h1 class="titre-header">La Maison Du Smartphone<br/>Interface Magasin<br/>
+				</h1>
+				<ul class="navbar navbar-light bg-dark justify-content-center">
+					<br/><br/><br/>
+					<li class="nav-item">
+						<a class="btn btn-dark btn-lg" href="/magasin/devis">Devis</a>
+					</li>
+					<li class="nav-item">
+						<a class="btn btn-dark btn-lg" href="/magasin/marque">Marque</a>
+					</li>
+					<li class="nav-item">
+						<a class="btn btn-dark btn-lg" href="/magasin/modele">Modele</a>
+					</li>
+					<li class="nav-item">
+						<a class="btn btn-dark btn-lg" href="/magasin/probleme">Problème</a>
+					</li>
+					<li class="nav-item">
+						<a class="btn btn-dark btn-lg" href="/magasin/information_accueil">Information Accueil</a>
+					</li>
+					<li class="nav-item">
+						<a class="btn btn-primary btn-lg" href="/logout">Déconnexion</a>
+					</li>
+				</ul>
+			</div>
 
-    <div class="text-center"> 
-<h1 class="titre-header">La Maison Du Smartphone<br/>Interface Magasin<br/>
-    </h1>
-<ul class="navbar navbar-light bg-dark justify-content-center">
-<br/><br/><br/>
-  <li class="nav-item">
-    <a class="btn btn-dark btn-lg" href="/magasin/devis">Devis</a>
-  </li>
-  <li class="nav-item">
-    <a class="btn btn-dark btn-lg" href="/magasin/marque">Marque</a>
-  </li>
-  <li class="nav-item">
-    <a class="btn btn-dark btn-lg" href="/magasin/modele">Modele</a>
-  </li>
-  <li class="nav-item">
-    <a class="btn btn-dark btn-lg" href="/magasin/probleme">Problème</a>
-  </li>
-   <li class="nav-item">
-    <a class="btn btn-dark btn-lg" href="/magasin/information_accueil">Information Accueil</a>
-  </li>
-  <li class="nav-item">
-      <a  class="btn btn-primary btn-lg" href="/logout" >Déconnexion</a> 
-      </li>
-</ul>
-</div>
-
-    {% block body %}{% endblock %}
-   
-</body>
-
+			{% block body %}{% endblock %}
+		</body>
+	</head>
 </html>
