@@ -2,33 +2,31 @@
 
 
 {% block body %}
-    <h1>Marque index</h1>
+	<h1 class="text-center">Affichage des marques</h1>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>NomMarque</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for marque in marques %}
-            <tr>
-                <td>{{ marque.id }}</td>
-                <td>{{ marque.NomMarque }}</td>
-                <td>
-                    <a href="{{ path('marque_show', {'id': marque.id}) }}">show</a>
-                    <a href="{{ path('marque_edit', {'id': marque.id}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="3">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-
-    <a href="{{ path('marque_new') }}">Create new</a>
+    	<a class="btn btn-success" href="{{ path('marque_new') }}">Ajouter une marque</a>
+        <br/><br/>
+	<table class="table table-bordered table-striped table-responsive-stack">
+		<thead>
+			<tr style='text-align:center; background-color:#212529; color:white;'>
+				<th>Actions</th>
+				<th>NomMarque</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for marque in marques %}
+				<tr>
+                	<td>
+                        <a class='btn btn-warning' href="{{ path('marque_edit', {'id': marque.id}) }}"><i class='fas fa-pen'></i></a>
+						{{ include('marque/_delete_form.html.twig') }}
+					</td>
+					<td>{{ marque.NomMarque }}</td>
+				</tr>
+			{% else %}
+				<tr>
+					<td colspan="3">Aucune marque disponible</td>
+				</tr>
+			{% endfor %}
+		</tbody>
+	</table>
 {% endblock %}
