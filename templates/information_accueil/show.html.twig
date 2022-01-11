@@ -2,14 +2,13 @@
 
 
 {% block body %}
-    <h1>InformationAccueil</h1>
-
-    <table class="table">
+<div class="text-center">
+<h1>Information Accueil n°{{ information_accueil.emplacement }}</h1> 
+    <a class="btn btn-secondary" href="{{ path('information_accueil_index') }}">Retour</a>
+</div>
+<br/>
+    <table class="table table-bordered table-striped table-responsive-stack">
         <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ information_accueil.id }}</td>
-            </tr>
             <tr>
                 <th>Emplacement</th>
                 <td>{{ information_accueil.emplacement }}</td>
@@ -24,10 +23,4 @@
             </tr>
         </tbody>
     </table>
-
-    <a href="{{ path('information_accueil_index') }}">back to list</a>
-
-    <a href="{{ path('information_accueil_edit', {'id': information_accueil.id}) }}">edit</a>
-
-    {{ include('information_accueil/_delete_form.html.twig') }}
 {% endblock %}

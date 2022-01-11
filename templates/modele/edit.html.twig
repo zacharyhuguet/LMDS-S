@@ -1,12 +1,19 @@
 {% extends 'magasin.html.twig' %}
 
-
 {% block body %}
-    <h1>Edit Modele</h1>
-
-    {{ include('modele/_form.html.twig', {'button_label': 'Update'}) }}
-
-    <a href="{{ path('modele_index') }}">back to list</a>
-
-    {{ include('modele/_delete_form.html.twig') }}
+	<div class="text-center">
+		<h1>Modifier le modèle "{{modele.NomModele}}"</h1>
+		<a class="btn btn-secondary" href="{{ path('modele_index') }}">Retour</a>
+		<br/>
+		<br/>
+		<form name="modele" method="post">
+			<p>Nom du modèle</p>
+			{{ form_widget(form.NomModele) }}
+			<br/><br/>
+			<p>de la marque</p>
+			{{ form_widget(form.marque) }}
+			<br/><br/>
+			<button class="btn btn-success">{{ button_label|default('Modifier') }}</button>
+		</form>
+	</div>
 {% endblock %}

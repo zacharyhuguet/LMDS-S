@@ -2,9 +2,16 @@
 
 
 {% block body %}
-    <h1>Create new Probleme</h1>
-
-    {{ include('probleme/_form.html.twig') }}
-
-    <a href="{{ path('probleme_index') }}">back to list</a>
+	<div class="text-center">
+		<h1>Ajouter un problème</h1>
+		<a class="btn btn-secondary" href="{{ path('probleme_index') }}">Retour</a>
+		<br/>
+		<br/>
+		<form name="probleme" method="post">
+			<p>Nom du problème</p>
+			{{ form_widget(form.NomProbleme) }}
+			<br/><br/>
+			<button class="btn btn-success">{{ button_label|default('Ajouter') }}</button>
+		</form>
+	</div>
 {% endblock %}
