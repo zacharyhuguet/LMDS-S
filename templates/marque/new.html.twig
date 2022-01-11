@@ -2,9 +2,15 @@
 
 
 {% block body %}
-    <h1>Create new Marque</h1>
-
-    {{ include('marque/_form.html.twig') }}
-
-    <a href="{{ path('marque_index') }}">back to list</a>
+<div class="text-center">
+    <h1>Ajouter une marque</h1>
+<a class="btn btn-secondary" href="{{ path('marque_index') }}">Retour</a>
+   <br/>   <br/>
+    <form name="marque" method="post">
+    <p>Nom de la marque</p>
+       {{ form_widget(form.NomMarque) }}
+       <br/><br/>
+    <button class="btn btn-success">{{ button_label|default('Ajouter') }}</button>
+</form>
+    </div>
 {% endblock %}
