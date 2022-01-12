@@ -10,6 +10,7 @@
        {{ form_widget(form.NomMarque) }}
        <br/><br/>
     <button class="btn btn-success">{{ button_label|default('Modifier') }}</button>
+    {{ form_row(form._token) }}
 </form>
     </div>
 {% endblock %}

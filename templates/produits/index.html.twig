@@ -1,41 +1,44 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Produits index{% endblock %}
-
 {% block body %}
-    <h1>Produits index</h1>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Titre</th>
-                <th>Description</th>
-                <th>Prix</th>
-                <th>Image</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for produit in produits %}
-            <tr>
-                <td>{{ produit.id }}</td>
-                <td>{{ produit.titre }}</td>
-                <td>{{ produit.description }}</td>
-                <td>{{ produit.prix }}</td>
-                <td>{{ produit.image }}</td>
-                <td>
-                    <a href="{{ path('produits_show', {'id': produit.id}) }}">show</a>
-                    <a href="{{ path('produits_edit', {'id': produit.id}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="6">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
 
-    <a href="{{ path('produits_new') }}">Create new</a>
+
+
+<section class="section-products">
+        <div class="container">
+
+                <div class="row justify-content-center text-center">
+{% for produit in produits %}
+
+          {# <h2>{{ produit.titre }}</h2>
+
+         {{produit.description }}
+
+         {{produit.prix }}
+
+<img src="imagesProduits/{{produit.image }}"/>
+     #}
+
+
+                        <!-- Single Product -->
+                        <div class="col-md-6 col-lg-4 col-xl-3">
+                                <div id="product-1" class="single-product">
+                                        <div class="part-1">
+                                          <a href="{{ path('produits_show', {'id': produit.id}) }}"><img src="/imagesProduits/{{produit.image }}"/></a>
+                                        </div>
+                                        <div class="part-2">
+                                                <h3 class="product-title">{{ produit.titre }}</h3>
+                                                <h4 class="product-old-price">{{ produit.ancienPrix }}€</h4>
+                                                <h4 class="product-price">{{ produit.prix }}€</h4>
+                                        </div>
+                                </div>
+                        </div>
+
+
+{% endfor %}
+                </div>
+        </div>
+</section>
 {% endblock %}

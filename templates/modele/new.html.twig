@@ -15,6 +15,7 @@
 			{{ form_widget(form.marque) }}
 			<br/><br/>
 			<button class="btn btn-success">{{ button_label|default('Ajouter') }}</button>
+			{{ form_row(form._token) }}
 		</form>
 	</div>
 {% endblock %}

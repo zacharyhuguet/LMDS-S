@@ -37,6 +37,11 @@ class Produits
      */
     private $image;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $ancienPrix;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -86,6 +91,18 @@ class Produits
     public function setImage(string $image): self
     {
         $this->image = $image;
+
+        return $this;
+    }
+
+    public function getAncienPrix(): ?string
+    {
+        return $this->ancienPrix;
+    }
+
+    public function setAncienPrix(string $ancienPrix): self
+    {
+        $this->ancienPrix = $ancienPrix;
 
         return $this;
     }
