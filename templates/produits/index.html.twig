@@ -1,44 +1,35 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+	<br/><br/><br/>
+	<div class="container-produit-header">
+		<h1>Nos téléphones
+		</h1>
+		<h3>Tout nos téléphones sont reconditionnées directement dans notre magasin, et sont proposer à un prix abordable pour notre clientèle !<h3></div>*
+			<hr class="separateur-hr">
+			<div class="container-produit">
+				{% for produit in produits %}
+					<div class="product">
+						<img src="/imagesProduits/{{produit.image }}"/>
+						<label class="price">
+							<em>{{ produit.ancienPrix }}
+								€
+							</em>
+							&nbsp;&nbsp;&nbsp;
+							{{ produit.prix }}
+							€
+						</label>
+
+						<div class="desciption">
+							<h2 class="title">{{ produit.titre }}</h2>
+							<a class="lien-show" href="{{ path('produits_show', {'id': produit.id}) }}">
+								<i class="fas fa-plus"></i>
+								Voir plus</a>
+						</div>
+					</div>
+
+				{% endfor %}
+			</div>
 
 
-
-
-<section class="section-products">
-        <div class="container">
-
-                <div class="row justify-content-center text-center">
-{% for produit in produits %}
-
-          {# <h2>{{ produit.titre }}</h2>
-
-         {{produit.description }}
-
-         {{produit.prix }}
-
-<img src="imagesProduits/{{produit.image }}"/>
-     #}
-
-
-                        <!-- Single Product -->
-                        <div class="col-md-6 col-lg-4 col-xl-3">
-                                <div id="product-1" class="single-product">
-                                        <div class="part-1">
-                                          <a href="{{ path('produits_show', {'id': produit.id}) }}"><img src="/imagesProduits/{{produit.image }}"/></a>
-                                        </div>
-                                        <div class="part-2">
-                                                <h3 class="product-title">{{ produit.titre }}</h3>
-                                                <h4 class="product-old-price">{{ produit.ancienPrix }}€</h4>
-                                                <h4 class="product-price">{{ produit.prix }}€</h4>
-                                        </div>
-                                </div>
-                        </div>
-
-
-{% endfor %}
-                </div>
-        </div>
-</section>
-{% endblock %}
+		{% endblock %}

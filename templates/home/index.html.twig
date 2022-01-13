@@ -1,95 +1,92 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-<div class="conteneur_sous_header">
-        <img src="{{ asset('images/header.jpg') }}" class="sous_header"></img>
-        <div class="sous_header_texte">  
-        <img id="sous_header-logo_magasin" src="{{ asset('images/logo.png') }}"/>
-            <h1>Réparations téléphones, tablettes<br/> et vente d'accessoires</h1>
-            <a href="/devis">Demander un devis</a>
-        </div>
-    </div>
-    
-<main>
-    <br/><br/><br/>
+	<div class="conteneur_sous_header">
+		<img src="{{ asset('images/header.jpg') }}" class="sous_header"></img>
+	<div class="sous_header_texte">
+		<img id="sous_header-logo_magasin" src="{{ asset('images/logo.png') }}"/>
+		<h1>Réparations téléphones, tablettes<br/>
+			et vente d'accessoires</h1>
+		<a href="/devis">Demander un devis</a>
+	</div>
+</div>
 
-    <h1 class="titre_service_box">Notre Boutique</h1><br/><br/><br/><br/>
-  <div class="global_service_box">
+<br/><br/><br/>
 
-        {% for info in infos %}
-        <div class="service_box_colonne">
-      <div class="service-box">
-        <div class="service-box-icon">
-        <i class="fas fa-question"></i>
-        </div>
-        <div class="service-box-titre">
-          <h2>{{ info.titre }}</h2>
-        </div>
-        <div class="service-box-contenu">
-         {{info.texte }}
-        </div>
-      </div>
-    </div>
-    {% endfor %}
-  </div>
+<h1 class="titre_service_box">Notre Boutique</h1><br/><br/><br/><br/>
+<div class="global_service_box">
+
+	{% for info in infos %}
+		<div class="service_box_colonne">
+			<div class="service-box">
+				<div class="service-box-icon">
+					<i class="fas fa-question"></i>
+				</div>
+				<div class="service-box-titre">
+					<h2>{{ info.titre }}</h2>
+				</div>
+				<div class="service-box-contenu">
+					{{info.texte }}
+				</div>
+			</div>
+		</div>
+	{% endfor %}
+</div>
 
 
 <hr class="separateur-index">
-    <h1 class="titre_phototheque">Photothèque</h1><br/><br/><br/><br/>
+<h1 class="titre_phototheque">Photothèque</h1><br/><br/><br/><br/>
 
 <div class="phototheque">
-<div class="photos-mini">
-<div class="miniature">
-<input name="phototheque" type="radio" checked class="fen" id="lightbox-1" />
-<label for="lightbox-1">
+	<div class="photos-mini">
+		<div class="miniature">
+			<input name="phototheque" type="radio" checked class="fen" id="lightbox-1"/>
+			<label for="lightbox-1">
 
-<img src="{{ asset('images/phototheque/1.jpg') }}" alt>
-</label>
-<img class="fenetre" src="{{ asset('images/phototheque/1.jpg') }}" alt>
-<figcaption>La Maison du Smartphone</figcaption>
-</div>
-<div class="miniature">
-<input name="phototheque" type="radio" class="fen" id="lightbox-2" />
-<label for="lightbox-2">
-<img src="{{ asset('images/phototheque/2.jpg') }}" alt>
-</label>
-<img class="fenetre" src="{{ asset('images/phototheque/2.jpg') }}" alt>
-<figcaption>La Maison du Smartphone</figcaption>
-</div>
-<div class="miniature">
-<input name="phototheque" type="radio" class="fen" id="lightbox-3" />
-<label for="lightbox-3">
-<img src="{{ asset('images/phototheque/3.jpg') }}" alt>
-</label>
-<img class="fenetre" src="{{ asset('images/phototheque/3.jpg') }}" alt>
-<figcaption>La Maison du Smartphone</figcaption>
-</div>
-<div class="miniature">
-<input name="phototheque" type="radio" class="fen" id="lightbox-4" />
-<label for="lightbox-4">
-<img src="{{ asset('images/phototheque/4.jpg') }}" alt>
-</label>
-<img class="fenetre" src="images/phototheque/4.jpg" alt>
-<figcaption>La Maison du Smartphone</figcaption>
-</div>
-<div class="miniature">
-<input name="phototheque" type="radio" class="fen" id="lightbox-5" />
-<label for="lightbox-5">
-<img src="{{ asset('images/phototheque/5.jpg') }}" alt>
-</label>
-<img class="fenetre" src="{{ asset('images/phototheque/5.jpg') }}" alt>
-<figcaption>La Maison du Smartphone</figcaption>
-</div>
-<div class="miniature">
-<input name="phototheque" type="radio" class="fen" id="lightbox-6" />
-<label for="lightbox-6">
-<img src="{{ asset('images/phototheque/6.jpg') }}" alt>	
-</label>
-<img class="fenetre" src="{{ asset('images/phototheque/6.jpg') }}" alt>
-<figcaption>La Maison du Smartphone</figcaption>
-</div>
-</div>
-</div>
-
-
-{% endblock %}
+				<img src="{{ asset('images/phototheque/1.jpg') }}" alt>
+			</label>
+			<img class="fenetre" src="{{ asset('images/phototheque/1.jpg') }}" alt>
+			<figcaption>La Maison du Smartphone</figcaption>
+		</div>
+		<div class="miniature">
+			<input name="phototheque" type="radio" class="fen" id="lightbox-2"/>
+			<label for="lightbox-2">
+				<img src="{{ asset('images/phototheque/2.jpg') }}" alt>
+			</label>
+			<img class="fenetre" src="{{ asset('images/phototheque/2.jpg') }}" alt>
+			<figcaption>La Maison du Smartphone</figcaption>
+		</div>
+		<div class="miniature">
+			<input name="phototheque" type="radio" class="fen" id="lightbox-3"/>
+			<label for="lightbox-3">
+				<img src="{{ asset('images/phototheque/3.jpg') }}" alt>
+			</label>
+			<img class="fenetre" src="{{ asset('images/phototheque/3.jpg') }}" alt>
+			<figcaption>La Maison du Smartphone</figcaption>
+		</div>
+		<div class="miniature">
+			<input name="phototheque" type="radio" class="fen" id="lightbox-4"/>
+			<label for="lightbox-4">
+				<img src="{{ asset('images/phototheque/4.jpg') }}" alt>
+			</label>
+			<img class="fenetre" src="images/phototheque/4.jpg" alt>
+			<figcaption>La Maison du Smartphone</figcaption>
+		</div>
+		<div class="miniature">
+			<input name="phototheque" type="radio" class="fen" id="lightbox-5"/>
+			<label for="lightbox-5">
+				<img src="{{ asset('images/phototheque/5.jpg') }}" alt>
+			</label>
+			<img class="fenetre" src="{{ asset('images/phototheque/5.jpg') }}" alt>
+			<figcaption>La Maison du Smartphone</figcaption>
+		</div>
+		<div class="miniature">
+			<input name="phototheque" type="radio" class="fen" id="lightbox-6"/>
+			<label for="lightbox-6">
+				<img src="{{ asset('images/phototheque/6.jpg') }}" alt>
+			</label>
+			<img class="fenetre" src="{{ asset('images/phototheque/6.jpg') }}" alt>
+			<figcaption>La Maison du Smartphone</figcaption>
+		</div>
+	</div>
+</div>{% endblock %}
