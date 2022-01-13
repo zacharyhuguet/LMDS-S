@@ -10,7 +10,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap");
 @font-face {
   font-family: "LaMaisonDuSmartphone";
-  src: url("polices/LaMaisonDuSmartphone.ttf");
+  src: url("/polices/LaMaisonDuSmartphone.ttf");
 }
 /* =====================================================================================*/
 /* STYLE PAR DEFAUT                                                                     */
@@ -21,18 +21,22 @@
   box-sizing: border-box;
   font-family: "PT Sans", sans-serif;
 }
+a:hover{
+  text-decoration:none !important;
+}
 /* =====================================================================================*/
 /* HEADER / NAV / MENU / SOUS-HEADER                                                    */
 /* =====================================================================================*/
 .conteneur_header {
   background-color: rgb(33, 48, 53);
-  height: 150px;
+  height: 110px;
 }
 header {
   width: 100%;
   position: static;
   background-color: rgb(33, 48, 53);
   z-index: 100;
+  
 }
 .navigation {
   display: flex;
@@ -42,13 +46,13 @@ header {
 }
 .navigation_logo {
   display: block;
-  height: 150px;
+  height: 110px;
   image-rendering: -webkit-optimize-contrast;
 }
 .navigation_logo_phone {
   display: none;
   color: white;
-  font-size: medium;
+  font-size: 20px;
   font-family: "LaMaisonDuSmartphone";
 }
 .navigation a {
@@ -147,7 +151,7 @@ nav a {
 }
 @media screen and (max-width: 400px) {
   .navigation_logo_phone {
-    font-size: 10px;
+    font-size: 15px;
   }
 }
 @media screen and (max-width: 600px) {
@@ -913,159 +917,69 @@ iframe {
 /* =====================================================================================*/
 /* Produit                                                                              */
 /* =====================================================================================*/
-.section-products a,
-.section-products a:hover {
-    text-decoration: none;
-    color: inherit;
+.container-produit {
+  padding: 30px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
 }
-
-.section-products {
-    padding: 80px 0 54px;
+.container-produit-header {
+text-align:center;
 }
-
-.section-products .header {
-    margin-bottom: 50px;
+.container-produit .lien-show {
+  text-decoration: none;
+  text-align: center;
+  display: block;
+  margin:0 auto;
+  color:#6495ed;
+  font-size:20px;
 }
+.product {
+  margin: 0 0 30px 30px;
+  padding: 40px;
+  position: relative;
+  width: 320px;
+  background: white;
+  z-index: 0;
+  box-shadow: rgb(0, 0, 0, 0.19) 0px 10px 20px, rgb(0, 0, 0, 0.23) 0px 6px 6px;
+  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
 
-.section-products .header h3 {
-    font-size: 1rem;
-    color: #fe302f;
-    font-weight: 500;
 }
+.product label.price {
+  font-weight: 600;
+  right: 0px;
+  top: 0px;
+  margin-left: 50px;
+  position: absolute;
+  display: inline-block;
+  width: 100%;
+  height: 40px;
+  line-height: 40px;
+  font-size: 20px;
+  margin-left: 15px;
+  background-color: rgb(214, 158, 4);
+  text-align:center;
 
-.section-products .header h2 {
-    font-size: 2.2rem;
-    font-weight: 400;
-    color: #444444; 
 }
-
-.section-products .single-product {
-    margin-bottom: 26px;
+.product label.price em{
+  text-decoration:line-through;
+  color: red;
+  font-size:16px;
 }
-
-.section-products .single-product .part-1 {
-    position: relative;
-    height: 290px;
-    max-height: 290px;
-    margin-bottom: 20px;
-    overflow: hidden;
+.product img {
+  margin: 25px auto 0;
+  width:250px;
+  z-index: -2;
+  display: block;
 }
+.product .desciption .title {
+  margin: 10px 0 5px;
+  text-align:center;
 
-.section-products .single-product .part-1::before {
-		position: absolute;
-		content: "";
-		top: 0;
-		left: 0;
-		width: 100%;
-		height: 100%;
-		z-index: -1;
-		transition: all 0.3s;
-}
-
-.section-products .single-product:hover .part-1::before {
-		transform: scale(1.2,1.2) rotate(5deg);
-}
-
-.section-products #product-1 .part-1::before {
-    background: url("https://i.ibb.co/L8Nrb7p/1.jpg") no-repeat center;
-    background-size: cover;
-		transition: all 0.3s;
-}
-
-.section-products #product-2 .part-1::before {
-    background: url("https://i.ibb.co/cLnZjnS/2.jpg") no-repeat center;
-    background-size: cover;
-}
-
-.section-products #product-3 .part-1::before {
-    background: url("https://i.ibb.co/L8Nrb7p/1.jpg") no-repeat center;
-    background-size: cover;
-}
-
-.section-products #product-4 .part-1::before {
-    background: url("https://i.ibb.co/cLnZjnS/2.jpg") no-repeat center;
-    background-size: cover;
-}
-
-.section-products .single-product .part-1 .discount,
-.section-products .single-product .part-1 .new {
-    position: absolute;
-    top: 15px;
-    left: 20px;
-    color: #ffffff;
-    background-color: #fe302f;
-    padding: 2px 8px;
-    text-transform: uppercase;
-    font-size: 0.85rem;
-}
-
-.section-products .single-product .part-1 .new {
-    left: 0;
-    background-color: #444444;
-}
-
-.section-products .single-product .part-1 ul {
-    position: absolute;
-    bottom: -41px;
-    left: 20px;
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    opacity: 0;
-    transition: bottom 0.5s, opacity 0.5s;
-}
-
-.section-products .single-product:hover .part-1 ul {
-    bottom: 30px;
-    opacity: 1;
-}
-
-.section-products .single-product .part-1 ul li {
-    display: inline-block;
-    margin-right: 4px;
-}
-
-.section-products .single-product .part-1 ul li a {
-    display: inline-block;
-    width: 40px;
-    height: 40px;
-    line-height: 40px;
-    background-color: #ffffff;
-    color: #444444;
-    text-align: center;
-    box-shadow: 0 2px 20px rgb(50 50 50 / 10%);
-    transition: color 0.2s;
-}
-
-.section-products .single-product .part-1 ul li a:hover {
-    color: #fe302f;
-}
-
-.section-products .single-product .part-2 .product-title {
-    font-size: 1rem;
-}
-
-.section-products .single-product .part-2 h4 {
-    display: inline-block;
-    font-size: 1rem;
-}
-
-.section-products .single-product .part-2 .product-old-price {
-    position: relative;
-    padding: 0 7px;
-    margin-right: 2px;
-    opacity: 0.6;
-}
-
-.section-products .single-product .part-2 .product-old-price::after {
-    position: absolute;
-    content: "";
-    top: 50%;
-    left: 0;
-    width: 100%;
-    height: 1px;
-    background-color: #444444;
-    transform: translateY(-50%);
 }
 /* =====================================================================================*/
 /* FOOTER                                                                               */
