@@ -6,13 +6,14 @@ use App\Entity\Devis;
 use App\Entity\Marque;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\TelType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
-use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 
 class DevisStepOneType extends AbstractType
 {
@@ -45,29 +46,14 @@ class DevisStepOneType extends AbstractType
                 'maxlength' => 50,
             ],
         ]);
-        $builder->add('telephone', NumberType::class, [
+        $builder->add('telephone', TelType::class, [
             'attr' => [
                 'placeholder' => 'Téléphone *',
+                'pattern' => '(01|02|03|04|05|06|07|08|09)[ \.\-]?[0-9]{2}[ \.\-]?[0-9]{2}[ \.\-]?[0-9]{2}[ \.\-]?[0-9]{2}',
                 'minlength' => 10,
-                'maxlength' => 10,
+                'maxlength' => 14,
             ],
         ]);
-        /*
-        $builder->add('marque', EntityType::class, array(
-            'class' => Marque::class,            
-            'choice_label' => 'NomMarque',
-        ));
-        
-        $builder->add('marque', EntityType::class, array(
-            'class' => Marque::class,
-            'query_builder' => function (MarqueRepository $repository) {
-                return $repository->createQueryBuilder('m')->orderBy('m.NomMarque', 'ASC');
-            },
-            'choice_label' => 'NomMarque',
-            'multiple' => false,
-            'attr' => array('rows' => '10'),
-        ));        
-        */
         $builder->add('Etape_suivante', SubmitType::class);
 
     }
