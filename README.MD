@@ -13,8 +13,8 @@ Thanks to [Symfony](https://symfony.com/)
 
 ### 1) Get all source files
 
-git clone https://github.com/AllanBiville/LMDS-S.git
-composer install
+- git clone https://github.com/AllanBiville/LMDS-S.git
+- composer install
 
 
 ### 2) Create database
