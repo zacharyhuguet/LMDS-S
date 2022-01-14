@@ -21,7 +21,7 @@ Thanks to [Symfony](https://symfony.com/)
 
 Copy **.env** file to **.env.local**
 
-Add line **DATABASE_URL="mysql://user:password@127.0.0.1:5432/lmds"**
+Edit line **DATABASE_URL="mysql://user:password@127.0.0.1:5432/lmds"**
 
 Execute command : 
 - php bin/console doctrine:database:create
