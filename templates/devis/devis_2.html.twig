@@ -2,10 +2,10 @@
 
 {% block body %}
 <ol class="progress">
-  <li class="is-active" data-step="1">
+  <li class="is-complete" data-step="1">
     Client
   </li>
-  <li data-step="2">
+  <li class="is-active" data-step="2">
     Téléphone
   </li>
   <li data-step="3">
@@ -22,11 +22,12 @@
   </li>
 </ol>
 
-{{ form_start(form, {'attr': {'class': 'form-devis', 'action': '/devis_2'}}) }}
-<fieldset>
-<legend><span class="number">1</span>Informations clients</legend>
-{{ form_widget(form.Marque) }}
+	{{ form_start(form, {'attr': {'class': 'form-devis', 'action': '/devis_3'}}) }}
+	<fieldset>
+		<legend>
+			<span class="number">1</span>Informations clients</legend>
+		{{ form_widget(form.nom_marque) }}
 
-</fieldset>
-{{ form_end(form) }}
+	</fieldset>
+	{{ form_end(form) }}
 {% endblock %}
