@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\Produits;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\HttpFoundation\File\File;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
@@ -32,9 +33,10 @@ class ProduitsType extends AbstractType
 
             // unmapped fields can't define their validation using annotations
             // in the associated entity, so you can use the PHP constraint class
+           
         ])
         // ...
-    ;
+        ;
     }
 
     public function configureOptions(OptionsResolver $resolver): void
