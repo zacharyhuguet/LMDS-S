@@ -38,8 +38,7 @@ class ProduitsAdminController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             /** @var UploadedFile $imageFile */
             $imageFile = $form->get('image')->getData();
-            $entityManager->persist($produit);
-            $entityManager->flush();
+
 
             if ($imageFile) {
                 $originalFilename = pathinfo($imageFile->getClientOriginalName(), PATHINFO_FILENAME);
@@ -59,8 +58,11 @@ class ProduitsAdminController extends AbstractController
 
                 // updates the 'imageFilename' property to store the PDF file name
                 // instead of its contents
-                $product->setImage($newFilename);
+                $produit->setImage($newFilename);
             }
+
+            $entityManager->persist($produit);
+            $entityManager->flush();
 
             return $this->redirectToRoute('produits_admin_index', [], Response::HTTP_SEE_OTHER);
         }
