@@ -110,11 +110,12 @@ class ProduitsAdminController extends AbstractController
     public function delete(Request $request, Produits $produit, EntityManagerInterface $entityManager): Response
     {
         if ($this->isCsrfTokenValid('delete' . $produit->getId(), $request->request->get('_token'))) {
+            $nomimage = $this->getParameter("images_directory") . '/' . $produit->getImage();
+            unlink($nomimage);
             $entityManager->remove($produit);
             $entityManager->flush();
         }
-
-        return $this->redirectToRoute('produits_admin_index', [], Response::HTTP_SEE_OTHER);
+     return $this->redirectToRoute('produits_admin_index', [], Response::HTTP_SEE_OTHER);
     }
 
 }
