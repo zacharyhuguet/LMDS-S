@@ -22,7 +22,7 @@
                 <td>{{ produit.titre }}</td>
                 <td>{{ produit.description }}</td>
                 <td>{{ produit.prix }}</td>
-                <td>{{ produit.image }}</td>
+                <td>{{ produit.image }} <img src="/imagesProduits/{{ produit.image }}"/> </td>
                 <td>{{ produit.ancienPrix }}</td>
                 <td>
                     <a href="{{ path('produits_admin_show', {'id': produit.id}) }}">show</a>
