@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<div>
+<h1>Oups...</h1>
+<h2>La page que vous demandez n'est pas disponible.</h2>
+
+<img src="{{ asset('images/triste.png') }}"/>
+
+<p>Redirections possible:</p>
+<div>
+<a href="/">Accueil</a><br/>
+<a href="/devis">Demander un devis</a><br/>
+<a href="/produits">Produits</a><br/>
+<a href="/contact">Contact</a><br/>
+
+</div>
+
+</div>
+
+{% endblock %}

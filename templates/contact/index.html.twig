@@ -4,13 +4,13 @@
 <div class="page-contact">
   <div class="page-contact-item-gauche">
     <h1> Contact par mail </h1>
-    <form class="form-contact">
+    <form class="form-contact" action="/envoi_mail" method="POST">
       <fieldset>
-          <input type="text"  placeholder="Nom"     name="nom"     required></input>
-          <input type="text"  placeholder="Prénom"  name="prenom"  required></input>
-          <input type="text"  placeholder="Email"   name="email"   required></input>
-          <input type="text"  placeholder="Objet"   name="objet"   required></input>
-          <textarea rows="10" placeholder="Message" name="message" required></textarea>
+{{ form_widget(form.nom) }}
+{{ form_widget(form.prenom) }}
+{{ form_widget(form.email) }}
+{{ form_widget(form.objet) }}
+{{ form_widget(form.message) }}
       </fieldset>
       <input type="submit" value="Envoyer un mail">
     </form>
