@@ -39,7 +39,7 @@ class ContactController extends AbstractController
             $message = $contact['message'];
             $email = (new Email())
                 ->from('contact@la-maison-du-smartphone.fr')
-                ->to('zacharyhuguet2222@gmail.com')
+                ->to('contact@la-maison-du-smartphone.fr')
                 ->priority(Email::PRIORITY_HIGH)
                 ->subject($nom .' '. $prenom)
                 ->html('<h1>
