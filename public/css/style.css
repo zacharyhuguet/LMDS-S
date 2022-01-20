@@ -966,6 +966,7 @@ iframe {
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
+  height: 560px;
 }
 .container-produit-header {
 text-align:center;
@@ -1019,10 +1020,19 @@ text-align:center;
   z-index: -2;
   display: block;
 }
-.product .desciption .title {
-  margin: 10px 0 5px;
+.product .desciption {
+  position: absolute;
+  bottom:0;
   text-align:center;
-
+  left:0;
+  right:0;
+  margin-bottom:20px;
+}
+.separateur-hr-produit{
+  width: 250px;
+  height: 5px;
+  background-color: black;
+  margin: 80px auto 40px;
 }
 /* =====================================================================================*/
 /* FOOTER                                                                               */

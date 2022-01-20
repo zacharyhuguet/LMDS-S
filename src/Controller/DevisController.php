@@ -13,12 +13,12 @@ use App\Form\DevisStep6Type;
 use App\Repository\MarqueRepository;
 use App\Repository\ModeleRepository;
 use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Bridge\Doctrine\Form\Type\EntityType;
-use Symfony\Component\Form\Extension\Core\Type\SubmitType;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class DevisController extends AbstractController
 {
@@ -182,7 +182,7 @@ class DevisController extends AbstractController
             'protection' => $_SESSION['protection'],
         ]);
     }
-     /**
+    /**
      * @Route("/devis_7", name="devis_7")
      */
     public function devis_7(EntityManagerInterface $entityManager, Request $request): Response
@@ -201,12 +201,16 @@ class DevisController extends AbstractController
         $devis->setProbleme3($_SESSION['probleme3']);
         $devis->setCommentaire($_SESSION['commentaire']);
         $devis->setProtection($_SESSION['protection']);
-        
+
         $entityManager->persist($devis);
         $entityManager->flush();
+        $nom = $_SESSION['nom'];
+        $prenom = $_SESSION['prenom'];
+        session_destroy();
         return $this->render('devis/devis_7.html.twig', [
             'controller_name' => 'DevisController',
-        
+            'nom' => $nom,
+            'prenom' => $prenom,
         ]);
     }
 
