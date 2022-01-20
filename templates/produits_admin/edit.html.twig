@@ -3,7 +3,10 @@
 {% block body %}
     <h1>Edit Produits</h1>
 
-    {{ include('produits_admin/_form.html.twig', {'button_label': 'Update'}) }}
+    {{ form_start(form) }}
+    {{ form_widget(form) }}
+    <button class="btn">{{ button_label|default('Modifier') }}</button>
+    {{ form_end(form) }}
 
     <a href="{{ path('produits_admin_index') }}">back to list</a>
 

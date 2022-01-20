@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<h1 class='devis-envoyer'><i class='fas fa-check-circle logo-devis-envoyer'></i><br/>Votre mail bien été envoyé !</h1>
+<p class='p-devis-envoyer'>La boutique La Maison Du Smartphone vous remercie de votre mail via notre site internet.</p>
+<p class='p-devis-envoyer'>Nous allons vous répondre dans les plus brefs délais.</p>
+ <p class='p-devis-envoyer'>Redirection vers l'accueil dans 60 secondes...</p>
+<img class='img-devis-envoyer' src='{{ asset('images/mail.png') }}'/>
+
+
+ <meta http-equiv='refresh' content='60;URL=/'>
+{% endblock %}

@@ -51,7 +51,17 @@ class ContactController extends AbstractController
                        </h1>'
                 );
             $mailer->send($email);
-        return $this->redirectToRoute('home');
+        return $this->redirectToRoute('contact_send');
 
     }
+    /**
+     * @Route("/submit", name="contact_send")
+     */
+    public function submit(): Response
+    {
+        return $this->render('contact/envoi_mail.html.twig', [
+            'controller_name' => 'ContactController',
+        ]);
+    }
+
 }

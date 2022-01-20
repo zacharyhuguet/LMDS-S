@@ -1,10 +1,29 @@
 {% extends 'magasin.html.twig' %}
 
 {% block body %}
-	<h1>Create new Produits</h1>
-
-	{{ include('produits_admin/_form.html.twig') }}
-
-	<a href="{{ path('produits_admin_index') }}">back to list</a>
-
+	<div class="text-center">
+		<h1>Ajouter un modèle</h1>
+		<a class="btn btn-secondary" href="{{ path('produits_admin_index') }}">Retour</a>
+		<br/>
+		<br/>
+		{{ form_start(form) }}
+			<p>Titre</p>
+			{{ form_widget(form.titre) }}
+			<br/><br/>
+			<p>Description</p>
+			{{ form_widget(form.description) }}
+			<br/><br/>
+			<p>Prix</p>
+			{{ form_widget(form.prix) }}
+			<br/><br/>
+			<p>AncienPrix (Laissez vide si pas besoin)</p>
+			{{ form_widget(form.ancienPrix, {'required': false}) }}
+			<br/><br/>
+			<p>Image</p>
+			{{ form_widget(form.image) }}
+			<br/><br/>
+			<button class="btn btn-success">{{ button_label|default('Ajouter') }}</button>
+			{{ form_row(form._token) }}
+		{{ form_end(form) }}
+	</div>
 {% endblock %}
