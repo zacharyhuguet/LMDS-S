@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+	<ol class="progress">
+  <li class="is-complete" data-step="1">
+    Client
+  </li>
+  <li class="is-complete" data-step="2">
+    Téléphone
+  </li>
+  <li class="is-complete" data-step="3">
+    Problème(s)
+  </li>
+  <li class="is-active" data-step="4">
+    Commentaire &<br/>Protection écran
+  </li>
+  <li data-step="5">
+    Récapitulatif
+  </li>
+  <li data-step="6">
+    Envoi
+  </li>
+</ol>
+{{ form_start(form, {'attr': {'class': 'form-devis', 'action': '/devis_6'}}) }}
+<fieldset>
+<legend><span class='number'>5</span>Avez-vous quelque chose à rajouter ?</legend>
+<br/>
+<legend><i class="fas fa-chevron-right"></i>Commentaire</legend>
+{{ form_widget(form.commentaire) }}
+<legend><i class="fas fa-chevron-right"></i>Protection écran Invisible Shield</legend>
+
+<p class="protection-ecran">
+    
+- Ajoutez la maintenant et <span>bénéficiez de 5% de remise sur l’ensemble du devis.</span><br/>
+- Découvrez notre protection d’écran sur-mesure pour votre smartphone, elle utilise une technologie incassable et auto cicatrisante en cas d’impact.<br/>
+- Invisble Shield est la protection d’écran la plus fiable du marché et la plus vendue aux Etats-Unis.<br/><br/>
+<b>Cochez cette case pour en profitez :</b>
+<span class="span-protection-checkbox">
+	{{ form_widget(form.protection, { 'id': 'protection-checkbox', 'name' : 'protection-checkbox'}) }}
+	<label for="protection-checkbox"></label>
+</span>
+</p>
+
+
+</fieldset>
+		
+
+
+	
+		{{ form_end(form) }}
+	{% endblock %}

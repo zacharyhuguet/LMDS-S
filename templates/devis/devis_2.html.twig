@@ -1,33 +1,39 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-<ol class="progress">
-  <li class="is-complete" data-step="1">
-    Client
-  </li>
-  <li class="is-active" data-step="2">
-    Téléphone
-  </li>
-  <li data-step="3">
-    Problème(s)
-  </li>
-  <li data-step="4">
-    Commentaire &<br/>Protection écran
-  </li>
-  <li data-step="5">
-    Récapitulatif
-  </li>
-  <li data-step="6">
-    Envoi
-  </li>
-</ol>
+	<ol class="progress">
+		<li class="is-complete" data-step="1">
+			Client
+		</li>
+		<li class="is-active" data-step="2">
+			Téléphone
+		</li>
+		<li data-step="3">
+			Problème(s)
+		</li>
+		<li data-step="4">
+			Commentaire &<br/>Protection écran
+		</li>
+		<li data-step="5">
+			Récapitulatif
+		</li>
+		<li data-step="6">
+			Envoi
+		</li>
+	</ol>
 
-	{{ form_start(form, {'attr': {'class': 'form-devis', 'action': '/devis_3'}}) }}
-	<fieldset>
-		<legend>
-			<span class="number">1</span>Informations clients</legend>
-		{{ form_widget(form.nom_marque) }}
+		{{ form_start(form, {'attr': {'class': 'form-devis', 'action': '/devis_3'}}) }}
+		<fieldset>
+			<legend>
+				<span class="number">2</span>Quel est la marque de votre téléphone ?</legend>
+			<br/>
+			<a href="/SavoirMarqueModele" class="savoir-marque-modele">
+				<i class="far fa-question-circle"></i>
+				Comment savoir la marque ?</a>
 
-	</fieldset>
-	{{ form_end(form) }}
-{% endblock %}
+			{{ form_widget(form.marque) }}
+			
+
+		</fieldset>
+		{{ form_end(form) }}
+	{% endblock %}
