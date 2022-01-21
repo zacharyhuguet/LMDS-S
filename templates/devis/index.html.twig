@@ -1,5 +1,10 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-<a href="/devis_1">TEST</a>
+	<div class="devis-texte-page1">
+		<h1>Dans cette section, vous pourrez faire un devis en ligne pour estimer le montant des réparations de votre téléphone.</h1>
+		<h1>Le magasin vous répondra par mail dans les plus bref délais.</h1>
+		<a href="/devis">Demander un devis</a>
+        <img src="{{ asset('images/estimate-devis.jpg') }}"/>
+	</div>
 {% endblock %}

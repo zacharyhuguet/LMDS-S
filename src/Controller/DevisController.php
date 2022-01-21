@@ -5,7 +5,9 @@ namespace App\Controller;
 use App\Entity\Devis;
 use App\Entity\Modele;
 use App\Form\DevisStep1Type;
+use App\Form\DevisStep2bType;
 use App\Form\DevisStep2Type;
+use App\Form\DevisStep3bType;
 use App\Form\DevisStep3Type;
 use App\Form\DevisStep4Type;
 use App\Form\DevisStep5Type;
@@ -38,7 +40,8 @@ class DevisController extends AbstractController
      */
     public function devis_1(Request $request): Response
     {
-
+        session_start();
+        session_destroy();
         $devis = new Devis();
         $form = $this->createForm(DevisStep1Type::class, $devis);
         return $this->render('devis/devis_1.html.twig', [
@@ -57,12 +60,30 @@ class DevisController extends AbstractController
 
         $form->HandleRequest($request);
         $step1 = $request->get('devis_step1');
-        $_SESSION['nom'] = $step1['nom'];
-        $_SESSION['prenom'] = $step1['prenom'];
-        $_SESSION['email'] = $step1['email'];
-        $_SESSION['telephone'] = $step1['telephone'];
+        if (isset($step2)){
+            $_SESSION['nom'] = $step1['nom'];
+            $_SESSION['prenom'] = $step1['prenom'];
+            $_SESSION['email'] = $step1['email'];
+            $_SESSION['telephone'] = $step1['telephone'];
+        }
+        
+
 
         return $this->render('devis/devis_2.html.twig', [
+            'controller_name' => 'DevisController',
+            'form' => $form->createView(),
+        ]);
+    }
+    /**
+     * @Route("/devis_2b", name="devis_2b")
+     */
+    public function devis_2b(Request $request): Response
+    {
+
+        $devis = new Devis();
+        $form = $this->createForm(DevisStep2bType::class, $devis);
+
+        return $this->render('devis/devis_2b.html.twig', [
             'controller_name' => 'DevisController',
             'form' => $form->createView(),
         ]);
@@ -77,6 +98,8 @@ class DevisController extends AbstractController
         $form->HandleRequest($request);
         $step2 = $request->get('devis_step2');
         $_SESSION['marque'] = $step2['marque'];
+
+        
         $form = $this->createFormBuilder($devis)
             ->add('modele', EntityType::class, array(
                 'class' => Modele::class,
@@ -97,6 +120,29 @@ class DevisController extends AbstractController
         ]);
     }
     /**
+     * @Route("/devis_3b", name="devis_3b")
+     */
+    public function devis_3b(Request $request): Response
+    {
+
+        $devis = new Devis();
+        $form = $this->createForm(DevisStep3bType::class, $devis);
+        $form->HandleRequest($request);
+        $step2b = $request->get('devis_step2b');
+        if (isset($step2b)){
+            $_SESSION['marque'] = $step2b['marque'];
+        }
+        $step3 = $request->get('devis_step3');
+        if (isset($step3)){
+            $_SESSION['marque'] = $step3['marque'];
+        }
+
+        return $this->render('devis/devis_3b.html.twig', [
+            'controller_name' => 'DevisController',
+            'form' => $form->createView(),
+        ]);
+    }
+    /**
      * @Route("/devis_4", name="devis_4")
      */
     public function devis_4(Request $request): Response
@@ -105,8 +151,13 @@ class DevisController extends AbstractController
         $form = $this->createForm(DevisStep4Type::class, $devis);
         $form->HandleRequest($request);
         $step3 = $request->get('form');
-        $_SESSION['modele'] = $step3['modele'];
-
+        if (isset($step3)){
+            $_SESSION['modele'] = $step3['modele'];
+        }
+        $step3b = $request->get('devis_step3b');
+        if (isset($step3b)){
+            $_SESSION['modele'] = $step3b['modele'];
+        }
         return $this->render('devis/devis_4.html.twig', [
             'controller_name' => 'DevisController',
             'form' => $form->createView(),
@@ -123,7 +174,6 @@ class DevisController extends AbstractController
         $form->HandleRequest($request);
         $step4 = $request->get('devis_step4');
         $_SESSION['probleme1'] = $step4['probleme1'];
-
         if (isset($step4['probleme2'])) {
             if ($step4['probleme2'] != "") {
                 $_SESSION['probleme2'] = $step4['probleme2'];
@@ -165,7 +215,10 @@ class DevisController extends AbstractController
         } else {
             $_SESSION['protection'] = "Non, je ne veux pas de protection d'écran Invisible Shield !";
         }
-        $_SESSION['marque'] = $marque->findMarque($_SESSION['marque']);
+        if (is_int($_SESSION['marque']) ){
+            $_SESSION['marque'] = $marque->findMarque($_SESSION['marque']);
+        }
+        
         return $this->render('devis/devis_6.html.twig', [
             'controller_name' => 'DevisController',
             'form' => $form->createView(),
