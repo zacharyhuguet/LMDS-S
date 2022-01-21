@@ -9,7 +9,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class SavoirMarqueModeleController extends AbstractController
 {
     /**
-     * @Route("/savoirMarqueModele", name="savoir_marque_modele")
+     * @Route("/SavoirMarqueModele", name="savoir_marque_modele")
      */
     public function index(): Response
     {
