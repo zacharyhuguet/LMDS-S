@@ -60,7 +60,7 @@ class DevisController extends AbstractController
 
         $form->HandleRequest($request);
         $step1 = $request->get('devis_step1');
-        if (isset($step2)){
+        if (isset($step1)){
             $_SESSION['nom'] = $step1['nom'];
             $_SESSION['prenom'] = $step1['prenom'];
             $_SESSION['email'] = $step1['email'];
@@ -215,10 +215,9 @@ class DevisController extends AbstractController
         } else {
             $_SESSION['protection'] = "Non, je ne veux pas de protection d'écran Invisible Shield !";
         }
-        if (is_int($_SESSION['marque']) ){
+        if (is_numeric($_SESSION['marque']) ){
             $_SESSION['marque'] = $marque->findMarque($_SESSION['marque']);
-        }
-        
+        } 
         return $this->render('devis/devis_6.html.twig', [
             'controller_name' => 'DevisController',
             'form' => $form->createView(),
