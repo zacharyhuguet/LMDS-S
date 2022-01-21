@@ -154,7 +154,7 @@ nav a {
     font-size: 15px;
   }
 }
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 600px) { /* 600px */
   .navigation_logo {
     display: none;
   }
@@ -1056,6 +1056,77 @@ text-align:center;
   height: 5px;
   background-color: black;
   margin: 80px auto 40px;
+}
+/* ------- */
+.container-product {
+  position: relative;
+  width: 97vw;
+  height: 100vh;
+}
+.product-show {
+  position: relative;
+  display: flex;
+  width: 100%;
+  height: 90%;
+  z-index: 2;
+  
+}
+.product-photo {
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+.product-photo img {
+  width: 40%;
+  height: auto;
+}
+.product-detail {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  width: 48%;
+  height: 100%;
+  text-align: center;
+  padding: 0 10% 0 0;
+}
+.product__title {
+  font-size: 3rem;
+  margin-bottom: 2rem;
+}
+.product__price {
+  letter-spacing: 2px;
+  font-family: "Montserrat", sans-serif;
+  margin-bottom: 2rem;
+  font-size: 1.2rem;
+}
+.product__price em {
+  text-decoration: line-through;
+  color: red;
+}
+.product__subtitle {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  font-size: 1rem;
+  color: #B9B8B6;
+  margin-bottom: 2rem;
+}
+    @media screen and (max-width: 1200px) {
+.product__title {
+  font-size: 1.8rem;
+}
+.product__price {
+  font-size: 0.8rem;
+}
+    .product-photo img {
+  width: 200px;
+  height: auto;
+}
+    .product__subtitle {
+  font-size: 0.8rem;
+}
 }
 /* =====================================================================================*/
 /* Mentions Legales                                                                     */
