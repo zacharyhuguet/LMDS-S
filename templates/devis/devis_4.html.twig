@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<ol class="progress">
+  <li class="is-complete" data-step="1">
+    Client
+  </li>
+  <li class="is-complete" data-step="2">
+    Téléphone
+  </li>
+  <li class="is-active" data-step="3">
+    Problème(s)
+  </li>
+  <li data-step="4">
+    Commentaire &<br/>Protection écran
+  </li>
+  <li data-step="5">
+    Récapitulatif
+  </li>
+  <li data-step="6">
+    Envoi
+  </li>
+</ol>
+	{{ form_start(form, {'attr': {'class': 'form-devis', 'action': '/devis_5'}}) }}
+	<fieldset>
+		<legend>
+			<span class="number">4</span>Quel est votre problème ?</legend>
+
+		{{ form_widget(form.probleme1) }}
+		{{ form_widget(form.probleme2) }}
+		{{ form_widget(form.probleme3) }}
+
+	</fieldset>
+
+
+	{{ form_end(form) }}
+{% endblock %}
