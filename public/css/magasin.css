@@ -74,3 +74,76 @@
   .btn-space{
     margin-right:10px;
   }
+  /* ----------- */
+  /* PRODUIT     */
+  /* ----------- */
+
+  .file {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .file > input[type='file'] {
+    display:none;
+  }
+  .file > label {
+    font-size: 1rem;
+    font-weight: 300;
+    cursor: pointer;
+    outline: 0;
+    user-select: none;
+    background-color: hsl(204, 86%, 53%);
+    width:45%;
+    border-radius: 4px;
+    padding: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-weight: bolder;
+  }
+  .file > label > i {
+    padding-right: 5px;
+    color: white;
+  }
+  .file--upload > label:hover {
+    background-color: hsl(204, 100%, 38%);
+  }
+  #file-chosen{
+    margin-left: 0.3rem;
+  }
+
+  input,
+ textarea{
+  border: none;
+  outline: 0;
+  border-radius: 4px;
+  font-size: 15px;
+  padding: 15px;
+  width: 50%;
+  background-color: #e8eeef;
+  color: #8a97a0;
+  -webkit-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03) inset;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03) inset;
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+}
+
+ select {
+  border: none;
+  outline: 0;
+  border-radius: 4px;
+  font-size: 15px;
+  padding: 15px;
+  width: 50%;
+  background-color: #e8eeef;
+  color: #8a97a0;
+  -webkit-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03) inset;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03) inset;
+}
+input:focus,
+textarea:focus {
+  background: #bfc8ce;
+}

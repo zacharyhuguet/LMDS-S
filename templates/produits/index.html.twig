@@ -10,12 +10,15 @@
 			<div class="container-produit">
 				{% for produit in produits %}
 					<div class="product">
-						<img src="/imagesProduits/{{produit.image }}"/>
+						<img alt="&nbsp;Image indisponible" src="/imagesProduits/{{produit.image }}"/>
 						<label class="price">
-							<em>{{ produit.ancienPrix }}
-								€
-							</em>
-							&nbsp;&nbsp;&nbsp;
+							{% if produit.ancienPrix is not empty %}
+								<em>{{ produit.ancienPrix }}
+									€
+								</em>
+								&nbsp;&nbsp;&nbsp;
+							{% endif %}
+
 							{{ produit.prix }}
 							€
 						</label>

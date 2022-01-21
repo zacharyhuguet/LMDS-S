@@ -1,9 +1,45 @@
 {% extends 'magasin.html.twig' %}
 
 {% block body %}
-    <h1>Create new Produits</h1>
+	<div class="text-center">
+		<h1>Ajouter un modèle</h1>
+		<a class="btn btn-secondary" href="{{ path('produits_admin_index') }}">Retour</a>
+		<br/>
+		<br/>
+		{{ form_start(form) }}
+		<p>Titre</p>
+		{{ form_widget(form.titre) }}
+		<br/><br/>
+		<p>Description</p>
+		{{ form_widget(form.description) }}
+		<br/><br/>
+		<p>Prix</p>
+		{{ form_widget(form.prix) }} €
+		<br/><br/>
+		<p>AncienPrix (Laissez vide si pas besoin)</p>
+		{{ form_widget(form.ancienPrix, {'required': false}) }} €
+		<br/><br/>
+		<p>Image</p>
+		<div class='file file--upload'>
+			<label for='input-file'>
+				<i class="fas fa-upload"></i>Upload
+			</label>
+			{{ form_widget(form.image, {'id': 'input-file'}) }}
+			<span id="file-chosen">Aucun fichier</span>
+		</div>
 
-    {{ include('produits_admin/_form.html.twig') }}
+		<br/><br/>
+		<button class="btn btn-success">{{ button_label|default('Ajouter') }}</button>
+		{{ form_row(form._token) }}
+		{{ form_end(form) }}
+	</div>
+	<script>
+	const actualBtn = document.getElementById('input-file');
 
-    <a href="{{ path('produits_admin_index') }}">back to list</a>
+const fileChosen = document.getElementById('file-chosen');
+
+actualBtn.addEventListener('change', function(){
+  fileChosen.textContent = this.files[0].name
+})
+	</script>
 {% endblock %}
