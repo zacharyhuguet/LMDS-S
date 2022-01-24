@@ -150,7 +150,7 @@ nav a{
   background-size: cover;
   background-position: center;
   margin-left: -1px;
-  filter: blur(12px);
+  filter: blur(5px);
 }
 .sous_header_texte {
   color: #fff;
@@ -197,7 +197,7 @@ nav a{
 .titre_service_box {
   text-align: center;
   text-transform: uppercase;
-  font-size: 45px;
+  font-size: 70px;
 }
 .global_service_box {
   max-width: 1440px;
@@ -221,7 +221,7 @@ nav a{
   margin-bottom: 15px;
 }
 .service-box-icon i {
-  font-size: 50px;
+  font-size: 80px;
   color: rgb(214, 158, 4);
 }
 
@@ -229,15 +229,14 @@ nav a{
   display: block;
   text-align: center;
   font-weight: bolder;
-  text-transform: uppercase;
-  font-size: 25px;
+  font-size: 35px;
 }
 .service-box-contenu {
   margin: 25px 0;
   text-align: center;
   color: gray;
-  line-height: 20px;
-  font-size: 17px;
+  line-height: 25px;
+  font-size: 25px;
 }
 @media screen and (max-width: 1200px) {
   .service_box_colonne {
@@ -247,10 +246,17 @@ nav a{
     flex-direction: column;
   }
   .service-box-contenu {
-    font-size: 25px;
+    font-size: 40px;
+    line-height: 40px;
   }
   .service-box-titre {
-    font-size: 28px;
+    font-size: 40px;
+  }
+  .service-box-icon i {
+    font-size: 100px;
+  }
+  .phototheque {
+    width: 85% !important;
   }
 }
 
@@ -264,7 +270,7 @@ nav a{
 .titre_phototheque {
   text-align: center;
   text-transform: uppercase;
-  font-size: 45px;
+  font-size: 70px;
 }
 .phototheque img {
   max-width: 100%;
@@ -282,7 +288,7 @@ input[type="radio"] {
 .phototheque {
   overflow: hidden;
   position: relative;
-  width: 80%;
+  width: 50%;
   /* max-width: 900px; */
   margin: 2rem auto;
 }
@@ -1198,7 +1204,7 @@ footer .social {
   line-height: 1.8;
   text-decoration: none;
   color: white;
-  font-size: 18px;
+  font-size: 40px;
   font-weight: bold;
 }
 .footer-links a:last-child {
@@ -1224,9 +1230,20 @@ footer .social {
   #logo-footer {
     font-size: 20px;
   }
+
 }
 @media screen and (max-width: 300px) {
   #logo-footer {
     font-size: 15px;
+  }
+}
+@media screen and (max-width: 1200px) {
+  .footer-links a, .link-1 {
+    font-size: 30px !important;
+  }
+}
+@media screen and (max-width: 600px) {
+  .footer-links a, .link-1{
+    font-size:20px !important;
   }
 }
