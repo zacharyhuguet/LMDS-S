@@ -1117,14 +1117,14 @@ text-align:center;
 }
     @media screen and (max-width: 1200px) {
 .product__title {
-  font-size: 45rem;
+  font-size: 45px;
 }
 .product__price {
-  font-size: 30rem;
+  font-size: 30px;
 }
 
     .product__subtitle {
-  font-size: 35rem;
+  font-size: 35px;
 }
 }
 /* =====================================================================================*/
