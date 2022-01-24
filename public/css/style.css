@@ -25,7 +25,8 @@ a, a:hover{
   text-decoration:none !important;
 }
 body{
-  min-height:100%;
+  width:100%;
+  min-height: 100vh;
   position:relative;
   padding-bottom:400px;
 }
@@ -51,11 +52,11 @@ header{
 .navigation_logo{
   font-size:150%;
   color:white;
-  width:30%;
+  width:50%;
   height:112px;
    padding:42px 0px; 
   font-family: "LaMaisonDuSmartphone";
-  background-color:rgb(214, 158, 4);
+  background-color:rgb(33, 48, 53);
   text-align:center;
   vertical-align:middle;
 }
@@ -99,21 +100,26 @@ nav a{
 .nav_class .icon {
   display: none;
 }
-@media screen and (max-width: 1100px) {
+@media screen and (max-width: 800px) {
+
+  .navigation_logo{
+    font-size:150% !important;
+  }
+}
+@media screen and (max-width: 1200px) {
   .nav_class a {display: none;}
   .nav_class a.icon {
     float: right;
     display: block;
     margin-bottom:15px;
+    font-size:35px;
   }
   .navigation_logo{
-    font-size:100%;
+    font-size:175%;
     padding:40px;
-    width:50%;
-    
   }
 }
-@media screen and (max-width: 1100px) {
+@media screen and (max-width: 1200px) {
   .nav_class.responsive {
     position: absolute;
     top:0; right:-20px;
@@ -1150,15 +1156,18 @@ color:rgb(214, 158, 4);
 /* FOOTER                                                                               */
 /* =====================================================================================*/
 footer {
-  position:absolute;
-  bottom:0;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
   width:100%;
   padding: 40px 0;
   background-color: rgb(33, 48, 53);
   text-align: center;
-  /* margin-top: 100px; */
-  margin:-100px auto 0;    
+  /* margin-top: 100px; */  
   height:400px;
+  vertical-align: baseline;
+
 }
 footer a {
   color: white;
@@ -1213,7 +1222,7 @@ footer .social {
 }
 .footer-links a:before {
   content: "|";
-  font-size: 20px;
+  font-size: 40px;
   left: 0;
   color: #fff;
   display: inline-block;
@@ -1239,12 +1248,12 @@ footer .social {
   }
 }
 @media screen and (max-width: 1200px) {
-  .footer-links a, .link-1 {
+  .footer-links a, .footer-links .link-1 {
     font-size: 30px !important;
   }
 }
 @media screen and (max-width: 600px) {
-  .footer-links a, .link-1{
+  .footer-links a, .footer-links .link-1{
     font-size:20px !important;
   }
 }
