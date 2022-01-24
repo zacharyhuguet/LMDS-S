@@ -24,6 +24,11 @@
 a, a:hover{
   text-decoration:none !important;
 }
+body{
+  min-height:100%;
+  position:relative;
+  padding-bottom:400px;
+}
 /* =====================================================================================*/
 /* HEADER / NAV / MENU / SOUS-HEADER                                                    */
 /* =====================================================================================*/
@@ -103,12 +108,10 @@ nav a{
   }
   .navigation_logo{
     font-size:100%;
-    padding:16px;
+    padding:40px;
     width:50%;
+    
   }
-  .conteneur_header, .navigation_logo, .navigation, header{
-     height: 50px;
-  } 
 }
 @media screen and (max-width: 1100px) {
   .nav_class.responsive {
@@ -120,15 +123,14 @@ nav a{
   }
   .nav_class.responsive a.icon {
     position: absolute;
-    right: -58px;
-    top: -25px;
+    right: 0px;
+    top: 0px;
     display:block;
   }
   .nav_class.responsive a {
     float: none;
     display: block;
     text-align: center;
-    width:200px;
     margin:0 auto;
     
   }
@@ -237,12 +239,18 @@ nav a{
   line-height: 20px;
   font-size: 17px;
 }
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 1200px) {
   .service_box_colonne {
     width: 100%;
   }
+  .global_service_box{
+    flex-direction: column;
+  }
   .service-box-contenu {
-    font-size: 21px;
+    font-size: 25px;
+  }
+  .service-box-titre {
+    font-size: 28px;
   }
 }
 
@@ -274,8 +282,8 @@ input[type="radio"] {
 .phototheque {
   overflow: hidden;
   position: relative;
-  width: 50%;
-  max-width: 900px;
+  width: 80%;
+  /* max-width: 900px; */
   margin: 2rem auto;
 }
 .phototheque .photos-mini {
@@ -1136,10 +1144,14 @@ color:rgb(214, 158, 4);
 /* FOOTER                                                                               */
 /* =====================================================================================*/
 footer {
+  position:absolute;
+  bottom:0;
+  width:100%;
   padding: 40px 0;
   background-color: rgb(33, 48, 53);
   text-align: center;
   margin-top: 100px;
+  height:400px;
 }
 footer a {
   color: white;
