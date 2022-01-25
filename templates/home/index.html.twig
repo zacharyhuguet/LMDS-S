@@ -1,93 +1,105 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-	<div class="conteneur_sous_header">
-		<img src="{{ asset('images/header.jpg') }}" class="sous_header"></img>
-	<div class="sous_header_texte">
-		<img id="sous_header-logo_magasin" src="{{ asset('images/logo.png') }}"/>
-		<h1>Réparations téléphones, tablettes<br/>
-			et vente d'accessoires</h1>
-		<a href="/devis">Demander un devis</a>
+        <section class="sous-header">
+                <div class="cover"></div>
+                <div class="sous-header-texte">
+                <img src="{{ asset('images/logo.png') }}"/>
+		        <h1>Réparations téléphones, tablettes<br/>
+			        et vente d'accessoires</h1>
+		        <a href="/devis">Demander un devis</a>
+                </div>
+        </section>
+
+
+<div class="conteneur">
+<h1>Notre Boutique</h1>
+<hr class="hr-accueil">
+<div class="box-conteneur">
+	{% for info in infos %}
+			<div class="box">
+				<i class="fas fa-question"></i>
+				<h1>{{ info.titre }}</h1>
+				<h3>{{ info.texte }}</h3>
+			</div>
+	{% endfor %}
 	</div>
 </div>
 
-<br/><br/><br/>
 
-<h1 class="titre_service_box">Notre Boutique</h1><br/><br/><br/><br/>
-<div class="global_service_box">
-
-	{% for info in infos %}
-		<div class="service_box_colonne">
-			<div class="service-box">
-				<div class="service-box-icon">
-					<i class="fas fa-question"></i>
-				</div>
-				<div class="service-box-titre">
-					<h2>{{ info.titre }}</h2>
-				</div>
-				<div class="service-box-contenu">
-					{{info.texte }}
-				</div>
-			</div>
-		</div>
-	{% endfor %}
+<div class="conteneur">
+<h1>Photothèque</h1>
+<hr class="hr-accueil">
+<div class="phototheque-conteneur">
+<div class="phototheque">
+  <div class="gallery">
+    <a target="_blank" href="images/phototheque/1.jpg">
+      <img src="images/phototheque/1.jpg">
+    </a>
+    <div class="desc">La devanture de notre magasin.</div>
+  </div>
 </div>
 
-
-<hr class="separateur-index">
-<h1 class="titre_phototheque">Photothèque</h1><br/><br/><br/><br/>
 
 <div class="phototheque">
-	<div class="photos-mini">
-		<div class="miniature">
-			<input name="phototheque" type="radio" checked class="fen" id="lightbox-1"/>
-			<label for="lightbox-1">
+  <div class="gallery">
+    <a target="_blank" href="images/phototheque/2.jpg">
+      <img src="images/phototheque/2.jpg">
+    </a>
+    <div class="desc">Nouvelle coque 100% écologique !</div>
+  </div>
+</div>
 
-				<img src="{{ asset('images/phototheque/1.jpg') }}" alt>
-			</label>
-			<img class="fenetre" src="{{ asset('images/phototheque/1.jpg') }}" alt>
-			<figcaption>La Maison du Smartphone</figcaption>
-		</div>
-		<div class="miniature">
-			<input name="phototheque" type="radio" class="fen" id="lightbox-2"/>
-			<label for="lightbox-2">
-				<img src="{{ asset('images/phototheque/2.jpg') }}" alt>
-			</label>
-			<img class="fenetre" src="{{ asset('images/phototheque/2.jpg') }}" alt>
-			<figcaption>La Maison du Smartphone</figcaption>
-		</div>
-		<div class="miniature">
-			<input name="phototheque" type="radio" class="fen" id="lightbox-3"/>
-			<label for="lightbox-3">
-				<img src="{{ asset('images/phototheque/3.jpg') }}" alt>
-			</label>
-			<img class="fenetre" src="{{ asset('images/phototheque/3.jpg') }}" alt>
-			<figcaption>La Maison du Smartphone</figcaption>
-		</div>
-		<div class="miniature">
-			<input name="phototheque" type="radio" class="fen" id="lightbox-4"/>
-			<label for="lightbox-4">
-				<img src="{{ asset('images/phototheque/4.jpg') }}" alt>
-			</label>
-			<img class="fenetre" src="images/phototheque/4.jpg" alt>
-			<figcaption>La Maison du Smartphone</figcaption>
-		</div>
-		<div class="miniature">
-			<input name="phototheque" type="radio" class="fen" id="lightbox-5"/>
-			<label for="lightbox-5">
-				<img src="{{ asset('images/phototheque/5.jpg') }}" alt>
-			</label>
-			<img class="fenetre" src="{{ asset('images/phototheque/5.jpg') }}" alt>
-			<figcaption>La Maison du Smartphone</figcaption>
-		</div>
-		<div class="miniature">
-			<input name="phototheque" type="radio" class="fen" id="lightbox-6"/>
-			<label for="lightbox-6">
-				<img src="{{ asset('images/phototheque/6.jpg') }}" alt>
-			</label>
-			<img class="fenetre" src="{{ asset('images/phototheque/6.jpg') }}" alt>
-			<figcaption>La Maison du Smartphone</figcaption>
-		</div>
-	</div>
+<div class="phototheque">
+  <div class="gallery">
+    <a target="_blank" href="images/phototheque/3.jpg">
+      <img src="images/phototheque/3.jpg">
+    </a>
+    <div class="desc">Devanture de noël !</div>
+  </div>
+</div>
+
+<div class="phototheque">
+  <div class="gallery">
+    <a target="_blank" href="images/phototheque/4.jpg">
+      <img src="images/phototheque/4.jpg">
+    </a>
+    <div class="desc">Notre rayon de coque ! </div>
+  </div>
+</div>
+<div class="phototheque">
+  <div class="gallery">
+    <a target="_blank" href="images/phototheque/5.jpg">
+      <img src="images/phototheque/5.jpg">
+    </a>
+    <div class="desc">Devanture de noël !</div>
+  </div>
+</div>
+<div class="phototheque">
+  <div class="gallery">
+    <a target="_blank" href="images/phototheque/6.jpg">
+      <img src="images/phototheque/6.jpg">
+    </a>
+    <div class="desc">Devanture de noël !</div>
+  </div>
+</div>
+<div class="phototheque">
+  <div class="gallery">
+    <a target="_blank" href="images/phototheque/6.jpg">
+      <img src="images/phototheque/6.jpg">
+    </a>
+    <div class="desc">Devanture de noël !</div>
+  </div>
+</div>
+<div class="phototheque">
+  <div class="gallery">
+    <a target="_blank" href="images/phototheque/6.jpg">
+      <img src="images/phototheque/6.jpg">
+    </a>
+    <div class="desc">Devanture de noël !</div>
+  </div>
+</div>
+</div>
+<div class="clearfix"></div>
 </div>
 {% endblock %}

@@ -65,8 +65,9 @@ class DevisController extends AbstractController
             $_SESSION['prenom'] = $step1['prenom'];
             $_SESSION['email'] = $step1['email'];
             $_SESSION['telephone'] = $step1['telephone'];
+        } else {
+            return $this->redirectToRoute('devis_1');
         }
-        
 
 
         return $this->render('devis/devis_2.html.twig', [
@@ -79,10 +80,9 @@ class DevisController extends AbstractController
      */
     public function devis_2b(Request $request): Response
     {
-
         $devis = new Devis();
         $form = $this->createForm(DevisStep2bType::class, $devis);
-
+        $test = $request->get('_sf2_attributes');
         return $this->render('devis/devis_2b.html.twig', [
             'controller_name' => 'DevisController',
             'form' => $form->createView(),
@@ -98,7 +98,9 @@ class DevisController extends AbstractController
         $form->HandleRequest($request);
         $step2 = $request->get('devis_step2');
         $_SESSION['marque'] = $step2['marque'];
-
+        if (!isset($_SESSION['marque'])){
+                return $this->redirectToRoute('devis_2');
+        }
         
         $form = $this->createFormBuilder($devis)
             ->add('modele', EntityType::class, array(
@@ -136,6 +138,12 @@ class DevisController extends AbstractController
         if (isset($step3)){
             $_SESSION['marque'] = $step3['marque'];
         }
+        if (!isset($_SESSION['marque'])){
+            return $this->redirectToRoute('devis_2b');
+        }
+        if (!isset($_SESSION['nom'])){
+            return $this->redirectToRoute('devis_1');
+        }
 
         return $this->render('devis/devis_3b.html.twig', [
             'controller_name' => 'DevisController',
@@ -157,6 +165,9 @@ class DevisController extends AbstractController
         $step3b = $request->get('devis_step3b');
         if (isset($step3b)){
             $_SESSION['modele'] = $step3b['modele'];
+        }
+        if (!isset($_SESSION['modele'])){
+            return $this->redirectToRoute('devis_3');
         }
         return $this->render('devis/devis_4.html.twig', [
             'controller_name' => 'DevisController',
@@ -188,7 +199,6 @@ class DevisController extends AbstractController
                 $_SESSION['probleme3'] = 'Non';
             }
         }
-
         return $this->render('devis/devis_5.html.twig', [
             'controller_name' => 'DevisController',
             'form' => $form->createView(),

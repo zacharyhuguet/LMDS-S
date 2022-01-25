@@ -46,7 +46,7 @@ class ContactType extends AbstractType
     ]);
     $builder->add('message', TextareaType::class, [
         'attr' => [
-            'placeholder' => 'Saisir votre message',
+            'placeholder' => 'Saisir votre message *',
             'minlength' => 2,
             'maxlength' => 250,
         ],

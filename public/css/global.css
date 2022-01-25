@@ -1,0 +1,23 @@
+@import url("https://fonts.googleapis.com/css2?family=PT+Sans&display=swap");
+*{
+    padding:0;
+    margin:0;
+    box-sizing:border-box;
+}
+@font-face {
+    font-family: "LaMaisonDuSmartphone";
+    src: url("/polices/LaMaisonDuSmartphone.ttf");
+  }
+  body{
+        width:100%;
+      min-height:100vh;
+      padding-bottom:400px;
+      position:relative;
+      font-family: "PT Sans", sans-serif;
+ 
+  }
+
+
+
+
+

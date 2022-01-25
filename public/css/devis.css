@@ -1,0 +1,437 @@
+.progress {
+  list-style: none;
+  padding: 0;
+  display: table;
+  table-layout: fixed;
+  width: 100%;
+  color: #849397;
+  margin: 50px 0;
+  position: relative;
+  z-index: -1;
+}
+.progress > li {
+  position: relative;
+  display: table-cell;
+  text-align: center;
+  font-size: 0.9em;
+}
+.progress > li.is-complete:before {
+  content: "\2713";
+}
+
+.progress > li:before {
+  content: attr(data-step);
+  display: block;
+  margin: 0 auto;
+  background: #dfe3e4;
+  width: 4em;
+  height: 4em;
+  text-align: center;
+  margin-bottom: 0.25em;
+  line-height: 4em;
+  border-radius: 100%;
+}
+.progress > li:after {
+  content: "";
+  position: absolute;
+  display: block;
+  background: #dfe3e4;
+  width: 100%;
+  height: 0.5em;
+  top: 1.25em;
+  left: 50%;
+  margin-left: 1.5em\9;
+  z-index: -1;
+}
+.progress > li:last-child:after {
+  display: none;
+}
+.progress > li.is-complete {
+  color: #3dc76b;
+}
+.progress > li.is-complete:before,
+.progress > li.is-complete:after {
+  color: #fff;
+  background: #3dc76b;
+}
+.progress > li.is-active {
+  color: rgb(214, 158, 4);
+}
+.progress > li.is-active:before {
+  color: #fff;
+  background: rgb(214, 158, 4);
+}
+
+.form-devis {
+  width: 95%;
+  background-color: white;
+  margin: 30px auto 0px;
+  display: block;
+}
+.form-devis fieldset {
+  border: none;
+}
+.form-devis legend {
+  font-size: 25px;
+  display: inline-block;
+}
+.form-devis label {
+  display: block;
+}
+.form-devis input,
+.form-devis textarea,
+.form-devis select {
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  border-radius: 4px;
+  font-size: 15px;
+  margin: 0;
+  outline: 0;
+  padding: 15px;
+  width: 100%;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  background-color: #e8eeef;
+  color: #8a97a0;
+  -webkit-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03) inset;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03) inset;
+  margin: 25px 0 25px;
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+}
+.form-devis input[type="checkbox"]:valid,
+.form-devis input[type="checkbox"]:invalid {
+  border: none;
+}
+.form-devis input:valid,
+.form-devis textarea:valid,
+.form-devis select:valid {
+  border: 2px solid #3dc76b;
+}
+.form-devis input:invalid,
+.form-devis textarea:invalid,
+.form-devis select:invalid {
+  border: 2px solid #c73d3d;
+}
+.form-devis input:focus,
+.form-devis textarea:focus {
+  background: #bfc8ce;
+}
+.form-devis .number {
+  background: rgb(33, 48, 53);
+  color: #fff;
+  font-weight: bolder;
+  height: 50px;
+  width: 50px;
+  display: inline-block;
+  font-size: 28px;
+  margin-right: 15px;
+  line-height: 50px;
+  text-align: center;
+  border-radius: 15px 15px 15px 0px;
+}
+@media screen and (max-width: 500px) {
+  .form-devis .number {
+    width: 30px;
+    height: 30px;
+    font-size: 17px;
+    line-height: 30px;
+    border-radius: 9px 9px 9px 0;
+  }
+}
+.form-devis .fa-chevron-right {
+  font-size: 22px;
+  color: rgb(33, 48, 53);
+  margin-right: 15px;
+}
+.form-devis select:after {
+  content: "BC";
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-size: 70%;
+  width: 30px;
+  text-align: center;
+  padding-top: 12px;
+  padding-bottom: 10px;
+  pointer-events: none;
+  color: #666666;
+}
+
+.form-devis button[type="submit"] {
+  position: relative;
+  display: block;
+  padding: 19px 39px 18px 39px;
+  color: #fff;
+  font-weight: bolder;
+  margin: 0 auto;
+  background: rgb(33, 48, 53);
+  font-size: 18px;
+  text-align: center;
+  width: 100%;
+  border-width: 1px 1px 3px;
+  cursor: pointer;
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  border: none;
+}
+.form-devis button[type="submit"]:hover {
+  box-shadow: rgb(0, 0, 0, 0.3) 0px 19px 38px, rgb(0, 0, 0, 0.22) 0px 15px 12px;
+}
+.devis-envoyer {
+  font-size: 50px;
+  font-weight: bolder;
+  line-height: 72px;
+  margin: 100px 0;
+  text-align: center;
+  text-transform: uppercase;
+  padding: 10px;
+}
+.p-devis-envoyer {
+  font-size: 18px;
+  font-weight: bolder;
+  line-height: 32px;
+  margin: 0 0 24px;
+  text-align: center;
+  padding: 10px;
+}
+.logo-devis-envoyer {
+  font-size: 50px;
+}
+.img-devis-envoyer {
+  width: 200px;
+  margin: 50px auto;
+  display: block;
+}
+#probleme2,
+#probleme3,
+#add3,
+#remove2,
+#remove3 {
+  display: none;
+}
+.devis_bouton_add {
+  background-color: #3dc76b;
+  color: white;
+  font-weight: bolder;
+  display: block;
+  text-align: center;
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  text-decoration: none;
+}
+.devis_bouton_remove {
+  background-color: #c73d3d;
+  color: white;
+  font-weight: bolder;
+  display: block;
+  text-align: center;
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  text-decoration: none;
+}
+.devis_bouton_marque_modele_autre {
+  background-color: rgb(214, 158, 4);
+  color: white;
+  font-weight: bolder;
+  display: block;
+  text-align: center;
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  text-decoration: none;
+}
+.protection-ecran {
+  padding: 10px;
+  margin: 25px 0 25px;
+  box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px,
+    rgba(6, 24, 44, 0.65) 0px 4px 6px -1px,
+    rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+  box-shadow: rgb(6, 24, 44, 0.4) 0px 0px 0px 2px,
+    rgb(6, 24, 44, 0.65) 0px 4px 6px -1px,
+    rgb(255, 255, 255, 0.08) 0px 1px 0px inset;
+}
+.protection-ecran span:first-child {
+  padding: 2px 5px;
+  font-weight: bolder;
+  background-color: rgb(214, 158, 4);
+  width: 50%;
+  min-width: 200px;
+  text-align: center;
+}
+#protection-checkbox {
+  visibility: hidden;
+  margin: 0;
+  padding: 0;
+}
+#protection-checkbox:checked + label {
+  background-color: #3dc76b;
+}
+#protection-checkbox:checked + label:before {
+  transform: translateX(45px);
+  background-color: white;
+}
+
+.span-protection-checkbox label {
+  display: flex;
+  width: 90px;
+  height: 45px;
+  border: 6px solid;
+  border-radius: 99em;
+  position: relative;
+  cursor: pointer;
+  background-color: #c73d3d;
+}
+.span-protection-checkbox label:before {
+  transition: transform 0.3s ease;
+  content: "";
+  display: block;
+  position: absolute;
+  width: 22px;
+  height: 22px;
+  background-color: white;
+  border-radius: 50%;
+  top: 5px;
+  left: 5px;
+}
+.mentions-legales {
+  padding: 10px;
+  margin: 25px 0 25px;
+  box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px,
+    rgba(6, 24, 44, 0.65) 0px 4px 6px -1px,
+    rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+  box-shadow: rgb(6, 24, 44, 0.4) 0px 0px 0px 2px,
+    rgb(6, 24, 44, 0.65) 0px 4px 6px -1px,
+    rgb(255, 255, 255, 0.08) 0px 1px 0px inset;
+}
+.mentions-legales span:first-child {
+  padding: 2px 5px;
+  font-weight: bolder;
+  background-color: rgb(214, 158, 4);
+  width: 50%;
+  min-width: 200px;
+  text-align: center;
+}
+#mentions-legales {
+  visibility: hidden;
+  margin: 0;
+  padding: 0;
+}
+#mentions-legales:checked + label {
+  background-color: #3dc76b;
+}
+#mentions-legales:checked + label:before {
+  transform: translateX(45px);
+  background-color: white;
+}
+
+.span-mentions-legales label {
+  display: flex;
+  width: 90px;
+  height: 45px;
+  border: 6px solid;
+  border-radius: 99em;
+  position: relative;
+  cursor: pointer;
+  background-color: #c73d3d;
+}
+.span-mentions-legales label:before {
+  transition: transform 0.3s ease;
+  content: "";
+  display: block;
+  position: absolute;
+  width: 22px;
+  height: 22px;
+  background-color: white;
+  border-radius: 50%;
+  top: 5px;
+  left: 5px;
+}
+#validation:disabled {
+  opacity: 0.4;
+  -webkit-opacity: 0.4;
+  -moz-opacity: 0.4;
+  -o-opacity: 0.4;
+  -apple-opacity: 0.4;
+  cursor: default;
+}
+
+.recap-info-devis{
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  border-radius: 4px;
+  font-size: 15px;
+  margin: 0;
+  outline: 0;
+  padding: 15px;
+  width: 100%;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  background-color: #e8eeef;
+  color: #8a97a0;
+  -webkit-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03) inset;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03) inset;
+  margin: 25px 0 25px;
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+}
+.recap-info-devis-textarea{
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  border-radius: 4px;
+  font-size: 15px;
+  margin: 0;
+  outline: 0;
+  padding: 15px;
+  width: 100%;
+  height:75px;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  background-color: #e8eeef;
+  color: #8a97a0;
+  -webkit-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03) inset;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03) inset;
+  margin: 25px 0 25px;
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+}
+.devis-texte-page1{
+margin-top:50px;
+  
+}
+.devis-texte-page1 h1{
+  text-align:center;
+  font-size:20px;
+}
+.devis-texte-page1 a{
+  text-decoration: none;
+  background-color: rgb(214, 158, 4);
+  padding: 15px 15px;
+  display: block;
+  width: 200px;
+  margin: 45px auto 0;
+  color: white;
+  font-weight: bolder;
+  text-align:center;
+  font-size:20px;
+}
+.devis-texte-page1 a:hover {
+  box-shadow: rgb(0, 0, 0, 0.3) 0px 19px 38px, rgb(0, 0, 0, 0.22) 0px 15px 12px;
+}
+.devis-texte-page1 img{
+  display:block;
+  margin:60px auto;
+  width: 300px;
+  }
