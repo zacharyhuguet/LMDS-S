@@ -82,7 +82,6 @@ class DevisController extends AbstractController
     {
         $devis = new Devis();
         $form = $this->createForm(DevisStep2bType::class, $devis);
-        $test = $request->get('_sf2_attributes');
         return $this->render('devis/devis_2b.html.twig', [
             'controller_name' => 'DevisController',
             'form' => $form->createView(),
