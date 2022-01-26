@@ -16,9 +16,13 @@ class ProduitsType extends AbstractType
         $builder
             ->add('titre')
             ->add('description',TextareaType::class)
-            ->add('prix')
             ->add('ancienPrix')
+            ->add('prix')
+            ->add('stockage')
+            ->add('ecran')
+            ->add('couleur')
             ->add('image', FileType::class);
+            
     }
 
     public function configureOptions(OptionsResolver $resolver): void

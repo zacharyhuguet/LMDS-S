@@ -32,6 +32,7 @@ header {
     /* line-height:100px; */
     display: block;
     font-family: "LaMaisonDuSmartphone";
+    text-align:center;
 }
 
 nav a {
@@ -90,8 +91,8 @@ nav a.nav-liens:hover:before, nav a.nav-liens:hover:after {
 @media screen and (max-width: 300px) {
     .navigation-logo {
         font-size: 15px;
-        padding: 45px 30px;
-        text-align:center;
+        padding: 30px 30px 45px 30px;
+
         
     }
 

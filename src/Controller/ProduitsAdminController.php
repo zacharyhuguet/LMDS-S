@@ -10,6 +10,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\String\Slugger\SluggerInterface;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 /**
@@ -89,7 +90,15 @@ class ProduitsAdminController extends AbstractController
      */
     public function edit(Request $request, Produits $produit, EntityManagerInterface $entityManager): Response
     {
-        $form = $this->createForm(ProduitsType::class, $produit);
+        $form = $this->createFormBuilder($produit)
+        ->add('titre')
+        ->add('description',TextareaType::class)
+        ->add('ancienPrix')
+        ->add('prix')
+        ->add('stockage')
+        ->add('ecran')
+        ->add('couleur')
+            ->getForm();
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -111,7 +120,10 @@ class ProduitsAdminController extends AbstractController
     {
         if ($this->isCsrfTokenValid('delete' . $produit->getId(), $request->request->get('_token'))) {
             $nomimage = $this->getParameter("images_directory") . '/' . $produit->getImage();
-            unlink($nomimage);
+            if (file_exists($nomimage)){
+                unlink($nomimage);
+            }
+           
             $entityManager->remove($produit);
             $entityManager->flush();
         }

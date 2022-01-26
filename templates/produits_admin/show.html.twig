@@ -1,42 +1,53 @@
-{% extends 'base.html.twig' %}
-
-{% block title %}Produits{% endblock %}
+{% extends 'magasin.html.twig' %}
 
 {% block body %}
-    <h1>Produits</h1>
+	<div class="text-center">
+		<h1>Produit n°{{ produit.id }}</h1>
+		<div class="btn-group" role="group">
+			<a class="btn btn-secondary btn-space" href="{{ path('produits_admin_index') }}">Retour</a>
+			{{ include('produits_admin/_delete_form.html.twig') }}
+		</div>
+	</div>
+	<br/>
+	<table class="table table-bordered table-striped table-responsive-stack">
+		<tbody>
+			<tr>
+				<th>Titre</th>
+				<td>{{ produit.titre }}</td>
+			</tr>
+			<tr>
+				<th>Description</th>
+				<td>{{ produit.description }}</td>
+			</tr>
+			<tr>
+				<th>AncienPrix</th>
+				<td>{{ produit.ancienPrix }}
+					€</td>
+			</tr>
+			<tr>
+				<th>Prix</th>
+				<td>{{ produit.prix }}
+					€</td>
+			</tr>
+			<tr>
+				<th>Stockage</th>
+				<td>{{ produit.stockage }}
+					Go</td>
+			</tr>
+			<tr>
+				<th>Ecran</th>
+				<td>{{ produit.ecran }}
+					pouces</td>
+			</tr>
+			<tr>
+				<th>Couleur</th>
+				<td>{{ produit.couleur }}</td>
+			</tr>
+			<tr>
+				<th>Image</th>
+				<td>{{ produit.image }}</td>
+			</tr>
 
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ produit.id }}</td>
-            </tr>
-            <tr>
-                <th>Titre</th>
-                <td>{{ produit.titre }}</td>
-            </tr>
-            <tr>
-                <th>Description</th>
-                <td>{{ produit.description }}</td>
-            </tr>
-            <tr>
-                <th>Prix</th>
-                <td>{{ produit.prix }}</td>
-            </tr>
-            <tr>
-                <th>Image</th>
-                <td>{{ produit.image }}</td>
-            </tr>
-            <tr>
-                <th>AncienPrix</th>
-                <td>{{ produit.ancienPrix }}</td>
-            </tr>
-        </tbody>
-    </table>
-
-    <a href="{{ path('produits_admin_index') }}">back to list</a>
-
-    <a href="{{ path('produits_admin_edit', {'id': produit.id}) }}">edit</a>
-
-    {{ include('produits_admin/_delete_form.html.twig') }}
+		</tbody>
+	</table>
 {% endblock %}

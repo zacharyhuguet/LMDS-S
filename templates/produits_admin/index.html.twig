@@ -1,46 +1,61 @@
 {% extends 'magasin.html.twig' %}
 
 {% block body %}
-    <h1 class="text-center">Affichage des produits</h1>
-    <a class="btn btn-success" href="{{ path('produits_admin_new') }}">Ajouter un produit</a>
-    <br/><br/>
+	<h1 class="text-center">Affichage des produits</h1>
+	<a class="btn btn-success" href="{{ path('produits_admin_new') }}">Ajouter un produit</a>
+	<br/><br/>
 
 	<table class="table table-bordered table-striped table-responsive-stack">
 		<thead>
 			<tr style='text-align:center; background-color:#212529; color:white;'>
-                <th>Actions</th>
-                <th>ID</th>
-                <th>Titre</th>
-                <th>Description</th>
-                <th>AncienPrix</th>
-                <th>Prix</th>
-                <th>Image</th>
-                
-            </tr>
-        </thead>
-        <tbody>
-        {% for produit in produits %}
-            <tr>
-                <td>
-                		<a class='btn btn-warning' href="{{ path('produits_admin_edit', {'id': produit.id}) }}">
+				<th>Actions</th>
+				<th>ID</th>
+				<th>Titre</th>
+				<th>Description</th>
+				<th>AncienPrix</th>
+				<th>Prix</th>
+				<th>Stockage</th>
+				<th>Ecran</th>
+				<th>Couleur</th>
+				<th>Image</th>
+
+			</tr>
+		</thead>
+		<tbody>
+			{% for produit in produits %}
+				<tr>
+					<td>
+						<a class='btn btn-primary' href='{{ path('produits_admin_show', {'id': produit.id}) }}'>
+							<i class='fas fa-eye'></i>
+						</a>
+						<br/>
+						<a class='btn btn-warning' href="{{ path('produits_admin_edit', {'id': produit.id}) }}">
 							<i class='fas fa-pen'></i>
 						</a>
-                        {{ include('produits_admin/_delete_form.html.twig') }}
-                </td>
-                <td>{{ produit.id }}</td>
-                <td>{{ produit.titre }}</td>
-                <td>{{ produit.description }}</td>
-                
-                <td style="text-align:right;">{{ produit.ancienPrix }} €</td>
-                <td style="text-align:right;">{{ produit.prix }} €</td>
-                <td><img style="height:75px;"src="/imagesProduits/{{ produit.image }}"/> {{ produit.image }}  </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="7">Aucun produit disponible</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-{% endblock %}
+						{{ include('produits_admin/_delete_form.html.twig') }}
+					</td>
+					<td>{{ produit.id }}</td>
+					<td>{{ produit.titre }}</td>
+					<td>{{ produit.description }}</td>
 
+					<td style="text-align:right;">{{ produit.ancienPrix }}
+						€</td>
+					<td style="text-align:right;">{{ produit.prix }}
+						€</td>
+					<td>{{ produit.stockage }}
+						Go</td>
+					<td>{{ produit.ecran }}
+						pouces</td>
+					<td>{{ produit.couleur }}</td>
+					<td><img style="height:75px;" src="/imagesProduits/{{ produit.image }}"/>
+						{{ produit.image }}
+					</td>
+				</tr>
+			{% else %}
+				<tr>
+					<td colspan="7">Aucun produit disponible</td>
+				</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+{% endblock %}
