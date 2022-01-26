@@ -65,7 +65,9 @@
   text-decoration: line-through;
   color: red;
   font-size: 30px;
+
 }
+
 
 .product img {
   margin: 25px auto 0;
@@ -167,6 +169,7 @@
 .product__price em {
   text-decoration: line-through;
   color: red;
+
 }
 
 .product__subtitle {
@@ -176,6 +179,7 @@
   color: #8b8a8a;
   margin-bottom: 2rem;
 }
+
 .hr-produits {
   border: none;
   height: 4px;
@@ -183,50 +187,57 @@
   width: 50%;
   margin: 50px auto;
 }
-.product-infos-title{
+
+.product-infos-title {
   font-size: 3rem;
-  text-align:center;
-  margin-bottom:40px;
+  text-align: center;
+  margin-bottom: 40px;
 
 
 }
-.container-product-infos{
+
+.container-product-infos {
   display: block;
   width: 100%;
 }
-.product-infos{
-  display:flex;
-  flex-direction:row;
-  width:100%;
+
+.product-infos {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
   flex-wrap: wrap;
-  
-  
+
+
 }
-.product-infos p{
-  width:45%;
-  text-align:center;
-  padding:50px;
+
+.product-infos p {
+  width: 45%;
+  text-align: center;
+  padding: 50px;
   box-shadow: rgb(99, 99, 99, 0.2) 0px 2px 8px 0px;
   -webkit-box-shadow: rgb(99, 99, 99, 0.2) 0px 2px 8px 0px;
   -moz-box-shadow: rgb(99, 99, 99, 0.2) 0px 2px 8px 0px;
-  margin:20px auto;
+  margin: 20px auto;
 }
-.product-infos p i{
-font-size:40px;
-color:rgb(214, 158, 4);
+
+.product-infos p i {
+  font-size: 40px;
+  color: rgb(214, 158, 4);
 }
 
 @media screen and (max-width:700px) {
-  .product-infos{
-    flex-direction:column;
+  .product-infos {
+    flex-direction: column;
   }
-  .product-infos p{
-    width:90%;
+
+  .product-infos p {
+    width: 90%;
   }
-  .product-infos-title{
+
+  .product-infos-title {
     font-size: 2rem;
-  
-  
+
+
   }
 }
 
@@ -234,20 +245,22 @@ color:rgb(214, 158, 4);
   .product-show {
     flex-direction: column;
     width: 98%;
-    margin:0 auto;
+    margin: 0 auto;
   }
-  
-.product__title {
-  font-size: 2rem;
-  margin-top:50px;
-}
+
+  .product__title {
+    font-size: 2rem;
+    margin-top: 50px;
+  }
 
   .product-detail {
     width: 100%;
   }
+
   .product-photo {
     width: 100%;
   }
+
   .product-photo img {
     width: 75%;
     margin: 0 auto;

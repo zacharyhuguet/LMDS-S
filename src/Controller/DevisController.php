@@ -59,14 +59,13 @@ class DevisController extends AbstractController
         $form = $this->createForm(DevisStep2Type::class, $devis);
 
         $form->HandleRequest($request);
+        
         $step1 = $request->get('devis_step1');
         if (isset($step1)){
             $_SESSION['nom'] = $step1['nom'];
             $_SESSION['prenom'] = $step1['prenom'];
             $_SESSION['email'] = $step1['email'];
             $_SESSION['telephone'] = $step1['telephone'];
-        } else {
-            return $this->redirectToRoute('devis_1');
         }
 
 
@@ -96,11 +95,9 @@ class DevisController extends AbstractController
         $form = $this->createForm(DevisStep3Type::class, $devis);
         $form->HandleRequest($request);
         $step2 = $request->get('devis_step2');
-        $_SESSION['marque'] = $step2['marque'];
-        if (!isset($_SESSION['marque'])){
-                return $this->redirectToRoute('devis_2');
+        if (isset($step2['marque'])){
+            $_SESSION['marque'] = $step2['marque'];
         }
-        
         $form = $this->createFormBuilder($devis)
             ->add('modele', EntityType::class, array(
                 'class' => Modele::class,
@@ -137,12 +134,7 @@ class DevisController extends AbstractController
         if (isset($step3)){
             $_SESSION['marque'] = $step3['marque'];
         }
-        if (!isset($_SESSION['marque'])){
-            return $this->redirectToRoute('devis_2b');
-        }
-        if (!isset($_SESSION['nom'])){
-            return $this->redirectToRoute('devis_1');
-        }
+
 
         return $this->render('devis/devis_3b.html.twig', [
             'controller_name' => 'DevisController',
@@ -165,9 +157,6 @@ class DevisController extends AbstractController
         if (isset($step3b)){
             $_SESSION['modele'] = $step3b['modele'];
         }
-        if (!isset($_SESSION['modele'])){
-            return $this->redirectToRoute('devis_3');
-        }
         return $this->render('devis/devis_4.html.twig', [
             'controller_name' => 'DevisController',
             'form' => $form->createView(),
@@ -183,7 +172,16 @@ class DevisController extends AbstractController
         $form = $this->createForm(DevisStep5Type::class, $devis);
         $form->HandleRequest($request);
         $step4 = $request->get('devis_step4');
-        $_SESSION['probleme1'] = $step4['probleme1'];
+        if (empty($step4['probleme1']) && empty($step4['probleme2']) && empty($step4['probleme3'])){
+            return $this->redirectToRoute('devis_4');
+        }
+        if (isset($step4['probleme1'])) {
+            if ($step4['probleme1'] != "") {
+                $_SESSION['probleme1'] = $step4['probleme1'];
+            } else {
+                $_SESSION['probleme1'] = 'Non';
+            }
+        }
         if (isset($step4['probleme2'])) {
             if ($step4['probleme2'] != "") {
                 $_SESSION['probleme2'] = $step4['probleme2'];
@@ -220,9 +218,11 @@ class DevisController extends AbstractController
             }
         }
         if (isset($step5['protection'])) {
-            $_SESSION['protection'] = "Oui, je veux la protection d'écran Invisible Shield et profitez de 5% sur mon devis !";
+            $protection = "Oui, je veux la protection d'écran Invisible Shield et profitez de 5% sur mon devis !";
+            $_SESSION['protection'] = "Oui";
         } else {
-            $_SESSION['protection'] = "Non, je ne veux pas de protection d'écran Invisible Shield !";
+            $protection = "Non, je ne veux pas de protection d'écran Invisible Shield !";
+            $_SESSION['protection'] = "Non";
         }
         if (is_numeric($_SESSION['marque']) ){
             $_SESSION['marque'] = $marque->findMarque($_SESSION['marque']);
@@ -240,7 +240,7 @@ class DevisController extends AbstractController
             'probleme2' => $_SESSION['probleme2'],
             'probleme3' => $_SESSION['probleme3'],
             'commentaire' => $_SESSION['commentaire'],
-            'protection' => $_SESSION['protection'],
+            'protection' => $protection,
         ]);
     }
     /**
