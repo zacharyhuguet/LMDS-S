@@ -1,0 +1,37 @@
+{% extends 'magasin.html.twig' %}
+
+{% block body %}
+<h1 class="text-center">Affichage des utilisateurs</h1>
+	<a class="btn btn-success" href="{{ path('user_new') }}">Ajouter un utilisateur</a>
+	<br/><br/>
+
+	<table class="table table-bordered table-striped table-responsive-stack">
+		<thead>
+			<tr style='text-align:center; background-color:#212529; color:white;'>
+                <th>Actions</th>
+                <th>ID</th>
+                <th>Nom d'utilisateur</th>
+                <th>Mot de passe (Crypté)</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for user in users %}
+				<tr>
+					<td>
+						<a class='btn btn-warning' href="{{ path('user_edit', {'id': user.id}) }}">
+							<i class='fas fa-pen'></i>
+						</a>
+						{{ include('user/_delete_form.html.twig') }}
+					</td>
+                <td>{{ user.id }}</td>
+                <td>{{ user.username }}</td>
+                <td>{{ user.password }}</td>
+				</tr>
+			{% else %}
+				<tr>
+					<td colspan="7">Aucun utilisateur disponible</td>
+				</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+{% endblock %}
