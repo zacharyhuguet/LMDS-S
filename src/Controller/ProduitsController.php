@@ -6,10 +6,14 @@ use App\Entity\Produits;
 use App\Form\ProduitsType;
 use App\Repository\ProduitsRepository;
 use Doctrine\ORM\EntityManagerInterface;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\NumberType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 /**
  * @Route("/produits")
@@ -19,10 +23,45 @@ class ProduitsController extends AbstractController
     /**
      * @Route("/", name="produits_index", methods={"GET"})
      */
-    public function index(ProduitsRepository $produitsRepository): Response
+    public function index(ProduitsRepository $produitsRepository, Request $request): Response
     {
+
+        // $defaultData = ['message' => 'Type your message here'];
+        // $form = $this->createFormBuilder($defaultData)
+        //     ->setAction($this->generateUrl('/produits'))
+        //     ->add('Prix', ChoiceType::class, [
+        //         'choices' => [
+        //             'Croissant' => 'Croissant',
+        //             'Décroissant' => 'Décroissant',
+        //         ],
+        //             'expanded' => true,
+        //             'required' => false,
+        //     ])
+        //     ->add('Prix_minimum', NumberType::class,[
+        //         'required' => false,
+        //     ]
+        //     )
+        //     ->add('Prix_maximum', NumberType::class,[
+        //         'required' => false,
+        //     ]
+        //     )
+        //     ->add('Filtrer', SubmitType::class)
+        //     ->getForm();
+
+        //     $form->handleRequest($request);
+
+        // if ($form->isSubmitted() && $form->isValid()) {
+
+            
+        //     return $this->render('produits/index.html.twig', [
+        //         'produits' => $produitsRepository->findAllWithFilter(),
+        //         'form' => $form->createView(),
+        //     ]);
+        // }
+
         return $this->render('produits/index.html.twig', [
             'produits' => $produitsRepository->findAll(),
+            // 'form' => $form->createView(),
         ]);
     }
 
