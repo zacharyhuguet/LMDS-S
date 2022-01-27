@@ -32,6 +32,11 @@ class InformationAccueil
      */
     private $texte;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $logo;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -69,6 +74,18 @@ class InformationAccueil
     public function setTexte(string $texte): self
     {
         $this->texte = $texte;
+
+        return $this;
+    }
+
+    public function getLogo(): ?string
+    {
+        return $this->logo;
+    }
+
+    public function setLogo(?string $logo): self
+    {
+        $this->logo = $logo;
 
         return $this;
     }
