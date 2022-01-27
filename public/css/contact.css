@@ -1,0 +1,148 @@
+.contact h1:first-child {
+    text-transform: uppercase;
+    font-size: 50px;
+    text-align: center;
+    margin: 60px 0;
+}
+
+.hr-contact {
+    border: none;
+    height: 4px;
+    background-color: black;
+    width: 50%;
+    margin: 50px auto;
+}
+.form-contact input,
+  .form-contact textarea {
+    border: none;
+    outline: 0;
+    border-radius: 4px;
+    font-size: 25px;
+    padding: 15px;
+    width: 90%;
+    background-color: #e8eeef;
+    color: #8a97a0;
+    -webkit-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03) inset;
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03) inset;
+    margin: 25px auto 25px;
+    resize: vertical;
+    display: block;
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+  }
+  .form-contact input:focus,
+  .form-contact textarea:focus {
+    background: #bfc8ce;
+  }
+  .form-contact input[type="submit"] {
+    display: block;
+    padding: 19px 39px 18px 39px;
+    color: white;
+    font-weight: bolder;
+    margin: 0 auto;
+    background: rgb(33, 48, 53);
+    font-size: 18px;
+    text-align: center;
+    width: 65%;
+    border-width: 1px 1px 3px;
+    cursor: pointer;
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    border: none;
+  }
+  .form-contact input[type="submit"]:hover {
+    box-shadow: rgb(0, 0, 0, 0.3) 0px 19px 38px, rgb(0, 0, 0, 0.22) 0px 15px 12px;
+  }
+  .form-contact fieldset {
+    border: none;
+  }
+  iframe {
+    display: block;
+    margin: 25px auto 0 auto;
+    border: none;
+    height:800px;
+  }
+  .numero-adresse{
+      display:flex;
+      flex-direction:row;
+      justify-content: space-between;
+  }
+  .numero-adresse .items{
+      width:50%;
+      margin: 30px 10px 0 10px;
+      text-align:center;
+      padding:40px 0;
+      box-shadow: rgb(0, 0, 0, 0.19) 0px 10px 20px, rgb(0, 0, 0, 0.23) 0px 6px 6px;
+      -webkit-box-shadow: rgb(0, 0, 0, 0.19) 0px 10px 20px, rgb(0, 0, 0, 0.23) 0px 6px 6px;
+      -moz-box-shadow: rgb(0, 0, 0, 0.19) 0px 10px 20px, rgb(0, 0, 0, 0.23) 0px 6px 6px;
+  }
+  .numero-adresse .items a{
+    text-decoration:none;
+    color:black;
+    padding: 10px;
+    text-align: center;
+    font-weight: bolder;
+    font-size: 25px;
+    letter-spacing: 1px;
+    color: gray;
+
+  }
+  .numero-adresse .items i{
+    font-size: 50px;
+    color:rgb(214, 158, 4);
+    vertical-align: middle;
+    margin-right:15px;
+  }
+
+@media screen and (max-width: 1250px) {
+    .numero-adresse{
+        flex-direction:column;
+        margin-top:50px;
+    }
+    .numero-adresse .items{
+        margin: 0 auto 30px;
+        width:100%;
+    }
+}
+  .hours{
+      width:50%;
+      display:block;    
+      margin:0 auto;
+  }
+  .hours ul {
+    display: block;
+  }
+.hours ul li {
+    display: block;
+    width: 100%;
+    overflow: hidden;
+    margin-bottom: 2px;
+    font-size:25px;
+  }
+.hours ul li ul {
+    display: block;
+    width: 100%;
+  }
+ .hours ul li ul li {
+    width: 50%;
+    float: left;
+  }
+  .hours ul li ul li.close {
+    color: red;
+  }
+ .hours ul li ul li:last-child {
+    text-align: right;
+  }
+  @media screen and (max-width: 850px) {
+    .hours{
+        width:95%;
+    }
+    .hours ul li {
+        font-size:20px;
+      }
+
+}
+  
+  

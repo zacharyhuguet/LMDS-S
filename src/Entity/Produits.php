@@ -42,6 +42,21 @@ class Produits
      */
     private $ancienPrix;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $stockage;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $ecran;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $Couleur;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -103,6 +118,42 @@ class Produits
     public function setAncienPrix(string $ancienPrix): self
     {
         $this->ancienPrix = $ancienPrix;
+
+        return $this;
+    }
+
+    public function getStockage(): ?string
+    {
+        return $this->stockage;
+    }
+
+    public function setStockage(string $stockage): self
+    {
+        $this->stockage = $stockage;
+
+        return $this;
+    }
+
+    public function getEcran(): ?string
+    {
+        return $this->ecran;
+    }
+
+    public function setEcran(string $ecran): self
+    {
+        $this->ecran = $ecran;
+
+        return $this;
+    }
+
+    public function getCouleur(): ?string
+    {
+        return $this->Couleur;
+    }
+
+    public function setCouleur(string $Couleur): self
+    {
+        $this->Couleur = $Couleur;
 
         return $this;
     }

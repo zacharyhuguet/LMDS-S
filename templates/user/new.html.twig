@@ -1,0 +1,22 @@
+{% extends 'magasin.html.twig' %}
+
+
+
+{% block body %}
+	<div class="text-center">
+		<h1>Ajouter un utilisateur</h1>
+		<a class="btn btn-secondary" href="{{ path('user_index') }}">Retour</a>
+		<br/>
+		<br/>
+		{{ form_start(form) }}
+            <p>Nom d'utilisateur</p>
+			{{ form_widget(form.username) }}
+			<br/><br/>
+			<p>Mot de passe</p>
+			{{ form_widget(form.password)}}
+			<br/><br/>
+			<button class="btn btn-success">{{ button_label|default('Ajouter') }}</button>
+			{{ form_row(form._token) }}
+		{{ form_end(form) }}
+	</div>
+{% endblock %}

@@ -12,6 +12,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
 class DevisStep4Type extends AbstractType
@@ -21,8 +22,10 @@ class DevisStep4Type extends AbstractType
         $builder->add('probleme1', EntityType::class, array(
             'class' => Probleme::class,
             'choice_label' => 'nom_probleme',
-            'placeholder' => '=== Choisir une problème ===',
+            'placeholder' => '=== Choisir un problème ===',
+            'required' => false,
             'choice_value' => 'nom_probleme',
+            
         ));
         $builder->add('probleme2', EntityType::class, array(
             'class' => Probleme::class,
@@ -31,14 +34,11 @@ class DevisStep4Type extends AbstractType
             'required' => false,
             'choice_value' => 'nom_probleme',
         ));
-        $builder->add('probleme3', EntityType::class, array(
-            'class' => Probleme::class,
-            'choice_label' => 'nom_probleme',
-            'placeholder' => '=== Laissez vide si pas de 3ème problème ===',
-            'required' => false,
-            'choice_value' => 'nom_probleme',
-            
-        ));
+        $builder->add('probleme3', TextType::class, [
+            'attr' => [
+                'placeholder' => '=== Autre problème (Pas dans la liste ci-dessus) ===',
+            ],
+        ]);
         $builder->add('Etape_suivante', SubmitType::class);   
         
     }

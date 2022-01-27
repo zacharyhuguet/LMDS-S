@@ -1,14 +1,35 @@
 {% extends 'magasin.html.twig' %}
 
 {% block body %}
-    <h1>Edit Produits</h1>
-
-    {{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Modifier') }}</button>
-    {{ form_end(form) }}
-
-    <a href="{{ path('produits_admin_index') }}">back to list</a>
-
-    {{ include('produits_admin/_delete_form.html.twig') }}
+	<div class="text-center">
+		<h1>Modifier le produit "{{produit.titre}}"</h1>
+		<a class="btn btn-secondary" href="{{ path('produits_admin_index') }}">Retour</a>
+		<br/>
+		<br/>
+			<form name="produits" method="post">
+		<p>Titre</p>
+		{{ form_widget(form.titre) }}
+		<br/><br/>
+		<p>Description</p>
+		{{ form_widget(form.description) }}
+		<br/><br/>
+		<p>AncienPrix (Laissez vide si pas besoin)</p>
+		{{ form_widget(form.ancienPrix, {'required': false}) }} €
+		<br/><br/>
+		<p>Prix</p>
+		{{ form_widget(form.prix) }} €
+		<br/><br/>
+				<p>Stockage</p>
+		{{ form_widget(form.stockage) }} Go
+		<br/><br/>
+				<p>Taille écran</p>
+		{{ form_widget(form.ecran) }} Pouces
+		<br/><br/>
+				<p>Couleur</p>
+		{{ form_widget(form.couleur) }} 
+        <br/><br/>
+		<button class="btn btn-success">{{ button_label|default('Modifier') }}</button>
+		{{ form_row(form._token) }}
+		</form>
+	</div>
 {% endblock %}

@@ -1,0 +1,40 @@
+.savoir-marque-modele {
+    color: rgb(42, 144, 207);
+    border: 3px dashed rgb(42, 144, 207);
+    padding: 5px;
+    text-decoration: none;
+  }
+  .savoir-marque-modele-contenu {
+    text-align: center;
+  }
+  .savoir-marque-modele-contenu h1 {
+    margin-bottom: 80px;
+  }
+  .savoir-marque-modele-contenu p {
+    padding: 5px;
+    margin-top: 10px;
+  }
+  .savoir-marque-modele-contenu hr {
+    width: 35%;
+    height: 5px;
+    background-color: black;
+    margin: 0 auto;
+  }
+  .galerie {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 80%;
+    max-width: 1300px;
+    margin: 70px auto 0;
+  }
+  .item {
+    width: 300px;
+    margin: 10px;
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+  .item img {
+    width: 100%;
+    height: auto;
+  }

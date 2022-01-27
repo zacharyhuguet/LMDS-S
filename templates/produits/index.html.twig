@@ -1,13 +1,11 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-	<br/><br/><br/>
 	<div class="container-produit-header">
-		<h1>Nos téléphones
-		</h1>
+	<h1>Nos téléphones</h1>
+	<hr class="hr-boutique">
 		<h3>Tout nos téléphones sont reconditionnées directement dans notre magasin, et sont proposer à un prix abordable pour notre clientèle !<h3>
 		</div>
-			<hr class="separateur-hr-produit">
 			<div class="container-produit">
 				{% for produit in produits %}
 					<div class="product">
@@ -25,7 +23,7 @@
 						</label>
 
 						<div class="desciption">
-							<h2 class="title">{{ produit.titre }}</h2>
+							<h2 class="title">{{ produit.titre }} ({{ produit.couleur }})</h2>
 							<a class="lien-show" href="{{ path('produits_show', {'id': produit.id}) }}">
 								<i class="fas fa-plus"></i>
 								Voir plus</a>

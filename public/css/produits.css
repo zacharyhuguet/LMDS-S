@@ -1,0 +1,269 @@
+.container-produit-header {
+  width: 100%;
+  margin-bottom: 50px;
+}
+
+.container-produit-header h1 {
+  text-transform: uppercase;
+  font-size: 50px;
+  text-align: center;
+  margin: 60px 0;
+}
+
+.container-produit-header h3 {
+  font-size: 30px;
+  text-align: center;
+}
+
+.hr-boutique {
+  border: none;
+  height: 4px;
+  background-color: black;
+  width: 50%;
+  margin: 50px auto;
+}
+
+.container-produit {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.product {
+  margin: 0 0 30px 30px;
+  padding: 50px;
+  position: relative;
+  width: 24%;
+  background: white;
+  z-index: 0;
+  box-shadow: rgb(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px;
+  -moz-box-shadow: rgb(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px;
+  -webkit-box-shadow: rgb(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px;
+
+  -moz-border-radius: 8px;
+  -webkit-border-radius: 8px;
+  border-radius: 8px;
+
+}
+
+.product label.price {
+  font-weight: 600;
+  right: 0px;
+  top: 0px;
+  position: absolute;
+  width: 100%;
+  height: 40px;
+  line-height: 40px;
+  font-size: 30px;
+  text-align: center;
+  margin-top: 10px;
+
+}
+
+.product label.price em {
+  text-decoration: line-through;
+  color: red;
+  font-size: 30px;
+
+}
+
+
+.product img {
+  margin: 25px auto 0;
+  width: 80%;
+  z-index: -2;
+  display: block;
+  max-width: 400px;
+}
+
+.product .desciption .title {
+  margin: 10px 0 5px;
+  text-align: center;
+  font-size: 30px;
+
+}
+
+.lien-show {
+  text-decoration: none;
+  text-align: center;
+  display: block;
+  margin: 30px auto 0;
+  color: #6495ed;
+  font-size: 35px;
+}
+
+.lien-show:hover {
+  color: #0057f8;
+}
+
+@media screen and (max-width: 1000px) {
+  .container-produit {
+    flex-direction: column;
+    margin: 0;
+  }
+
+  .product {
+    width: 98%;
+    margin: 0 auto 40px 0;
+  }
+
+  .product img {
+    width: 80%;
+  }
+}
+
+
+
+
+.container-product {
+  position: relative;
+  width: 97vw;
+
+}
+
+.product-show {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 100px 50px 50px 50px;
+
+}
+
+.product-photo {
+  width: 50%;
+  height: 50%;
+}
+
+.product-photo img {
+  width: 70%;
+  height: auto;
+  min-width: 150px;
+  max-width: 800px;
+
+}
+
+.product-detail {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  width: 48%;
+  height: 100%;
+  text-align: center;
+}
+
+.product__title {
+  font-size: 3rem;
+  margin-bottom: 2rem;
+}
+
+.product__price {
+  letter-spacing: 2px;
+  font-family: "Montserrat", sans-serif;
+  margin-bottom: 2rem;
+  font-size: 1.2rem;
+}
+
+.product__price em {
+  text-decoration: line-through;
+  color: red;
+
+}
+
+.product__subtitle {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  font-size: 1rem;
+  color: #8b8a8a;
+  margin-bottom: 2rem;
+}
+
+.hr-produits {
+  border: none;
+  height: 4px;
+  background-color: black;
+  width: 50%;
+  margin: 50px auto;
+}
+
+.product-infos-title {
+  font-size: 3rem;
+  text-align: center;
+  margin-bottom: 40px;
+
+
+}
+
+.container-product-infos {
+  display: block;
+  width: 100%;
+}
+
+.product-infos {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  flex-wrap: wrap;
+
+
+}
+
+.product-infos p {
+  width: 45%;
+  text-align: center;
+  padding: 50px;
+  box-shadow: rgb(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  -webkit-box-shadow: rgb(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  -moz-box-shadow: rgb(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  margin: 20px auto;
+}
+
+.product-infos p i {
+  font-size: 40px;
+  color: rgb(214, 158, 4);
+}
+
+@media screen and (max-width:700px) {
+  .product-infos {
+    flex-direction: column;
+  }
+
+  .product-infos p {
+    width: 90%;
+  }
+
+  .product-infos-title {
+    font-size: 2rem;
+
+
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .product-show {
+    flex-direction: column;
+    width: 98%;
+    margin: 0 auto;
+  }
+
+  .product__title {
+    font-size: 2rem;
+    margin-top: 50px;
+  }
+
+  .product-detail {
+    width: 100%;
+  }
+
+  .product-photo {
+    width: 100%;
+  }
+
+  .product-photo img {
+    width: 75%;
+    margin: 0 auto;
+    display: block;
+  }
+}

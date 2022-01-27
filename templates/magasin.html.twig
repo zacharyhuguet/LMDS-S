@@ -19,6 +19,8 @@
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
 		</script>
 		<link rel="shortcut icon" href="{{ asset('images/logo.png') }}" type="image/x-icon"/>
+		    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 		{% block stylesheets %}
 			{{ encore_entry_link_tags('app') }}
 		{% endblock %}
@@ -51,7 +53,10 @@
 					<a class="btn btn-dark btn-lg" href="/magasin/information_accueil">Information Accueil</a>
 				</li>
 				<li class="nav-item">
-					<a class="btn btn-dark btn-lg" href="/magasin/produits">Produits</a>
+					<a class="btn btn-dark btn-lg" href="/magasin/produits">Produit</a>
+				</li>
+				<li class="nav-item">
+					<a class="btn btn-dark btn-lg" href="/magasin/user">Utilisateur</a>
 				</li>
 				<li class="nav-item">
 					<a class="btn btn-primary btn-lg" href="/logout">Déconnexion</a>

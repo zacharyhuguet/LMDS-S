@@ -2,17 +2,15 @@
 
 {% block body %}
 
+        <section class="sous-header">
+                <div class="cover"></div>
+                <div class="sous-header-texte">
+                <img src="{{ asset('images/logo.png') }}"/>
+		        <h1>Comment savoir la marque ou le modèle de son téléphone ?</h1>
+		        <a href="javascript:window.close()">Retour au devis</a>
+                </div>
+        </section>
 
-
-<div class="conteneur_sous_header">
-        <img src="{{ asset('images/header.jpg') }}" class="sous_header"></img>
-        <div class="sous_header_texte">
-            <h1>Comment savoir la marque ou le modèle de son téléphone ?</h1>
-            <a href="javascript:window.close() ">Retour au devis</a>
-        </div>
-    </div>
-    
-<main>
 <br/><br/><br/>
   <div class="savoir-marque-modele-contenu"> 
    <h1>Guide sur les différentes façon de trouver la marque et le modèle de son téléphone</h1>
@@ -20,7 +18,7 @@
    <p>Essayez de regarder le devant, l'arrière, le côté, il y a de grande chance pour voir apparaître le logo de la marque.</p>
 
    <div class="galerie">
-   <div class="item"><img src="{{ asset('images/nokia.jpg') }} "></div>
+   <div class="item"><img src="{{ asset('images/nokia.jpg') }}"></div>
    <div class="item"><img src="{{ asset('images/iphone.jpg') }}"></div>
    <div class="item"><img src="{{ asset('images/samsung.jpg') }}"></div>
   </div>

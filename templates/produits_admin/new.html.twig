@@ -13,11 +13,20 @@
 		<p>Description</p>
 		{{ form_widget(form.description) }}
 		<br/><br/>
+		<p>AncienPrix (Laissez vide si pas besoin)</p>
+		{{ form_widget(form.ancienPrix, {'required': false}) }} €
+		<br/><br/>
 		<p>Prix</p>
 		{{ form_widget(form.prix) }} €
 		<br/><br/>
-		<p>AncienPrix (Laissez vide si pas besoin)</p>
-		{{ form_widget(form.ancienPrix, {'required': false}) }} €
+				<p>Stockage</p>
+		{{ form_widget(form.stockage) }} Go
+		<br/><br/>
+				<p>Taille écran</p>
+		{{ form_widget(form.ecran) }} Pouces
+		<br/><br/>
+				<p>Couleur</p>
+		{{ form_widget(form.couleur) }} 
 		<br/><br/>
 		<p>Image</p>
 		<div class='file file--upload'>
