@@ -18,7 +18,7 @@
 <div class="box-conteneur">
 	{% for info in infos %}
 			<div class="box">
-				<i class="fas fa-question"></i>
+				<i class="{{ info.logo }}"></i>
 				<h1>{{ info.titre }}</h1>
 				<h3>{{ info.texte }}</h3>
 			</div>

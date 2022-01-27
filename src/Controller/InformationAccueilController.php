@@ -2,14 +2,16 @@
 
 namespace App\Controller;
 
+use App\Entity\FontAwesome;
 use App\Entity\InformationAccueil;
 use App\Form\InformationAccueilType;
-use App\Repository\InformationAccueilRepository;
 use Doctrine\ORM\EntityManagerInterface;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use App\Repository\FontAwesomeRepository;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use App\Repository\InformationAccueilRepository;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 /**
  * @Route("/magasin/information_accueil")
@@ -61,12 +63,25 @@ class InformationAccueilController extends AbstractController
     /**
      * @Route("/{id}/edit", name="information_accueil_edit", methods={"GET", "POST"})
      */
-    public function edit(Request $request, InformationAccueil $informationAccueil, EntityManagerInterface $entityManager): Response
+    public function edit(Request $request, FontAwesomeRepository $fontAwesome, InformationAccueil $informationAccueil, EntityManagerInterface $entityManager): Response
     {
         $form = $this->createForm(InformationAccueilType::class, $informationAccueil);
         $form->handleRequest($request);
+                // $logo = $informationAccueil->getLogo();
+        // $form = $this->createFormBuilder($informationAccueil)
+        // ->add('emplacement')
+        // ->add('titre')
+        // ->add('texte')
+        // ->add('logo', EntityType::class, array(
+        //     'class' => FontAwesome::class,
+        //     'choice_label' => 'nom',
+        //     'choice_value' => 'nom',
+        //     'data' => $logo,
 
+        // ))
+        //     ->getForm();
         if ($form->isSubmitted() && $form->isValid()) {
+            
             $entityManager->flush();
 
             return $this->redirectToRoute('information_accueil_index', [], Response::HTTP_SEE_OTHER);
@@ -75,6 +90,7 @@ class InformationAccueilController extends AbstractController
         return $this->renderForm('information_accueil/edit.html.twig', [
             'information_accueil' => $informationAccueil,
             'form' => $form,
+            'logoListe' => $fontAwesome->findAll(),
         ]);
     }
 

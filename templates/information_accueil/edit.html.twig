@@ -1,23 +1,46 @@
 {% extends 'magasin.html.twig' %}
 
 {% block body %}
-<div class="text-center">
-    <h1>Modifier l'information de l'accueil "{{information_accueil.emplacement}}"</h1>
-<a class="btn btn-secondary" href="{{ path('information_accueil_index') }}">Retour</a>
-   <br/>   <br/>
-   
-    <form name="information_accueil" method="post">
-        <div style="display:none">
-        {{ form_widget(form.emplacement) }}
-        </div>
-    <p>Titre</p>
-       {{ form_widget(form.titre) }}
-       <br/><br/>
-           <p>Texte</p>
-       {{ form_widget(form.texte) }}
-       <br/><br/>
-    <button class="btn btn-success">{{ button_label|default('Modifier') }}</button>
-    {{ form_row(form._token) }}
-</form>
-    </div>
+	<div class="text-center">
+		<h1>Modifier l'information de l'accueil "{{information_accueil.emplacement}}"</h1>
+		<a class="btn btn-secondary" href="{{ path('information_accueil_index') }}">Retour</a>
+		<br/>
+		<br/>
+
+		<form name="information_accueil" method="post">
+			<div style="display:none">
+				{{ form_widget(form.emplacement) }}
+			</div>
+			<p>Titre</p>
+			{{ form_widget(form.titre) }}
+			<br/><br/>
+			<p>Texte</p>
+			{{ form_widget(form.texte) }}
+			<br/><br/>
+			<p>Logo</p>
+			{{ form_widget(form.logo) }}
+			<br/><br/>
+			<button class="btn btn-success">{{ button_label|default('Modifier') }}</button>
+			{{ form_row(form._token) }}
+		</form>
+	</div>
+
+<br/><br/><br/>
+	<div class="container">
+		<div class="row">
+
+			{% for logo in logoListe%}
+				<div class="col-sm">
+									<div class="card">
+					<i style="font-size:50px;" class="{{ logo.nom }}"></i>
+					<div class="card-body">
+						<h5 class="card-title">{{ logo.nom }}</h5>
+					</div>
+				</div>
+				</div>
+
+
+			{% endfor %}
+		</div>
+	</div>
 {% endblock %}

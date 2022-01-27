@@ -11,6 +11,7 @@
 				<th>Emplacement</th>
 				<th>Titre</th>
 				<th>Texte</th>
+				<th>Logo</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -29,6 +30,7 @@
 					<td>{{ information_accueil.emplacement }}</td>
 					<td>{{ information_accueil.titre }}</td>
 					<td>{{ information_accueil.texte }}</td>
+					<td><i style="font-size:50px;" class="{{ information_accueil.logo }}"></i></td>
 				</tr>
 			{% else %}
 				<tr>
