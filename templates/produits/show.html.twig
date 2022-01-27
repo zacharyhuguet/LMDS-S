@@ -8,7 +8,7 @@
 				<img src="/imagesProduits/{{produit.image }}"/>
 			</div>
 			<div class="product-detail">
-				<h1 class="product__title">{{ produit.titre }}</h1>
+				<h1 class="product__title">{{ produit.marque }} {{ produit.modele }}</h1>
 				<div class="product__price">
 					{% if produit.ancienPrix is not empty %}
 						<em>{{ produit.ancienPrix }}&nbsp;€

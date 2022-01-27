@@ -91,7 +91,8 @@ class ProduitsAdminController extends AbstractController
     public function edit(Request $request, Produits $produit, EntityManagerInterface $entityManager): Response
     {
         $form = $this->createFormBuilder($produit)
-        ->add('titre')
+        ->add('marque')
+        ->add('modele')
         ->add('description',TextareaType::class)
         ->add('ancienPrix')
         ->add('prix')

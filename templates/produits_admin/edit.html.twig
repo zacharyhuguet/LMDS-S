@@ -2,13 +2,16 @@
 
 {% block body %}
 	<div class="text-center">
-		<h1>Modifier le produit "{{produit.titre}}"</h1>
+		<h1>Modifier le produit "{{produit.marque}} {{produit.modele}}"</h1>
 		<a class="btn btn-secondary" href="{{ path('produits_admin_index') }}">Retour</a>
 		<br/>
 		<br/>
 			<form name="produits" method="post">
-		<p>Titre</p>
-		{{ form_widget(form.titre) }}
+		<p>Marque</p>
+		{{ form_widget(form.marque) }}
+		<br/><br/>
+		<p>Modele</p>
+		{{ form_widget(form.modele) }}
 		<br/><br/>
 		<p>Description</p>
 		{{ form_widget(form.description) }}
