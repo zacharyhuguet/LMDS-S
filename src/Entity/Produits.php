@@ -20,7 +20,13 @@ class Produits
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $titre;
+    private $marque;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $modele;
+
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -62,14 +68,25 @@ class Produits
         return $this->id;
     }
 
-    public function getTitre(): ?string
+    public function getMarque(): ?string
     {
-        return $this->titre;
+        return $this->marque;
     }
 
-    public function setTitre(string $titre): self
+    public function setMarque(string $marque): self
     {
-        $this->titre = $titre;
+        $this->marque = $marque;
+
+        return $this;
+    }
+    public function getModele(): ?string
+    {
+        return $this->modele;
+    }
+
+    public function setModele(string $modele): self
+    {
+        $this->modele = $modele;
 
         return $this;
     }

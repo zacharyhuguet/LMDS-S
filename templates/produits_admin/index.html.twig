@@ -10,7 +10,8 @@
 			<tr style='text-align:center; background-color:#212529; color:white;'>
 				<th>Actions</th>
 				<th>ID</th>
-				<th>Titre</th>
+				<th>Marque</th>
+				<th>Modele</th>
 				<th>Description</th>
 				<th>AncienPrix</th>
 				<th>Prix</th>
@@ -35,7 +36,8 @@
 						{{ include('produits_admin/_delete_form.html.twig') }}
 					</td>
 					<td>{{ produit.id }}</td>
-					<td>{{ produit.titre }}</td>
+					<td>{{ produit.marque }}</td>
+					<td>{{ produit.modele }}</td>
 					<td>{{ produit.description }}</td>
 
 					<td style="text-align:right;">{{ produit.ancienPrix }}
