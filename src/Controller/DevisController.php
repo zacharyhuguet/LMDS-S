@@ -116,25 +116,28 @@ class DevisController extends AbstractController
     {
         $devis = new Devis();
         $session = $this->requestStack->getSession();
-        $value = $request->get('devis_step3');
-        $session->set('modele', $value['modele']);
-        $marque2 = $session->get('marque');
-        $marque = (int)$marque2;
+        $marque = $session->get('marque');
+        $form = $this->createForm(DevisStep3Type::class, $devis, array('marque' => $marque));
         dump($marque);
-        $form = $this->createFormBuilder($devis)
-        ->add('modele', EntityType::class, array(
-            'class' => Modele::class,
-            'choice_label' => 'nom_modele',
-            'placeholder' => '=== Choisir un modèle ===',
-            'choice_value' => 'nom_modele',
-            'query_builder' => function (ModeleRepository $modele) {
-                return $modele->createQueryBuilder('m')
-                    ->andWhere('m.marque = :marque')
-                    ->setParameter('marque', $marque)
-                    ;
-            },
-        ))->add('Etape_suivante', SubmitType::class)
-        ->getForm();
+        // $session->set('modele', $value['modele']);
+        // $marque2 = $session->get('marque');
+        // $marque = (int)$marque2;
+        // dump($marque);
+
+        // $form = $this->createFormBuilder($devis)
+        // ->add('modele', EntityType::class, array(
+        //     'class' => Modele::class,
+        //     'choice_label' => 'nom_modele',
+        //     'placeholder' => '=== Choisir un modèle ===',
+        //     'choice_value' => 'nom_modele',
+        //     'query_builder' => function (ModeleRepository $modele) {
+        //         return $modele->createQueryBuilder('m')
+        //             ->Where('m.marque = :marque')
+        //             ->setParameter('marque', $value)
+        //             ;
+        //     },
+        // ))->add('Etape_suivante', SubmitType::class)
+        // ->getForm();
         
 
         $form->HandleRequest($request);
@@ -229,11 +232,13 @@ class DevisController extends AbstractController
         $devis = new Devis();
         $form = $this->createForm(DevisStep6Type::class, $devis);
         $session = $this->requestStack->getSession();
+        if (is_numeric($session->get('marque'))) {
+            $marquesession = $session->get('marque');
+            $marquesession2 = $marque->findMarque($marquesession);
+            $session->set('marque', $marquesession2);
+        }
         if ($form->isSubmitted() && $form->isValid()) {
             return $this->redirectToRoute('devis_7');
-        }
-        if (is_numeric($session->get('marque'))) {
-            $_SESSION['marque'] = $marque->findMarque($_SESSION['marque']);
         }
         return $this->render('devis/devis_6.html.twig', [
             'controller_name' => 'DevisController',
