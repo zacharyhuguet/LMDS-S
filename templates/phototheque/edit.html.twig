@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Phototheque{% endblock %}
+
+{% block body %}
+    <h1>Edit Phototheque</h1>
+
+    {{ include('phototheque/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('phototheque_index') }}">back to list</a>
+
+    {{ include('phototheque/_delete_form.html.twig') }}
+{% endblock %}

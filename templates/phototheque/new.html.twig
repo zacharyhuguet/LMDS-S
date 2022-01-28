@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Phototheque{% endblock %}
+
+{% block body %}
+    <h1>Create new Phototheque</h1>
+
+    {{ include('phototheque/_form.html.twig') }}
+
+    <a href="{{ path('phototheque_index') }}">back to list</a>
+{% endblock %}

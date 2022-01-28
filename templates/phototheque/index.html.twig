@@ -1,0 +1,35 @@
+{% extends 'magasin.html.twig' %}
+
+{% block body %}
+    <h1>Phototheque index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Titre</th>
+                <th>Image</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for phototheque in phototheques %}
+            <tr>
+                <td>{{ phototheque.id }}</td>
+                <td>{{ phototheque.titre }}</td>
+                <td>{{ phototheque.image }}</td>
+                <td>
+                    <a href="{{ path('phototheque_show', {'id': phototheque.id}) }}">show</a>
+                    <a href="{{ path('phototheque_edit', {'id': phototheque.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('phototheque_new') }}">Create new</a>
+{% endblock %}
