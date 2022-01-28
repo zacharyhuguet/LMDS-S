@@ -60,7 +60,7 @@ class DevisAdminController extends AbstractController
         ]);
     }
     /**
-     * @Route("/{id}/repondre-devis", name="devis_admin_repondre_devis", methods={"POST"})
+     * @Route("/{id}/repondre-devis", name="devis_admin_repondre_devis", methods={"GET", "POST"})
      */
     public function repondreDevis(Request $request, Devis $devi): Response
     {
@@ -79,7 +79,11 @@ class DevisAdminController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            dump($request);
+            $value = $request->get('form');
+            $probleme1 = $value['PrixProbleme1'];
+            $probleme2 = $value['PrixProbleme2'];
+            $probleme3 = $value['PrixProbleme3'];
+            dump($value);
 
         }
         return $this->render('devis_admin/repondre-devis.html.twig', [
