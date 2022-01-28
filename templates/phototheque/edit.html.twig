@@ -1,13 +1,18 @@
-{% extends 'base.html.twig' %}
-
-{% block title %}Edit Phototheque{% endblock %}
+{% extends 'magasin.html.twig' %}
 
 {% block body %}
-    <h1>Edit Phototheque</h1>
-
-    {{ include('phototheque/_form.html.twig', {'button_label': 'Update'}) }}
-
-    <a href="{{ path('phototheque_index') }}">back to list</a>
-
-    {{ include('phototheque/_delete_form.html.twig') }}
+	<div class="text-center">
+		<h1>Modifier le produit "{{phototheque.titre}}"</h1>
+		<a class="btn btn-secondary" href="{{ path('phototheque_index') }}">Retour</a>
+		<br/>
+		<br/>
+			<form name="phototheque" method="post">
+		<p>Titre</p>
+		{{ form_widget(form.titre) }}
+		<br/><br/>
+		<button class="btn btn-success">{{ button_label|default('Modifier') }}</button>
+		{{ form_row(form._token) }}
+		</form>
+	</div>
 {% endblock %}
+

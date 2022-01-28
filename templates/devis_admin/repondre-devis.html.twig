@@ -1,0 +1,111 @@
+{% extends 'magasin.html.twig' %}
+
+
+{% block body %}
+	<h1 class="text-center">Répondre au devis :</h1>
+	<div style="width:100% !important;" class="container">
+		<div class="row">
+			<div class="col-3">
+				<div class="card">
+					<div class="card-body">
+						<h5 class="card-title">Date</h5>
+						<h5 class="card-text">
+							{{ devi.date ? devi.date|date('Y-m-d') : '' }}</h5>
+					</div>
+				</div>
+			</div>
+			<div class="col-3">
+				<div class="card">
+					<div class="card-body">
+						<h5 class="card-title">Nom</h5>
+						<h5 class="card-text">{{ devi.Nom}}</h5>
+					</div>
+				</div>
+			</div>
+			<div class="col-3">
+				<div class="card">
+					<div class="card-body">
+						<h5 class="card-title">Prénom</h5>
+						<h5 class="card-text">{{ devi.prenom}}</h5>
+					</div>
+				</div>
+			</div>
+			<div class="col-3">
+				<div class="card">
+					<div class="card-body">
+						<h5 class="card-title">Email</h5>
+						<h5 class="card-text">{{ devi.email}}</h5>
+					</div>
+				</div>
+			</div>
+			<div class="col-3">
+				<div class="card">
+					<div class="card-body">
+						<h5 class="card-title">Téléphone</h5>
+						<h5 class="card-text">{{ devi.telephone}}</h5>
+					</div>
+				</div>
+			</div>
+            <div class="col-3">
+				<div class="card">
+					<div class="card-body">
+						<h5 class="card-title">Marque</h5>
+						<h5 class="card-text">{{ devi.marque}}</h5>
+					</div>
+				</div>
+			</div>
+            <div class="col-3">
+				<div class="card">
+					<div class="card-body">
+						<h5 class="card-title">Modele</h5>
+						<h5 class="card-text">{{ devi.modele}}</h5>
+					</div>
+				</div>
+			</div>
+            <div class="col-3">
+				<div class="card">
+					<div class="card-body">
+						<h5 class="card-title">Probleme 1</h5>
+						<h5 class="card-text">{{ devi.probleme1}}</h5>
+					</div>
+				</div>
+			</div>
+            <div class="col-3">
+				<div class="card">
+					<div class="card-body">
+						<h5 class="card-title">Probleme 2</h5>
+						<h5 class="card-text">{{ devi.probleme2}}</h5>
+					</div>
+				</div>
+			</div>
+            <div class="col-3">
+				<div class="card">
+					<div class="card-body">
+						<h5 class="card-title">Probleme 3</h5>
+						<h5 class="card-text">{{ devi.probleme3}}</h5>
+					</div>
+				</div>
+			</div>
+            <div class="col-3">
+				<div class="card">
+					<div class="card-body">
+						<h5 class="card-title">Commentaire</h5>
+						<h5 class="card-text">{{ devi.commentaire}}</h5>
+					</div>
+				</div>
+			</div>
+            <div class="col-3">
+				<div class="card">
+					<div class="card-body">
+						<h5 class="card-title">Protection écran</h5>
+						<h5 class="card-text">{{ devi.protection}}</h5>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+    <br/><br/>
+    <div class="text-center">
+    {{form(form)}}
+    </div>
+{% endblock %}

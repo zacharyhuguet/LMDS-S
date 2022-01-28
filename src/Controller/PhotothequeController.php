@@ -89,7 +89,9 @@ class PhotothequeController extends AbstractController
      */
     public function edit(Request $request, Phototheque $phototheque, EntityManagerInterface $entityManager): Response
     {
-        $form = $this->createForm(PhotothequeType::class, $phototheque);
+        $form = $this->createFormBuilder($phototheque)
+        ->add('titre')
+        ->getForm();
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {

@@ -1,11 +1,38 @@
-{% extends 'base.html.twig' %}
-
-{% block title %}New Phototheque{% endblock %}
+{% extends 'magasin.html.twig' %}
 
 {% block body %}
-    <h1>Create new Phototheque</h1>
+	<div class="text-center">
+		<h1>Ajouter une image à la photothèque</h1>
+		<a class="btn btn-secondary" href="{{ path('phototheque_index') }}">Retour</a>
+		<br/>
+		<br/>
+		{{ form_start(form) }}
+		<p>Titre</p>
+		{{ form_widget(form.titre) }}
+		<br/><br/>
+		<p>Image</p>
+		<div class='file file--upload'>
+			<label for='input-file'>
+				<i class="fas fa-upload"></i>Upload
+			</label>
+			{{ form_widget(form.image, {'id': 'input-file'}) }}
+			<span id="file-chosen">Aucun fichier</span>
+		</div>
+		<br/><br/>
+		<button class="btn btn-success">{{ button_label|default('Ajouter') }}</button>
+		{{ form_row(form._token) }}
+		{{ form_end(form) }}
+	</div>
+	<br/><br/>
+	<script>
+	const actualBtn = document.getElementById('input-file');
 
-    {{ include('phototheque/_form.html.twig') }}
+const fileChosen = document.getElementById('file-chosen');
 
-    <a href="{{ path('phototheque_index') }}">back to list</a>
+actualBtn.addEventListener('change', function(){
+  fileChosen.textContent = this.files[0].name
+})
+	</script>
 {% endblock %}
+
+
