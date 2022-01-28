@@ -22,7 +22,7 @@ class DevisAdminController extends AbstractController
     public function index(DevisRepository $devisRepository): Response
     {
         return $this->render('devis_admin/index.html.twig', [
-            'devis' => $devisRepository->findAll(),
+            'devis' => $devisRepository->findByDate(),
         ]);
     }
 
