@@ -117,7 +117,6 @@ class DevisController extends AbstractController
         $devis = new Devis();
         $session = $this->requestStack->getSession();
         $value = $request->get('devis_step3');
-        $session = $this->requestStack->getSession();
         $session->set('modele', $value['modele']);
         $marque2 = $session->get('marque');
         $marque = (int)$marque2;
