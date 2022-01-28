@@ -14,31 +14,13 @@ use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 
 class DevisStep4Type extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
-        $builder->add('probleme1', EntityType::class, array(
-            'class' => Probleme::class,
-            'choice_label' => 'nom_probleme',
-            'placeholder' => '=== Choisir un problème ===',
-            'required' => false,
-            'choice_value' => 'nom_probleme',
-            
-        ));
-        $builder->add('probleme2', EntityType::class, array(
-            'class' => Probleme::class,
-            'choice_label' => 'nom_probleme',
-            'placeholder' => '=== Laissez vide si pas de 2ème problème ===',
-            'required' => false,
-            'choice_value' => 'nom_probleme',
-        ));
-        $builder->add('probleme3', TextType::class, [
-            'attr' => [
-                'placeholder' => '=== Autre problème (Pas dans la liste ci-dessus) ===',
-            ],
-        ]);
+        $builder->add('probleme', TextareaType::class);
         $builder->add('Etape_suivante', SubmitType::class);   
         
     }

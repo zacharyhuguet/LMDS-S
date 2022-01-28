@@ -116,7 +116,9 @@ class DevisController extends AbstractController
     {
         $devis = new Devis();
         $session = $this->requestStack->getSession();
-
+        $value = $request->get('devis_step3');
+        $session = $this->requestStack->getSession();
+        $session->set('modele', $value['modele']);
         $marque2 = $session->get('marque');
         $marque = (int)$marque2;
         dump($marque);
@@ -180,12 +182,8 @@ class DevisController extends AbstractController
         $form->HandleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
             $value = $request->get('devis_step4');
-            if (empty($value['probleme1']) && empty($value['probleme2']) && empty($value['probleme3'])) {
-                return $this->redirectToRoute('devis_4');
-            }
-            $_SESSION['probleme1'] = $value['probleme1'];
-            $_SESSION['probleme2'] = $value['probleme2'];
-            $_SESSION['probleme3'] = $value['probleme3'];
+            $session = $this->requestStack->getSession();
+            $session->set('probleme', $value['probleme']);
             return $this->redirectToRoute('devis_5');
         }
         return $this->render('devis/devis_4.html.twig', [
@@ -204,20 +202,19 @@ class DevisController extends AbstractController
         $form->HandleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
             $value = $request->get('devis_step5');
-
-                if ($step5['commentaire'] != "") {
-                    $_SESSION['commentaire'] = $value['commentaire'];
-                } else {
-                    $_SESSION['commentaire'] = 'Aucun commentaire';
-                }
-
-            if (isset($step5['protection'])) {
-                $protection = "Oui, je veux la protection d'écran Invisible Shield et profitez de 5% sur mon devis !";
-                $_SESSION['protection'] = "Oui";
+            $session = $this->requestStack->getSession();
+            if ($value['commentaire'] == ""){
+                $value['commentaire'] = "Aucun Commentaire";
+            } 
+            if (!isset($value['protection'] ) || $value['protection'] == ""){
+                $value['protection'] = "Non";
             } else {
-                $protection = "Non, je ne veux pas de protection d'écran Invisible Shield !";
-                $_SESSION['protection'] = "Non";
+                $value['protection'] = "Oui";
             }
+            
+            $session->set('commentaire', $value['commentaire']);
+            $session->set('protection', $value['protection']);
+
             return $this->redirectToRoute('devis_6');
         }
         return $this->render('devis/devis_5.html.twig', [
@@ -232,24 +229,25 @@ class DevisController extends AbstractController
     {
         $devis = new Devis();
         $form = $this->createForm(DevisStep6Type::class, $devis);
-
-        if (is_numeric($_SESSION['marque'])) {
+        $session = $this->requestStack->getSession();
+        if ($form->isSubmitted() && $form->isValid()) {
+            return $this->redirectToRoute('devis_7');
+        }
+        if (is_numeric($session->get('marque'))) {
             $_SESSION['marque'] = $marque->findMarque($_SESSION['marque']);
         }
         return $this->render('devis/devis_6.html.twig', [
             'controller_name' => 'DevisController',
             'form' => $form->createView(),
-            'nom' => $_SESSION['nom'],
-            'prenom' => $_SESSION['prenom'],
-            'email' => $_SESSION['email'],
-            'telephone' => $_SESSION['telephone'],
-            'marque' => $_SESSION['marque'],
-            'modele' => $_SESSION['modele'],
-            'probleme1' => $_SESSION['probleme1'],
-            'probleme2' => $_SESSION['probleme2'],
-            'probleme3' => $_SESSION['probleme3'],
-            'commentaire' => $_SESSION['commentaire'],
-            'protection' => $protection,
+            'nom' => $session->get('nom'),
+            'prenom' => $session->get('prenom'),
+            'email' => $session->get('email'),
+            'telephone' => $session->get('telephone'),
+            'marque' => $session->get('marque'),
+            'modele' => $session->get('modele'),
+            'probleme' => $session->get('probleme'),
+            'commentaire' => $session->get('commentaire'),
+            'protection' => $session->get('protection'),
         ]);
     }
     /**
@@ -266,9 +264,7 @@ class DevisController extends AbstractController
         $devis->setTelephone($_SESSION['telephone']);
         $devis->setMarque($_SESSION['marque']);
         $devis->setModele($_SESSION['modele']);
-        $devis->setProbleme1($_SESSION['probleme1']);
-        $devis->setProbleme2($_SESSION['probleme2']);
-        $devis->setProbleme3($_SESSION['probleme3']);
+        $devis->setProbleme($_SESSION['probleme']);
         $devis->setCommentaire($_SESSION['commentaire']);
         $devis->setProtection($_SESSION['protection']);
 
