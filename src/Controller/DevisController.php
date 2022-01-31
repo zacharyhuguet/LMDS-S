@@ -61,12 +61,10 @@ class DevisController extends AbstractController
         $form->HandleRequest($request);
         
         $step1 = $request->get('devis_step1');
-        if (isset($step1)){
             $_SESSION['nom'] = $step1['nom'];
             $_SESSION['prenom'] = $step1['prenom'];
             $_SESSION['email'] = $step1['email'];
             $_SESSION['telephone'] = $step1['telephone'];
-        }
 
 
         return $this->render('devis/devis_2.html.twig', [
@@ -81,6 +79,7 @@ class DevisController extends AbstractController
     {
         $devis = new Devis();
         $form = $this->createForm(DevisStep2bType::class, $devis);
+        $_SESSION['nom'] = $_SESSION['nom'];
         return $this->render('devis/devis_2b.html.twig', [
             'controller_name' => 'DevisController',
             'form' => $form->createView(),
@@ -134,6 +133,7 @@ class DevisController extends AbstractController
         if (isset($step3)){
             $_SESSION['marque'] = $step3['marque'];
         }
+        $_SESSION['marque'] =  $_SESSION['marque'];
 
 
         return $this->render('devis/devis_3b.html.twig', [
@@ -157,6 +157,7 @@ class DevisController extends AbstractController
         if (isset($step3b)){
             $_SESSION['modele'] = $step3b['modele'];
         }
+        $_SESSION['modele'] = $_SESSION['modele'];
         return $this->render('devis/devis_4.html.twig', [
             'controller_name' => 'DevisController',
             'form' => $form->createView(),

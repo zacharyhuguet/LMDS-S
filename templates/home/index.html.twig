@@ -22,7 +22,10 @@
 					<h1>{{ info.titre }}</h1>
 					<h3>{{ info.texte }}</h3>
 				</div>
+				{% else %}
+				<h3 class="text-center">Les informations sont indisponibles</h3>
 			{% endfor %}
+			
 		</div>
 	</div>
 
@@ -42,7 +45,8 @@
 						<div class="desc">{{ phototheque.titre }}</div>
 					</div>
 				</div>
-
+				{% else %}
+				<h3 class="text-center">La photothèque est indisponible</h3>
 
 			{% endfor %}
 

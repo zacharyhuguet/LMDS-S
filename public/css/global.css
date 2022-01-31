@@ -16,6 +16,11 @@
       font-family: "PT Sans", sans-serif;
  
   }
+  .text-center{
+    text-align: center;
+    display:block;
+    margin:0 auto;
+}
 
 
 
