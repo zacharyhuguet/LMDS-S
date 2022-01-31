@@ -10,6 +10,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
@@ -64,11 +65,20 @@ class DevisAdminController extends AbstractController
      */
     public function repondreDevis(Request $request, Devis $devi): Response
     {
-        $defaultData = ['message' => 'message 1'];
+        $defaultData = ['message' => 'repondreDevis'];
         $form = $this->createFormBuilder($defaultData)
-        ->add('PrixProbleme1', TextType::class,['required' => false])
-        ->add('PrixProbleme2', TextType::class,['required' => false])
-        ->add('PrixProbleme3', TextType::class,['required' => false])
+        ->add('Prestation1', TextType::class,)
+        ->add('Quantite1', NumberType::class)
+        ->add('Prix1', NumberType::class)
+
+        ->add('Prestation2', TextType::class,['required' => false])
+        ->add('Quantite2', NumberType::class,['required' => false])
+        ->add('Prix2', NumberType::class,['required' => false])
+
+        ->add('Prestation3', TextType::class,['required' => false])
+        ->add('Quantite3', NumberType::class,['required' => false])
+        ->add('Prix3', NumberType::class,['required' => false])
+
         ->add('save', SubmitType::class,[
             'attr' => ['class' => 'btn btn-success'],
             'label' => 'Répondre'
@@ -79,12 +89,22 @@ class DevisAdminController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $value = $request->get('form');
-            $probleme1 = $value['PrixProbleme1'];
-            $probleme2 = $value['PrixProbleme2'];
-            $probleme3 = $value['PrixProbleme3'];
-            dump($value);
-
+    
+            $repondreDevis = $form->getData();
+            $prestation1 = $repondreDevis['Prestation1'];
+            $quantite1 = $repondreDevis['Quantite1'];
+            $prix1 = $repondreDevis['Prix1'];
+            if (isset($repondreDevis['Prestation2']) && isset($repondreDevis['Quantite2']) && isset($repondreDevis['Prix2'])){
+                $prestation2 = $repondreDevis['Prestation2'];
+                $quantite2 = $repondreDevis['Quantite2'];
+                $prix2 = $repondreDevis['Prix2'];         
+            }
+            if (isset($repondreDevis['Prestation3']) && isset($repondreDevis['Quantite3']) && isset($repondreDevis['Prix3'])){
+                $prestation3 = $repondreDevis['Prestation3'];
+                $quantite3 = $repondreDevis['Quantite3'];
+                $prix3 = $repondreDevis['Prix3'];       
+            }
+            
         }
         return $this->render('devis_admin/repondre-devis.html.twig', [
             'devi' => $devi,

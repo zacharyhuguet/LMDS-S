@@ -133,7 +133,7 @@ class DevisController extends AbstractController
         if (isset($step3)){
             $_SESSION['marque'] = $step3['marque'];
         }
-        $_SESSION['marque'] =  $_SESSION['marque'];
+        
 
 
         return $this->render('devis/devis_3b.html.twig', [
