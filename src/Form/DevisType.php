@@ -20,9 +20,7 @@ class DevisType extends AbstractType
             ->add('telephone')
             ->add('marque')
             ->add('modele')
-            ->add('probleme1')
-            ->add('probleme2')
-            ->add('probleme3')
+            ->add('probleme')
             ->add('commentaire')
             ->add('protection')
         ;

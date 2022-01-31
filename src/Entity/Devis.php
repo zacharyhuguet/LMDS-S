@@ -60,17 +60,7 @@ class Devis
     /**
      * @ORM\Column(type="string", length=50)
      */
-    private $probleme1;
-
-    /**
-     * @ORM\Column(type="string", length=50)
-     */
-    private $probleme2;
-
-    /**
-     * @ORM\Column(type="string", length=50)
-     */
-    private $probleme3;
+    private $probleme;
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -183,38 +173,14 @@ class Devis
         return $this;
     }
 
-    public function getProbleme1(): ?string
+    public function getProbleme(): ?string
     {
-        return $this->probleme1;
+        return $this->probleme;
     }
 
-    public function setProbleme1(string $probleme1): self
+    public function setProbleme1(string $probleme): self
     {
-        $this->probleme1 = $probleme1;
-
-        return $this;
-    }
-
-    public function getProbleme2(): ?string
-    {
-        return $this->probleme2;
-    }
-
-    public function setProbleme2(string $probleme2): self
-    {
-        $this->probleme2 = $probleme2;
-
-        return $this;
-    }
-
-    public function getProbleme3(): ?string
-    {
-        return $this->probleme3;
-    }
-
-    public function setProbleme3(string $probleme3): self
-    {
-        $this->probleme3 = $probleme3;
+        $this->probleme = $probleme;
 
         return $this;
     }

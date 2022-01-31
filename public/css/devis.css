@@ -101,6 +101,10 @@
   -moz-appearance: none;
   -webkit-appearance: none;
 }
+.form-devis textarea {
+  height:250px;
+  resize: none;
+}
 .form-devis input[type="checkbox"]:valid,
 .form-devis input[type="checkbox"]:invalid {
   border: none;

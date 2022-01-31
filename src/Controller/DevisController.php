@@ -172,30 +172,9 @@ class DevisController extends AbstractController
         $form = $this->createForm(DevisStep5Type::class, $devis);
         $form->HandleRequest($request);
         $step4 = $request->get('devis_step4');
-        if (empty($step4['probleme1']) && empty($step4['probleme2']) && empty($step4['probleme3'])){
-            return $this->redirectToRoute('devis_4');
-        }
-        if (isset($step4['probleme1'])) {
-            if ($step4['probleme1'] != "") {
-                $_SESSION['probleme1'] = $step4['probleme1'];
-            } else {
-                $_SESSION['probleme1'] = 'Non';
-            }
-        }
-        if (isset($step4['probleme2'])) {
-            if ($step4['probleme2'] != "") {
-                $_SESSION['probleme2'] = $step4['probleme2'];
-            } else {
-                $_SESSION['probleme2'] = 'Non';
-            }
-        }
-        if (isset($step4['probleme3'])) {
-            if ($step4['probleme3'] != "") {
-                $_SESSION['probleme3'] = $step4['probleme3'];
-            } else {
-                $_SESSION['probleme3'] = 'Non';
-            }
-        }
+        $_SESSION['probleme'] = $step4['probleme'];
+          
+      
         return $this->render('devis/devis_5.html.twig', [
             'controller_name' => 'DevisController',
             'form' => $form->createView(),
@@ -236,9 +215,7 @@ class DevisController extends AbstractController
             'telephone' => $_SESSION['telephone'],
             'marque' => $_SESSION['marque'],
             'modele' => $_SESSION['modele'],
-            'probleme1' => $_SESSION['probleme1'],
-            'probleme2' => $_SESSION['probleme2'],
-            'probleme3' => $_SESSION['probleme3'],
+            'probleme' => $_SESSION['probleme'],
             'commentaire' => $_SESSION['commentaire'],
             'protection' => $protection,
         ]);
@@ -257,9 +234,7 @@ class DevisController extends AbstractController
         $devis->setTelephone($_SESSION['telephone']);
         $devis->setMarque($_SESSION['marque']);
         $devis->setModele($_SESSION['modele']);
-        $devis->setProbleme1($_SESSION['probleme1']);
-        $devis->setProbleme2($_SESSION['probleme2']);
-        $devis->setProbleme3($_SESSION['probleme3']);
+        $devis->setProbleme1($_SESSION['probleme']);
         $devis->setCommentaire($_SESSION['commentaire']);
         $devis->setProtection($_SESSION['protection']);
 
