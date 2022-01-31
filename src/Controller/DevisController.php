@@ -117,7 +117,7 @@ class DevisController extends AbstractController
         $devis = new Devis();
         $session = $this->requestStack->getSession();
         $marque = $session->get('marque');
-        $form = $this->createForm(DevisStep3Type::class, $devis, array('marque' => $marque));
+        $form = $this->createForm(DevisStep3Type::class, $devis);
         dump($marque);
         // $session->set('modele', $value['modele']);
         // $marque2 = $session->get('marque');
