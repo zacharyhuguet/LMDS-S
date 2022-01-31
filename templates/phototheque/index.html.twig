@@ -1,0 +1,37 @@
+{% extends 'magasin.html.twig' %}
+
+{% block body %}
+	<h1 class="text-center">Affichage de la photothèque</h1>
+
+	<a class="btn btn-success" href="{{ path('phototheque_new') }}">Ajouter une image</a>
+	<br/><br/>
+	<table class="table table-bordered table-striped table-responsive-stack">
+		<thead>
+			<tr style='text-align:center; background-color:#212529; color:white;'>
+				<th>Actions</th>
+				<th>Titre</th>
+				<th>Image</th>
+			</tr>
+		</thead>
+		<tbody>
+        {% for phototheque in phototheques %}
+			<tr>
+				<td>
+					<a class='btn btn-warning' href="{{ path('phototheque_edit', {'id': phototheque.id}) }}">
+						<i class='fas fa-pen'></i>
+					</a>
+					{{ include('phototheque/_delete_form.html.twig') }}
+				</td>
+				
+
+					<td>{{ phototheque.titre }}</td>
+					<td><img style="height:75px;" src="/imagesPhototheques/{{ phototheque.image }}"/>{{ phototheque.image }}</td>
+				</tr>
+			{% else %}
+				<tr>
+					<td colspan="3">Aucune image de photothèque disponible</td>
+				</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+{% endblock %}

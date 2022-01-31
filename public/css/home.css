@@ -144,8 +144,10 @@
 }
 
 .phototheque div.gallery img {
-    width: 100%;
-    height: auto;
+    margin:0 auto;
+    display:block;
+    height: 400px;
+
 }
 
 .phototheque div.desc {

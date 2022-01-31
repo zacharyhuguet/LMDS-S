@@ -1,0 +1,7 @@
+<form method="post" action="{{ path('phototheque_delete', {'id': phototheque.id}) }}" onsubmit="return confirm('Etes-vous sûr de vouloir supprimer cette image de la photothèque ({{phototheque.titre}}) ?');">
+    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ phototheque.id) }}">
+    <button class='btn btn-danger'><i class='fas fa-trash-alt'></i></button>
+</form>
+
+
+
