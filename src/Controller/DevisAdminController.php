@@ -93,9 +93,10 @@ class DevisAdminController extends AbstractController
         $form = $this->createForm(Devis1Type::class, $devi);
         $form->handleRequest($request);
 
+        
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager->persist($devi);
-            $entityManager->flush();
+            $entityManager->flush(); 
 
             return $this->redirectToRoute('devis_admin_index', [], Response::HTTP_SEE_OTHER);
         }
