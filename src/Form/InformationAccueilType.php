@@ -20,7 +20,7 @@ class InformationAccueilType extends AbstractType
             ->add('logo', EntityType::class, array(
                 'class' => FontAwesome::class,
                 'choice_label' => 'nom',
-                'choice_value' => 'nom'
+                'choice_value' => 'nom',
             ));
     }
 
