@@ -25,6 +25,7 @@
 			{% for devi in devis %}
 				<tr>
 					<td>
+					<a target="_blank"href="devis-reponse/Devis-{{devi.id}}-{{devi.nom}}-{{devi.prenom}}.pdf">PDF</a>
 						<a class='btn btn-primary mb-2' href='{{ path('devis_admin_show', {'id': devi.id}) }}'>
 							<i class='fas fa-eye'></i>
 						</a>

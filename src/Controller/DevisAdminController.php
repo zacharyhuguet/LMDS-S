@@ -124,15 +124,12 @@ class DevisAdminController extends AbstractController
         $defaultData = ['message' => 'repondreDevis'];
         $form = $this->createFormBuilder($defaultData)
             ->add('Prestation1', TextType::class, )
-            ->add('Quantite1', NumberType::class)
             ->add('Prix1', NumberType::class)
 
             ->add('Prestation2', TextType::class, ['required' => false])
-            ->add('Quantite2', NumberType::class, ['required' => false])
             ->add('Prix2', NumberType::class, ['required' => false])
 
             ->add('Prestation3', TextType::class, ['required' => false])
-            ->add('Quantite3', NumberType::class, ['required' => false])
             ->add('Prix3', NumberType::class, ['required' => false])
 
             ->add('save', SubmitType::class, [
@@ -145,33 +142,28 @@ class DevisAdminController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $repondreDevis = $form->getData();
             $prestation1 = $repondreDevis['Prestation1'];
-            $quantite1 = $repondreDevis['Quantite1'];
             $prix1 = $repondreDevis['Prix1'];
             $prix1HT = $prix1;
             $prix1TTC = $prix1 * 1.2;
-            if (isset($repondreDevis['Prestation2']) && isset($repondreDevis['Quantite2']) && isset($repondreDevis['Prix2'])) {
+            if (isset($repondreDevis['Prestation2']) && isset($repondreDevis['Prix2'])) {
                 $prestation2 = $repondreDevis['Prestation2'];
-                $quantite2 = $repondreDevis['Quantite2'];
                 $prix2 = $repondreDevis['Prix2'];
                 $prix2HT = $prix2;
                 $prix2TTC = $prix2 * 1.2;
             } else {
                 $prestation2 = " ";
-                $quantite2 = " ";
                 $prix2 = " ";
                 $prix2TTC = " ";
                 $prix2HT = 0;
             }
-            if (isset($repondreDevis['Prestation3']) && isset($repondreDevis['Quantite3']) && isset($repondreDevis['Prix3'])) {
+            if (isset($repondreDevis['Prestation3']) && isset($repondreDevis['Prix3'])) {
                 $prestation3 = $repondreDevis['Prestation3'];
-                $quantite3 = $repondreDevis['Quantite3'];
                 $prix3 = $repondreDevis['Prix3'];
                 $prix3HT = $prix3;
                 $prix3TTC = $prix3 * 1.2;
             }
             else {
                 $prestation3 = " ";
-                $quantite3 = " ";
                 $prix3 = " ";
                 $prix3TTC = " ";
                 $prix3HT = 0;
@@ -252,21 +244,21 @@ class DevisAdminController extends AbstractController
     <tr>
       <th scope='row'>N°1</th>
       <td>".$prestation1."</td>
-      <td>".$quantite1."</td>
+      <td>1</td>
       <td>".$prix1."</td>
       <td>".$prix1TTC."</td>
     </tr>
     <tr>
       <th scope='row'>N°2</th>
       <td>".$prestation2."</td>
-      <td>".$quantite2."</td>
+      <td>1</td>
       <td>".$prix2."</td>
       <td>".$prix2TTC."</td>
     </tr>
     <tr>
       <th scope='row'>N°3</th>
       <td>".$prestation3."</td>
-      <td>".$quantite3."</td>
+      <td>1</td>
       <td>".$prix3."</td>
       <td>".$prix3TTC."</td>
     </tr>
@@ -292,18 +284,16 @@ class DevisAdminController extends AbstractController
     <td>".$totalTTC." €<br/>".$dontTva." €</td>
     </tr>
   </tbody>
-</table>
-            "
-            ;
+</table>";
             $dompdf->loadHtml($html);
 
             $dompdf->setPaper('A4', 'portrait');
             $dompdf->render();
-            $filename = "Devis-" . $devi->getId() . "-" . $devi->getNom() . "-" . $devi->getPrenom();
-            file_put_contents('devis-reponse/' . $filename . '.pdf', $dompdf->output());
+            $filename = "Devis-".$devi->getId()."-".$devi->getNom()."-".$devi->getPrenom();
             // $dompdf->stream('devis-reponse/' . $filename . '.pdf', [
-            //     "Attachment" => true,
-            // ]);
+            // "Attachment" => true,
+            // ])
+            file_put_contents('devis-reponse/' . $filename . '.pdf', $dompdf->output());
             return $this->redirectToRoute('envoyer-mail',[
                 'nom' => $devi->getNom(),
                 'prenom' => $devi->getPrenom(),
