@@ -4,6 +4,11 @@
     text-align: center;
     margin: 60px 0;
 }
+@media screen and (max-width: 850px) {
+  .contact h1:first-child {
+      font-size: 35px !important;
+  }
+}
 
 .hr-contact {
     border: none;
@@ -30,6 +35,9 @@
     appearance: none;
     -moz-appearance: none;
     -webkit-appearance: none;
+  }
+  .form-contact textarea{
+    height:400px;
   }
   .form-contact input:focus,
   .form-contact textarea:focus {

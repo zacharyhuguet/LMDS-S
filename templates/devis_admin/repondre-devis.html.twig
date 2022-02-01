@@ -65,24 +65,8 @@
             <div class="col-3">
 				<div class="card">
 					<div class="card-body">
-						<h5 class="card-title">Probleme 1</h5>
-						<h5 class="card-text">{{ devi.probleme1}}</h5>
-					</div>
-				</div>
-			</div>
-            <div class="col-3">
-				<div class="card">
-					<div class="card-body">
-						<h5 class="card-title">Probleme 2</h5>
-						<h5 class="card-text">{{ devi.probleme2}}</h5>
-					</div>
-				</div>
-			</div>
-            <div class="col-3">
-				<div class="card">
-					<div class="card-body">
-						<h5 class="card-title">Probleme 3</h5>
-						<h5 class="card-text">{{ devi.probleme3}}</h5>
+						<h5 class="card-title">Probleme </h5>
+						<h5 class="card-text">{{ devi.probleme}}</h5>
 					</div>
 				</div>
 			</div>
@@ -106,6 +90,26 @@
 	</div>
     <br/><br/>
     <div class="text-center">
-    {{form(form)}}
-    </div>
+	{{form_start(form)}}
+	<h3>-------------- Obligatoire --------------</h3>
+    <p>Prestation 1</p>{{form_widget(form.Prestation1)}}
+	<p>Quantité 1</p>{{form_widget(form.Quantite1)}} 
+	<p>Prix 1 (HT)</p>{{form_widget(form.Prix1)}} €
+	<br/>
+	<h3>-------------- Facultatif --------------</h3>
+	<p>Prestation 2</p>{{form_widget(form.Prestation2)}}
+	<p>Quantité 2</p>{{form_widget(form.Quantite2)}}
+	<p>Prix 2 (HT)</p>{{form_widget(form.Prix2)}} €
+	<br/>
+	<h3>-------------- Facultatif --------------</h3>
+	<p>Prestation 3</p>{{form_widget(form.Prestation3)}}
+	<p>Quantité 3</p>{{form_widget(form.Quantite3)}}
+	<p>Prix 3 (HT)</p>{{form_widget(form.Prix3)}} €
+
+
+	{{ form_row(form._token) }}
+	<br/><br/>
+	{{form_end(form)}}
+	<br/><br/>
+</div>
 {% endblock %}

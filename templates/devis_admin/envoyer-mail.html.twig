@@ -1,0 +1,18 @@
+{% extends 'magasin.html.twig' %}
+
+
+{% block body %}
+  <div class="text-center">
+<h1>Envoyez mail avec devis à l'adresse mail : {{email}}</h1>
+
+	{{form_start(form)}}
+    <p>Objet du mail</p>{{form_widget(form.ObjetMail)}}
+	<p>Message du mail</p>{{form_widget(form.MessageMail)}} 
+	{{ form_row(form._token) }}
+	<br/><br/>
+	{{form_end(form)}}
+<br/><br/>
+<iframe src="/devis-reponse/{{filename}}.pdf" width="80%" height="500px" type='application/pdf'></iframe>
+</div>
+{% endblock %}
+

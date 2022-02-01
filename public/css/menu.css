@@ -92,10 +92,13 @@ nav a.nav-liens:hover:before, nav a.nav-liens:hover:after {
     .navigation-logo {
         font-size: 15px;
         padding: 30px 30px 45px 30px;
-
+    }
+}
+@media screen and (max-width: 405px) {
+    .navigation-logo {
+        font-size: 15px;
         
     }
-
 }
 @media screen and (max-width: 850px) {
     .nav-class a {

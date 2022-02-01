@@ -114,6 +114,9 @@
 }
 
 @media screen and (max-width: 850px) {
+    .conteneur h1:first-child {
+        font-size: 35px !important;
+    }
     .box-conteneur {
         flex-direction: column;
     }
