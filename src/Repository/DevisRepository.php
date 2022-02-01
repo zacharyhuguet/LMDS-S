@@ -35,6 +35,7 @@ class DevisRepository extends ServiceEntityRepository
     // /**
     //  * @return Devis[] Returns an array of Devis objects
     //  */
+
     /*
     public function findByExampleField($value)
     {
