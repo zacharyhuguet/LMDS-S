@@ -8,7 +8,7 @@
 			<tr style='text-align:center; background-color:#212529; color:white;'>
                 <th>Actions</th>
 				<th>ID</th>
-				<th>Status</th>
+				<th class='status-th'>Status</th>
 				<th>Date</th>
 				<th>Nom</th>
 				<th>Prenom</th>
@@ -36,7 +36,7 @@
 						{{ include('devis_admin/_delete_form.html.twig') }}
 					</td>
 					<td>{{ devi.id }}</td>
-					<td>{{ devi.status }}</td>
+					<td>{{ devi.status }} <a class='status-bouton btn mb-1' href='{{ path('devis_admin_changestatus', {'id': devi.id}) }}'><i class='fas fa-sync-alt'></i> </a></td>
 					<td>{{ devi.date ? devi.date|date('d/m/Y') : '' }}</td>
 					<td>{{ devi.nom }}</td>
 					<td>{{ devi.prenom }}</td>

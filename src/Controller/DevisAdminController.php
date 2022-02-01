@@ -349,4 +349,28 @@ class DevisAdminController extends AbstractController
         return $this->redirectToRoute('devis_admin_index', [], Response::HTTP_SEE_OTHER);
     }
 
+    /**
+     * @Route("/{id}/changeStatus", name="devis_admin_changestatus", methods={"GET", "POST"})
+     */
+    public function changeStatus(Request $request, Devis $devi, EntityManagerInterface $entityManager): Response
+    {
+      
+        $status = $devi->getStatus();
+        
+        if ($status == "Nouveau devis"){
+            $devi->setStatus("En cours");
+        }
+        if ($status == "En cours"){
+            $devi->setStatus("Fini");
+        }
+        if ($status == "Fini"){
+            $devi->setStatus("Nouveau devis");
+        }
+        
+        $entityManager->flush();
+
+        return $this->redirectToRoute('devis_admin_index', [], Response::HTTP_SEE_OTHER);
+        
+
+    }
 }
