@@ -25,7 +25,6 @@
 			{% for devi in devis %}
 				<tr>
 					<td>
-					<a target="_blank"href="devis-reponse/Devis-{{devi.id}}-{{devi.nom}}-{{devi.prenom}}.pdf">PDF</a>
 						<a class='btn btn-primary mb-2' href='{{ path('devis_admin_show', {'id': devi.id}) }}'>
 							<i class='fas fa-eye'></i>
 						</a>
@@ -33,6 +32,7 @@
 						<a class='btn btn-success mb-2' href='{{ path('devis_admin_repondre_devis', {'id': devi.id}) }}'>
 							<i class='fas fa-paper-plane'></i>
 						</a>
+						<a class='btn btn-secondary mb-2'target="_blank" href="/devis-reponse/Devis-{{devi.id}}-{{devi.nom}}-{{devi.prenom}}.pdf"><i class="far fa-file-pdf"></i></a>
 						<br/>
 						{{ include('devis_admin/_delete_form.html.twig') }}
 					</td>
