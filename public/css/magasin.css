@@ -64,7 +64,9 @@
   .form-magasin select:focus {
     background: #bfc8ce;
   }
-  
+  textarea{
+    height:250px;
+  }
   .status-bouton {
     float: right;
   }
