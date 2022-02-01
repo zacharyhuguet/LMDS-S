@@ -350,7 +350,7 @@ class DevisAdminController extends AbstractController
       
         $status = $devi->getStatus();
         
-        if ($status == "Nouveau devis"){
+        if ($status == "Nouveau-Devis"){
             $devi->setStatus("En cours");
         }
         if ($status == "En cours"){
