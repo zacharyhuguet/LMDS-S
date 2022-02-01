@@ -208,7 +208,8 @@ class DevisAdminController extends AbstractController
             <div class='header-pdf'>
 		    <img src='images/logo.Png'>
             <h1>La Maison Du Smartphone
-            <br/>Devis N°" . $devi->getId() . "</h1>
+            <br/>Devis N°" . $devi->getId() . "
+            <br/>".date("d/m/y")."</h1>
             </div>
             <div class='informations-client-magasin'>
             <h3>La Maison Du Smartphone</h3>
