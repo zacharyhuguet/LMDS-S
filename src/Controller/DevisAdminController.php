@@ -363,7 +363,7 @@ class DevisAdminController extends AbstractController
         if ($status == "En-cours"){
             $devi->setStatus("Nouveau-Devis");
         }
-        
+
         $entityManager->flush();
 
         return $this->redirectToRoute('devis_admin_index', [], Response::HTTP_SEE_OTHER);
