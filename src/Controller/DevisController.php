@@ -79,7 +79,6 @@ class DevisController extends AbstractController
     {
         $devis = new Devis();
         $form = $this->createForm(DevisStep2bType::class, $devis);
-        $_SESSION['nom'] = $_SESSION['nom'];
         return $this->render('devis/devis_2b.html.twig', [
             'controller_name' => 'DevisController',
             'form' => $form->createView(),
