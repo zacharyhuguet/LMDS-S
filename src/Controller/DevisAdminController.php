@@ -74,7 +74,7 @@ class DevisAdminController extends AbstractController
                     ->html($message);
                 $mailer->send($email);
                 $devi = $repository->findOneById($_GET['id']);
-                $devi->setStatus("Mail_envoyé");
+                $devi->setStatus("Mail-envoyé");
                 $entityManager->persist($devi);
                 $entityManager->flush($devi);
                 
