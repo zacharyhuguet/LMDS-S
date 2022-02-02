@@ -37,7 +37,15 @@
 						{{ include('devis_admin/_delete_form.html.twig') }}
 					</td>
 					<td>{{ devi.id }}</td>
-					<td>{{ devi.status }} <a class='status-bouton btn mb-1' href='{{ path('devis_admin_changestatus', {'id': devi.id}) }}'><i class='fas fa-sync-alt'></i> </a></td>
+					<td>{{ devi.status }} 
+					{% if devi.status != "Mail-envoyé" %}
+    									<a class='status-bouton btn mb-1' 
+					href='{{ path('devis_admin_changestatus', {'id': devi.id}) }}'>
+					<i class='fas fa-sync-alt'></i> 
+					</a>
+					{% endif %}
+
+					</td>
 					<td>{{ devi.date ? devi.date|date('d/m/Y') : '' }}</td>
 					<td>{{ devi.nom }}</td>
 					<td>{{ devi.prenom }}</td>
