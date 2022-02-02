@@ -358,13 +358,10 @@ class DevisAdminController extends AbstractController
         $status = $devi->getStatus();
         
         if ($status == "Nouveau-Devis"){
-            $devi->setStatus("En cours");
+            $devi->setStatus("En-cours");
         }
-        if ($status == "En cours"){
-            $devi->setStatus("Fini");
-        }
-        if ($status == "Fini"){
-            $devi->setStatus("Nouveau devis");
+        if ($status == "En-cours"){
+            $devi->setStatus("Nouveau-Devis");
         }
         
         $entityManager->flush();
