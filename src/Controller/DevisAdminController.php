@@ -37,7 +37,7 @@ class DevisAdminController extends AbstractController
     /**
      * @Route("/envoyer-mail", name="envoyer-mail", methods={"GET", "POST"})
      */
-    public function envoyerMail(MailerInterface $mailer,Request $request): Response
+    public function envoyerMail(MailerInterface $mailer,Request $request,DevisRepository $repository, EntityManagerInterface $entityManager): Response
     {
         $defaultData = ['message' => 'envoiMail'];
         $form = $this->createFormBuilder($defaultData)
@@ -73,7 +73,13 @@ class DevisAdminController extends AbstractController
                     ->subject($objet)
                     ->html($message);
                 $mailer->send($email);
-            return $this->redirectToRoute('devis_admin_index');
+                $devi = $repository->findOneById($_GET['id']);
+                $devi->setStatus("Mail_envoyé");
+                $entityManager->persist($devi);
+                $entityManager->flush($devi);
+                
+
+             return $this->redirectToRoute('devis_admin_index');
         }
         return $this->render('devis_admin/envoyer-mail.html.twig', [
             'nom' => $_GET['nom'],
@@ -300,6 +306,7 @@ class DevisAdminController extends AbstractController
                 'email' => $devi->getEmail(),
                 'totalTTC' => $totalTTC,
                 'filename' => $filename,
+                'id' => $devi->getId(),
             ]);
 
         }

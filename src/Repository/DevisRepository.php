@@ -31,6 +31,15 @@ class DevisRepository extends ServiceEntityRepository
             ->getResult()
         ;
     }
+    public function findOneById($id): ?Devis
+    {
+        return $this->createQueryBuilder('d')
+            ->andWhere('d.id = :val')
+            ->setParameter('val', $id)
+            ->getQuery()
+            ->getOneOrNullResult()
+        ;
+    }
 
     // /**
     //  * @return Devis[] Returns an array of Devis objects
