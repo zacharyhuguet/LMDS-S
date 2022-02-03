@@ -20,7 +20,7 @@ final class Version20220126085632 extends AbstractMigration
     public function up(Schema $schema): void
     {
         // this up() migration is auto-generated, please modify it to your needs
-        $this->addSql('ALTER TABLE produits ADD stockage VARCHAR(255) NOT NULL, ADD ecran VARCHAR(255) NOT NULL, ADD couleur VARCHAR(255) NOT NULL, CHANGE ancien_prix ancien_prix VARCHAR(255) NOT NULL');
+        $this->addSql('ALTER TABLE produits ADD stockage VARCHAR(255) NOT NULL, ADD ecran VARCHAR(255) NOT NULL, ADD couleur VARCHAR(255) NOT NULL, CHANGE ancien_prix ancien_prix VARCHAR(255)');
     }
 
     public function down(Schema $schema): void
