@@ -48,7 +48,7 @@ VALUES
     ('17', 'far fa-angry'),
     ('18', 'fas fa-arrow-alt-circle-up'),
     ('19', 'fas fa-at'),
-    ('19', 'fas fa-audio-description'),
+    ('64', 'fas fa-audio-description'),
     ('20', 'fas fa-beer'),
     ('21', 'fab fa-atlassian'),
     ('22', 'fas fa-birthday-cake'),
