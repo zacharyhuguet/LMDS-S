@@ -21,13 +21,21 @@
 			Envoi
 		</li>
 	</ol>
-<h1 class='devis-envoyer'><i class='fas fa-check-circle logo-devis-envoyer'></i><br/>Votre devis a bien été envoyé !</h1>
-<p class='p-devis-envoyer'>La boutique La Maison Du Smartphone vous remercie de votre demande de devis via notre site internet.<br/>
-Nous allons vous répondre dans les plus brefs délais Mr / Mme : {{ nom }} {{ prenom }}<br/><br/>
+	<div class="progress-phone">
+		<h1>Etape 7 / 7</h1>
+		<h2>Envoi</h2>
+		<hr>
+	</div>
+	<h1 class='devis-envoyer'>
+		<i class='fas fa-check-circle logo-devis-envoyer'></i><br/>Votre devis a bien été envoyé !</h1>
+	<p class='p-devis-envoyer'>La boutique La Maison Du Smartphone vous remercie de votre demande de devis via notre site internet.<br/>
+		Nous allons vous répondre dans les plus brefs délais Mr / Mme :
+		{{ nom }}
+		{{ prenom }}<br/><br/>
 
- Redirection vers l'accueil dans 60 secondes...</p>
-<img class='img-devis-envoyer' src='{{ asset('images/devis.png') }}'/>
+		Redirection vers l'accueil dans 60 secondes...</p>
+	<img class='img-devis-envoyer' src='{{ asset('images/devis.png') }}'/>
 
 
- <meta http-equiv='refresh' content='60;URL=/'>
+	<meta http-equiv='refresh' content='60;URL=/'>
 {% endblock %}
