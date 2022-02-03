@@ -153,7 +153,7 @@ class DevisAdminController extends AbstractController
                 $prix1 = $repondreDevis['Prix1'];
                 $quantite1 = 1;
                 $prix1HT = $prix1 * 0.80;
-                $prix1Set = $prix1HT;
+                $prix1Set = $prix1;
             } else {
                 $prestation1 = " ";
                 $prix1 = " ";
@@ -166,7 +166,7 @@ class DevisAdminController extends AbstractController
                 $prix2 = $repondreDevis['Prix2'];
                 $quantite2 = 1;
                 $prix2HT = $prix2 * 0.80;
-                $prix2Set = $prix2HT;
+                $prix2Set = $prix2;
             } else {
                 $prestation2 = " ";
                 $prix2 = " ";
@@ -180,7 +180,7 @@ class DevisAdminController extends AbstractController
                 $prix3 = $repondreDevis['Prix3'];
                 $quantite3 = 1;
                 $prix3HT = $prix3 * 0.80;
-                $prix3Set = $prix3HT;
+                $prix3Set = $prix3;
             } else {
                 $prestation3 = " ";
                 $prix3 = " ";
@@ -193,31 +193,18 @@ class DevisAdminController extends AbstractController
             } else {
                 $reduction = 0;
             }
-            $sousTotalHT = $prix1Set + $prix2Set + $prix3Set;
+            $sousTotalHT = ($prix1Set + $prix2Set + $prix3Set)*0.80;
             $reductionDevis = $sousTotalHT * $reduction;
-            $totalTTC = $sousTotalHT * 1.20 - $reductionDevis;
-            $dontTva = $totalTTC * 0.2;
+            $totalTTC =($prix1Set + $prix2Set + $prix3Set) - $reductionDevis;
+            $dontTva = ($prix1Set + $prix2Set + $prix3Set) - $sousTotalHT;
             $options = new Options();
             $options->set('defaultFont', 'Roboto');
             $dompdf = new Dompdf($options);
             $html = "
             <style>
-            .header-pdf img {
-                width:100px;
-                display:block;
-            }
-            .header-pdf h1{
-            position:absolute;
-            top:0; right:0;
-            background-color:rgb(214, 158, 4);
-            color:white;
-            padding:10px;
-            font-weight:bolder;
-            text-align:center;
-            }
-            .client{
-                float:right;
-            }
+            .header-pdf img { width:100px;display:block;}
+            .header-pdf h1{position:absolute; top:0; right:0; background-color:rgb(214, 158, 4);color:white;padding:10px;font-weight:bolder;text-align:center;}
+            .client{float:right;}
             .table{width:100%;max-width:100%;margin-bottom:1rem;background-color:transparent}
             .table td,.table th{padding:.75rem;vertical-align:top;border-top:1px solid #dee2e6}
             .table thead th{vertical-align:bottom;border-bottom:2px solid #dee2e6}
