@@ -61,10 +61,13 @@ class DevisController extends AbstractController
         $form->HandleRequest($request);
         
         $step1 = $request->get('devis_step1');
+        if (isset($step1['nom'])){
             $_SESSION['nom'] = $step1['nom'];
             $_SESSION['prenom'] = $step1['prenom'];
             $_SESSION['email'] = $step1['email'];
             $_SESSION['telephone'] = $step1['telephone'];
+        }
+
 
 
         return $this->render('devis/devis_2.html.twig', [

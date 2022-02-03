@@ -134,7 +134,7 @@
 }
 .phototheque {
     padding: 20px;
-    width: 32%;
+    width: 30%;
     margin:0 auto;
 }
 
@@ -149,7 +149,8 @@
 .phototheque div.gallery img {
     margin:0 auto;
     display:block;
-    height: 400px;
+    width:100%;
+    
 
 }
 

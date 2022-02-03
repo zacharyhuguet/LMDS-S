@@ -147,42 +147,56 @@ class DevisAdminController extends AbstractController
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
             $repondreDevis = $form->getData();
-            $prestation1 = $repondreDevis['Prestation1'];
-            $prix1 = $repondreDevis['Prix1'];
-            $prix1HT = $prix1;
-            $prix1TTC = $prix1 * 1.2;
+
+            if (isset($repondreDevis['Prestation1']) && isset($repondreDevis['Prix1'])) {
+                $prestation1 = $repondreDevis['Prestation1'];
+                $prix1 = $repondreDevis['Prix1'];
+                $quantite1 = 1;
+                $prix1HT = $prix1 * 0.80;
+                $prix1Set = $prix1HT;
+            } else {
+                $prestation1 = " ";
+                $prix1 = " ";
+                $quantite1 = " ";
+                $prix1HT = " ";
+                $prix1Set =0;
+            }
             if (isset($repondreDevis['Prestation2']) && isset($repondreDevis['Prix2'])) {
                 $prestation2 = $repondreDevis['Prestation2'];
                 $prix2 = $repondreDevis['Prix2'];
-                $prix2HT = $prix2;
-                $prix2TTC = $prix2 * 1.2;
+                $quantite2 = 1;
+                $prix2HT = $prix2 * 0.80;
+                $prix2Set = $prix2HT;
             } else {
                 $prestation2 = " ";
                 $prix2 = " ";
-                $prix2TTC = " ";
-                $prix2HT = 0;
+                $quantite2 = " ";
+                $prix2HT = " ";
+                $prix2Set =0;
+
             }
             if (isset($repondreDevis['Prestation3']) && isset($repondreDevis['Prix3'])) {
                 $prestation3 = $repondreDevis['Prestation3'];
                 $prix3 = $repondreDevis['Prix3'];
-                $prix3HT = $prix3;
-                $prix3TTC = $prix3 * 1.2;
-            }
-            else {
+                $quantite3 = 1;
+                $prix3HT = $prix3 * 0.80;
+                $prix3Set = $prix3HT;
+            } else {
                 $prestation3 = " ";
                 $prix3 = " ";
-                $prix3TTC = " ";
-                $prix3HT = 0;
+                $quantite3 = " ";
+                $prix3HT = " ";
+                $prix3Set =0;
             }
-            $sousTotalHT = $prix1HT + $prix2HT + $prix3HT;
             if ($devi->getProtection() == "Oui"){
-                $reduction = 0.95;
+                $reduction = 0.05;
             } else {
                 $reduction = 1;
             }
-            $sousTotalTTCAvecReduction = $sousTotalHT * $reduction * 1.20;
-            $totalTTC = $sousTotalTTCAvecReduction;
-            $dontTva = $totalTTC - $sousTotalHT;
+            $sousTotalHT = $prix1Set + $prix2Set + $prix3Set;
+            $reductionDevis = $sousTotalHT * $reduction;
+            $totalTTC = $sousTotalHT * 1.20 - $reductionDevis;
+            $dontTva = $totalTTC * 0.2;
             $options = new Options();
             $options->set('defaultFont', 'Roboto');
             $dompdf = new Dompdf($options);
@@ -212,7 +226,7 @@ class DevisAdminController extends AbstractController
             .row{display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-wrap:wrap;flex-wrap:wrap;margin-right:-15px;margin-left:-15px}
             </style>
             <div class='header-pdf'>
-		    <img src='images/logo.Png'>
+		    <img src='images/logo.png'>
             <h1>La Maison Du Smartphone
             <br/>Devis N°" . $devi->getId() . "
             <br/>".date("d/m/y")."</h1>
@@ -250,23 +264,23 @@ class DevisAdminController extends AbstractController
     <tr>
       <th scope='row'>N°1</th>
       <td>".$prestation1."</td>
-      <td>1</td>
+      <td>".$quantite1."</td>
+      <td>".$prix1HT."</td>
       <td>".$prix1."</td>
-      <td>".$prix1TTC."</td>
     </tr>
     <tr>
       <th scope='row'>N°2</th>
       <td>".$prestation2."</td>
-      <td>1</td>
+      <td>".$quantite2."</td>
+      <td>".$prix2HT."</td>
       <td>".$prix2."</td>
-      <td>".$prix2TTC."</td>
     </tr>
     <tr>
       <th scope='row'>N°3</th>
       <td>".$prestation3."</td>
-      <td>1</td>
+      <td>".$quantite3."</td>
+      <td>".$prix3HT."</td>
       <td>".$prix3."</td>
-      <td>".$prix3TTC."</td>
     </tr>
     <tr>
     <th scope='row'></th>
@@ -279,18 +293,20 @@ class DevisAdminController extends AbstractController
     <th scope='row'></th>
     <td> </td>
     <td> </td>
-    <td>Sous-Total TTC<br/>Réduction</td>
-    <td>".$sousTotalTTCAvecReduction." €</td>
+    <td>Réduction</td>
+    <td>-".$reductionDevis." €</td> 
     </tr>
     <tr>
     <th scope='row'></th>
     <td> </td>
     <td> </td>
-    <td>Total TTC<br/>dont TVA</td>
+    <td>Total TTC<br/>dont TVA (20%)</td>
     <td>".$totalTTC." €<br/>".$dontTva." €</td>
     </tr>
   </tbody>
-</table>";
+</table>
+<b>Bon pour accord
+<br/>Signature :</b>";
             $dompdf->loadHtml($html);
 
             $dompdf->setPaper('A4', 'portrait');
@@ -360,9 +376,12 @@ class DevisAdminController extends AbstractController
         if ($status == "Nouveau-Devis"){
             $devi->setStatus("En-cours");
         }
-        if ($status == "En-cours"){
+        elseif ($status == "En-cours"){
+            $devi->setStatus("Nouveau-Devis");
+        } else {
             $devi->setStatus("Nouveau-Devis");
         }
+        
 
         $entityManager->flush();
 
