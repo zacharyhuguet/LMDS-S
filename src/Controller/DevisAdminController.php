@@ -191,7 +191,7 @@ class DevisAdminController extends AbstractController
             if ($devi->getProtection() == "Oui"){
                 $reduction = 0.05;
             } else {
-                $reduction = 1;
+                $reduction = 0;
             }
             $sousTotalHT = $prix1Set + $prix2Set + $prix3Set;
             $reductionDevis = $sousTotalHT * $reduction;

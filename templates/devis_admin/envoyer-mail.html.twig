@@ -7,7 +7,9 @@
 
 	{{form_start(form)}}
     <p>Objet du mail</p>{{form_widget(form.ObjetMail)}}
-	<p>Message du mail ( &lt;br/&gt; = Passer à la ligne )</p>{{form_widget(form.MessageMail)}} 
+	<p>Message du mail ( &lt;br/&gt; = Passer à la ligne )</p>
+	<br/>
+	{{form_widget(form.MessageMail)}} 
 	{{ form_row(form._token) }}
 	<br/><br/>
 	{{form_end(form)}}
