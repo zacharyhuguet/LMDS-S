@@ -3,10 +3,19 @@
 
 {% block body %}
 	<h1 class="text-center">Affichage des devis</h1>
+
+	{{ form_start(form) }}
+   <div class="search-bar">
+	{{ form_widget(form.search, {'placeholder' : 'Que voulez-vous rechercher ?'}) }}
+	 <button type="submit" class="btn btn-dark searchButton"><i class="fas fa-search"></i></button>
+   </div>
+	{{ form_row(form._token) }}
+	{{ form_end(form) }}
+<br/><br/>
 	<table class="table table-bordered table-striped table-responsive-stack">
 		<thead>
 			<tr style='text-align:center; background-color:#212529; color:white;'>
-                <th>Actions</th>
+				<th>Actions</th>
 				<th>ID</th>
 				<th class='status-th'>Status</th>
 				<th>Date</th>
@@ -33,19 +42,20 @@
 							<i class='fas fa-paper-plane'></i>
 						</a>
 						{% if devi.status == "Mail-envoyé" %}
-						<a class='btn btn-secondary mb-2'target="_blank" href="/devis-reponse/Devis-{{devi.id}}-{{devi.nom}}-{{devi.prenom}}.pdf"><i class="far fa-file-pdf"></i></a>
+							<a class='btn btn-secondary mb-2' target="_blank" href="/devis-reponse/Devis-{{devi.id}}-{{devi.nom}}-{{devi.prenom}}.pdf">
+								<i class="far fa-file-pdf"></i>
+							</a>
 						{% endif %}
 						<br/>
 						{{ include('devis_admin/_delete_form.html.twig') }}
 					</td>
 					<td>{{ devi.id }}</td>
-					<td>{{ devi.status }} 
-					{% if devi.status != "Mail-envoyé" %}
-    									<a class='status-bouton btn mb-1' 
-					href='{{ path('devis_admin_changestatus', {'id': devi.id}) }}'>
-					<i class='fas fa-sync-alt'></i> 
-					</a>
-					{% endif %}
+					<td>{{ devi.status }}
+						{% if devi.status != "Mail-envoyé" %}
+							<a class='status-bouton btn mb-1' href='{{ path('devis_admin_changestatus', {'id': devi.id}) }}'>
+								<i class='fas fa-sync-alt'></i>
+							</a>
+						{% endif %}
 
 					</td>
 					<td>{{ devi.date ? devi.date|date('d/m/Y') : '' }}</td>

@@ -19,7 +19,19 @@ class DevisRepository extends ServiceEntityRepository
         parent::__construct($registry, Devis::class);
     }
 
-
+    public function findBySearch($search)
+    {
+        return $this->createQueryBuilder('d')
+            ->andWhere('d.nom = :val')
+            ->OrWhere('d.prenom = :val')
+            ->setParameter('val', $search)
+            ->orderBy('d.date', 'DESC')
+            // ->setMaxResults(10)
+            ->getQuery()
+            ->getResult()
+        ;
+    }
+    
     public function findByDate()
     {
         return $this->createQueryBuilder('d')

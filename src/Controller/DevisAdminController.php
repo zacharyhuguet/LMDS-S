@@ -15,6 +15,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\NumberType;
+use Symfony\Component\Form\Extension\Core\Type\SearchType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -25,12 +26,30 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 class DevisAdminController extends AbstractController
 {
     /**
-     * @Route("/", name="devis_admin_index", methods={"GET"})
+     * @Route("/", name="devis_admin_index", methods={"GET","POST"})
      */
-    public function index(DevisRepository $devisRepository): Response
+    public function index(DevisRepository $devisRepository,Request $request): Response
     {
+        $defaultData = ['message' => 'envoiMail'];
+        $form = $this->createFormBuilder($defaultData)
+            ->add('search', SearchType::class,['required' => false,]) 
+            ->getForm();
+
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $data = $form->getData();
+            $search= $data['search'];
+            if ($search != null){
+                return $this->render('devis_admin/index.html.twig', [
+                    'devis' => $devisRepository->findBySearch($search),
+                    'form' => $form->createView(),
+                ]);
+            }
+        }
         return $this->render('devis_admin/index.html.twig', [
             'devis' => $devisRepository->findByDate(),
+            'form' => $form->createView(),
         ]);
     }
     

@@ -14,9 +14,6 @@ class MagasinController extends AbstractController
      */
     public function index(DevisRepository $devisRepository): Response
     {
-        return $this->render('devis_admin/index.html.twig', [
-            'controller_name' => 'MagasinController',
-            'devis' => $devisRepository->findAll(),
-        ]);
+        return $this->redirectToRoute('devis_admin_index');
     }
 }

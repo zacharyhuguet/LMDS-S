@@ -149,3 +149,20 @@ input:focus,
 textarea:focus {
   background: #bfc8ce;
 }
+/* ------------------ SEARCHBAR -------------------------*/
+.search-bar {
+  width: 100%;
+  position: relative;
+  display: flex;
+  justify-content:center;
+  
+}
+.searchButton {
+  width: 60px;
+  height: 60px;
+  text-align: center;
+  color: #fff;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+  font-size: 20px;
+}
