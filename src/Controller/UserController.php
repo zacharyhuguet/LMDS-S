@@ -45,6 +45,7 @@ class UserController extends AbstractController
             $passwordNoEncode = $user->getPassword();
             $passwordEncode = $this->passwordEncoder->encodePassword($user, $passwordNoEncode);
             $user->setPassword($passwordEncode);
+            $user->setRoles(['ROLE_ADMIN']);
             $entityManager->persist($user);
             $entityManager->flush();
 
