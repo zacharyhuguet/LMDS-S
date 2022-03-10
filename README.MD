@@ -1,6 +1,7 @@
 ### SYMFONY     VERSION 5.4.2 ###
 ### COMPOSER    VERSION 2.1.8 ###
 ### PHP         VERSION 7.4.9 ###
+[![CodeFactor](https://www.codefactor.io/repository/github/zacharyhuguet/lmds-s/badge)](https://www.codefactor.io/repository/github/zacharyhuguet/lmds-s)
 
 ![La Maison Du Smartphone](https://raw.githubusercontent.com/AllanBiville/LMDS-S/main/public/images/banniere.jpg)
 
