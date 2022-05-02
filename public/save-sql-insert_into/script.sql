@@ -1,4 +1,4 @@
-INSERT INTO marque (`id`, `nom_marque`)
+INSERT INTO marque (id, nom_marque)
 VALUES
     ('1', 'APPLE'),
     ('2', 'SAMSUNG'),
@@ -20,14 +20,14 @@ VALUES
     ('18', 'SONNY'),
     ('19', 'WIKO');
 	
-INSERT INTO information_accueil (`id`, `emplacement`, `titre`,`texte`,`logo`)
+INSERT INTO information_accueil (id, emplacement, titre, texte, logo)
 VALUES
     ('1', '1', 'Information 1', 'Texte 1', 'fas fa-question'),
 	('2', '2', 'Information 2', 'Texte 2', 'fas fa-question'),
 	('3', '3', 'Information 3', 'Texte 3', 'fas fa-question'),
 	('4', '4', 'Information 4', 'Texte 4', 'fas fa-question');
 	
-INSERT INTO	font_awesome (`id`, `nom`)
+INSERT INTO	font_awesome (id, nom)
 VALUES
     ('1', 'fas fa-question'),
 	('2', 'fas fa-ad'),
@@ -94,7 +94,7 @@ VALUES
     ('62', 'fas fa-cog'),
 	('63', 'fas fa-comment-dots');
 
-INSERT INTO modele (`id`, `marque_id`, `nom_modele`)
+INSERT INTO modele (id, marque_id, nom_modele)
 VALUES
     ('1', '1', 'IPHONE 12 PRO MAX'),
     ('2', '1', 'IPHONE 12 PRO'),
@@ -698,3 +698,4 @@ VALUES
     ('609', '19', 'POWER U20'),
     ('610', '19', 'POWER U30'),
     ('611', '19', 'Y81');
+    

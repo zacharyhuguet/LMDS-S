@@ -9,9 +9,9 @@
     src: url("/polices/LaMaisonDuSmartphone.ttf");
   }
   body{
-        width:100%;
+      width:100%;
       min-height:100vh;
-      padding-bottom:400px;
+      padding-bottom: 400px;
       position:relative;
       font-family: "PT Sans", sans-serif;
  

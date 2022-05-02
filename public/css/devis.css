@@ -61,7 +61,7 @@ display:none;
   height: 0.5em;
   top: 1.25em;
   left: 50%;
-  margin-left: 1.5em\9;
+  margin-left: 1.5em;
   z-index: -1;
 }
 .progress > li:last-child:after {
@@ -86,7 +86,7 @@ display:none;
 .form-devis {
   width: 95%;
   background-color: white;
-  margin: 30px auto 0px;
+  margin: 30px auto 0;
   display: block;
 }
 .form-devis fieldset {
@@ -106,7 +106,6 @@ display:none;
   border: none;
   border-radius: 4px;
   font-size: 15px;
-  margin: 0;
   outline: 0;
   padding: 15px;
   width: 100%;
@@ -117,7 +116,7 @@ display:none;
   color: #8a97a0;
   -webkit-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03) inset;
   box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03) inset;
-  margin: 25px 0 25px;
+  margin: 25px 0;
   appearance: none;
   -moz-appearance: none;
   -webkit-appearance: none;
@@ -155,7 +154,7 @@ display:none;
   margin-right: 15px;
   line-height: 50px;
   text-align: center;
-  border-radius: 15px 15px 15px 0px;
+  border-radius: 15px 15px 15px 0;
 }
 @media screen and (max-width: 500px) {
   .form-devis .number {
@@ -188,7 +187,7 @@ display:none;
 .form-devis button[type="submit"] {
   position: relative;
   display: block;
-  padding: 19px 39px 18px 39px;
+  padding: 19px 39px 18px;
   color: #fff;
   font-weight: bolder;
   margin: 0 auto;
@@ -204,7 +203,7 @@ display:none;
   border: none;
 }
 .form-devis button[type="submit"]:hover {
-  box-shadow: rgb(0, 0, 0, 0.3) 0px 19px 38px, rgb(0, 0, 0, 0.22) 0px 15px 12px;
+  box-shadow: rgb(0, 0, 0, 0.3) 0 19px 38px, rgb(0, 0, 0, 0.22) 0 15px 12px;
 }
 .devis-envoyer {
   font-size: 50px;
@@ -276,13 +275,13 @@ display:none;
 }
 .protection-ecran {
   padding: 10px;
-  margin: 25px 0 25px;
-  box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px,
-    rgba(6, 24, 44, 0.65) 0px 4px 6px -1px,
-    rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
-  box-shadow: rgb(6, 24, 44, 0.4) 0px 0px 0px 2px,
-    rgb(6, 24, 44, 0.65) 0px 4px 6px -1px,
-    rgb(255, 255, 255, 0.08) 0px 1px 0px inset;
+  margin: 25px 0;
+  box-shadow: rgba(6, 24, 44, 0.4) 0 0 0 2px,
+    rgba(6, 24, 44, 0.65) 0 4px 6px -1px,
+    rgba(255, 255, 255, 0.08) 0 1px 0 inset;
+  box-shadow: rgb(6, 24, 44, 0.4) 0 0 0 2px,
+    rgb(6, 24, 44, 0.65) 0 4px 6px -1px,
+    rgb(255, 255, 255, 0.08) 0 1px 0 inset;
 }
 .protection-ecran span:first-child {
   padding: 2px 5px;
@@ -329,13 +328,13 @@ display:none;
 }
 .mentions-legales {
   padding: 10px;
-  margin: 25px 0 25px;
-  box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px,
-    rgba(6, 24, 44, 0.65) 0px 4px 6px -1px,
-    rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
-  box-shadow: rgb(6, 24, 44, 0.4) 0px 0px 0px 2px,
-    rgb(6, 24, 44, 0.65) 0px 4px 6px -1px,
-    rgb(255, 255, 255, 0.08) 0px 1px 0px inset;
+  margin: 25px 0;
+  box-shadow: rgba(6, 24, 44, 0.4) 0 0 0 2px,
+    rgba(6, 24, 44, 0.65) 0 4px 6px -1px,
+    rgba(255, 255, 255, 0.08) 0 1px 0 inset;
+  box-shadow: rgb(6, 24, 44, 0.4) 0 0 0 2px,
+    rgb(6, 24, 44, 0.65) 0 4px 6px -1px,
+    rgb(255, 255, 255, 0.08) 0 1px 0 inset;
 }
 .mentions-legales span:first-child {
   padding: 2px 5px;
@@ -394,7 +393,6 @@ display:none;
   border: none;
   border-radius: 4px;
   font-size: 15px;
-  margin: 0;
   outline: 0;
   padding: 15px;
   width: 100%;
@@ -405,7 +403,7 @@ display:none;
   color: #8a97a0;
   -webkit-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03) inset;
   box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03) inset;
-  margin: 25px 0 25px;
+  margin: 25px 0;
   appearance: none;
   -moz-appearance: none;
   -webkit-appearance: none;
@@ -415,7 +413,6 @@ display:none;
   border: none;
   border-radius: 4px;
   font-size: 15px;
-  margin: 0;
   outline: 0;
   padding: 15px;
   width: 100%;
@@ -427,7 +424,7 @@ display:none;
   color: #8a97a0;
   -webkit-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03) inset;
   box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03) inset;
-  margin: 25px 0 25px;
+  margin: 25px 0;
   appearance: none;
   -moz-appearance: none;
   -webkit-appearance: none;
@@ -444,14 +441,14 @@ margin-top:50px;
 }
 @media screen and (max-width: 850px) {
   .devis-h1-title {
-    font-size: 35px !important;
+    font-size: 35px;
 }
 }
 
 .devis-texte-page1 a{
   text-decoration: none;
   background-color: rgb(214, 158, 4);
-  padding: 15px 15px;
+  padding: 15px;
   display: block;
   width: 200px;
   margin: 45px auto 0;
@@ -461,7 +458,7 @@ margin-top:50px;
   font-size:20px;
 }
 .devis-texte-page1 a:hover {
-  box-shadow: rgb(0, 0, 0, 0.3) 0px 19px 38px, rgb(0, 0, 0, 0.22) 0px 15px 12px;
+  box-shadow: rgb(0, 0, 0, 0.3) 0 19px 38px, rgb(0, 0, 0, 0.22) 0 15px 12px;
 }
 .devis-texte-page1 img{
   display:block;

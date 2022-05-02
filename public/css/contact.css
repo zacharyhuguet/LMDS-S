@@ -6,7 +6,7 @@
 }
 @media screen and (max-width: 850px) {
   .contact h1:first-child {
-      font-size: 35px !important;
+      font-size: 35px;
   }
 }
 
@@ -23,13 +23,13 @@
     outline: 0;
     border-radius: 4px;
     font-size: 25px;
-    padding: 15px;
+    padding:  15px;
     width: 90%;
     background-color: #e8eeef;
     color: #8a97a0;
     -webkit-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03) inset;
     box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03) inset;
-    margin: 25px auto 25px;
+    margin: 25px auto;
     resize: vertical;
     display: block;
     appearance: none;
@@ -45,7 +45,7 @@
   }
   .form-contact input[type="submit"] {
     display: block;
-    padding: 19px 39px 18px 39px;
+    padding: 19px 39px 18px;
     color: white;
     font-weight: bolder;
     margin: 0 auto;
@@ -61,14 +61,14 @@
     border: none;
   }
   .form-contact input[type="submit"]:hover {
-    box-shadow: rgb(0, 0, 0, 0.3) 0px 19px 38px, rgb(0, 0, 0, 0.22) 0px 15px 12px;
+    box-shadow: rgb(0, 0, 0, 0.3) 0 19px 38px, rgb(0, 0, 0, 0.22) 0 15px 12px;
   }
   .form-contact fieldset {
     border: none;
   }
   iframe {
     display: block;
-    margin: 25px auto 0 auto;
+    margin: 25px auto 0;
     border: none;
     height:800px;
   }
@@ -79,12 +79,12 @@
   }
   .numero-adresse .items{
       width:50%;
-      margin: 30px 10px 0 10px;
+      margin: 30px 10px 0;
       text-align:center;
       padding:40px 0;
-      box-shadow: rgb(0, 0, 0, 0.19) 0px 10px 20px, rgb(0, 0, 0, 0.23) 0px 6px 6px;
-      -webkit-box-shadow: rgb(0, 0, 0, 0.19) 0px 10px 20px, rgb(0, 0, 0, 0.23) 0px 6px 6px;
-      -moz-box-shadow: rgb(0, 0, 0, 0.19) 0px 10px 20px, rgb(0, 0, 0, 0.23) 0px 6px 6px;
+      box-shadow: rgb(0, 0, 0, 0.19) 0 10px 20px, rgb(0, 0, 0, 0.23) 0 6px 6px;
+      -webkit-box-shadow: rgb(0, 0, 0, 0.19) 0 10px 20px, rgb(0, 0, 0, 0.23) 0 6px 6px;
+      -moz-box-shadow:  rgb(0, 0, 0, 0.19) 0 10px 20px,rgb(0, 0, 0, 0.23) 0 6px 6px;
   }
   .numero-adresse .items a{
     text-decoration:none;
@@ -94,7 +94,6 @@
     font-weight: bolder;
     font-size: 25px;
     letter-spacing: 1px;
-    color: gray;
 
   }
   .numero-adresse .items i{

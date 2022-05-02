@@ -29,8 +29,6 @@ class DevisController extends AbstractController
      */
     public function index(Request $request): Response
     {
-        session_start();
-        session_destroy();
         return $this->render('devis/index.html.twig', [
             'controller_name' => 'DevisController',
         ]);
@@ -237,7 +235,7 @@ class DevisController extends AbstractController
         $devis->setTelephone($_SESSION['telephone']);
         $devis->setMarque($_SESSION['marque']);
         $devis->setModele($_SESSION['modele']);
-        $devis->setProbleme1($_SESSION['probleme']);
+        $devis->setProbleme($_SESSION['probleme']);
         $devis->setCommentaire($_SESSION['commentaire']);
         $devis->setProtection($_SESSION['protection']);
 

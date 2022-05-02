@@ -4,15 +4,15 @@
     text-align:center;
   }
   .page-mentions-legales h1{
-  margin:50px 0px;
+  margin:50px 0;
   color:rgb(214, 158, 4);
   }
   .page-mentions-legales h3{
-    margin:50px 0px;
+    margin:50px 0;
     font-weight: 600;
     }
   .page-mentions-legales p{
-    padding:0px 50px;
+    padding:0 50px;
   }
   .page-mentions-legales em{
     font-weight: 600;

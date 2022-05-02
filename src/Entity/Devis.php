@@ -178,7 +178,7 @@ class Devis
         return $this->probleme;
     }
 
-    public function setProbleme1(string $probleme): self
+    public function setProbleme(string $probleme): self
     {
         $this->probleme = $probleme;
 

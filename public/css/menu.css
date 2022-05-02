@@ -9,12 +9,12 @@ header {
     align-items: center;
     width: 100%;
     height: 100px;
-    box-shadow: rgb(50, 50, 93, 0.25) 0px 50px 100px -20px,
-        rgb(0, 0, 0, 0.3) 0px 30px 60px -30px;
-    -webkit-box-shadow: rgb(50, 50, 93, 0.25) 0px 50px 100px -20px,
-        rgb(0, 0, 0, 0.3) 0px 30px 60px -30px;
-    -moz-box-shadow: rgb(50, 50, 93, 0.25) 0px 50px 100px -20px,
-        rgb(0, 0, 0, 0.3) 0px 30px 60px -30px;
+    box-shadow: rgb(50, 50, 93, 0.25) 0 50px 100px -20px,
+        rgb(0, 0, 0, 0.3) 0 30px 60px -30px;
+    -webkit-box-shadow: rgb(50, 50, 93, 0.25) 0 50px 100px -20px,
+        rgb(0, 0, 0, 0.3) 0 30px 60px -30px;
+    -moz-box-shadow: rgb(50, 50, 93, 0.25) 0 50px 100px -20px,
+        rgb(0, 0, 0, 0.3) 0 30px 60px -30px;
     position: fixed;
     top: 0;
     background-color: white;
@@ -41,7 +41,7 @@ nav a {
     font-weight: 1000;
     font-size: 25px;
     color: rgb(132, 132, 132);
-    margin-right: 10px;
+    margin-right:  10px;
     display: inline-block;
     z-index: 1000;
     position: relative;
@@ -91,7 +91,7 @@ nav a.nav-liens:hover:before, nav a.nav-liens:hover:after {
 @media screen and (max-width: 300px) {
     .navigation-logo {
         font-size: 15px;
-        padding: 30px 30px 45px 30px;
+        padding: 30px 30px 45px;
     }
 }
 @media screen and (max-width: 405px) {
@@ -122,21 +122,21 @@ nav a.nav-liens:hover:before, nav a.nav-liens:hover:after {
         padding: 20px 0;
         width: 100%;
         z-index: 100;
-        box-shadow: rgb(0, 0, 0, 0.25) 0px 54px 55px,
-            rgb(0, 0, 0, 0.12) 0px -12px 30px,
-            rgb(0, 0, 0, 0.12) 0px 4px 6px,
-            rgb(0, 0, 0, 0.17) 0px 12px 13px,
-            rgb(0, 0, 0, 0.09) 0px -3px 5px;
-        -webkit-box-shadow: rgb(0, 0, 0, 0.25) 0px 54px 55px,
-            rgb(0, 0, 0, 0.12) 0px -12px 30px,
-            rgb(0, 0, 0, 0.12) 0px 4px 6px,
-            rgb(0, 0, 0, 0.17) 0px 12px 13px,
-            rgb(0, 0, 0, 0.09) 0px -3px 5px;
-        -moz-box-shadow: rgb(0, 0, 0, 0.25) 0px 54px 55px,
-            rgb(0, 0, 0, 0.12) 0px -12px 30px,
-            rgb(0, 0, 0, 0.12) 0px 4px 6px,
-            rgb(0, 0, 0, 0.17) 0px 12px 13px,
-            rgb(0, 0, 0, 0.09) 0px -3px 5px;
+        box-shadow: rgb(0, 0, 0, 0.25) 0 54px 55px,
+            rgb(0, 0, 0, 0.12) 0 -12px 30px,
+            rgb(0, 0, 0, 0.12) 0 4px 6px,
+            rgb(0, 0, 0, 0.17) 0 12px 13px,
+            rgb(0, 0, 0, 0.09) 0 -3px 5px;
+        -webkit-box-shadow: rgb(0, 0, 0, 0.25) 0 54px 55px,
+            rgb(0, 0, 0, 0.12) 0 -12px 30px,
+            rgb(0, 0, 0, 0.12) 0 4px 6px,
+            rgb(0, 0, 0, 0.17) 0 12px 13px,
+            rgb(0, 0, 0, 0.09) 0 -3px 5px;
+        -moz-box-shadow: rgb(0, 0, 0, 0.25) 0 54px 55px,
+            rgb(0, 0, 0, 0.12) 0 -12px 30px,
+            rgb(0, 0, 0, 0.12) 0 4px 6px,
+            rgb(0, 0, 0, 0.17) 0 12px 13px,
+            rgb(0, 0, 0, 0.09) 0 -3px 5px;
     }
 
     .nav-class.responsive .icon {

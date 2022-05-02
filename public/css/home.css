@@ -2,7 +2,7 @@
     margin-top: -3px;
     margin-bottom: 1.9em;
     position: relative;
-    height: 650px
+    height: 650px;
 }
 
 .sous-header .cover {
@@ -42,9 +42,9 @@
 
 .sous-header-texte a {
     display: block;
-    padding: 20px 0px;
+    padding: 20px 0;
     width: 250px;
-    margin: 10px auto 0 auto;
+    margin: 10px auto 0;
     font-weight: bolder;
     font-size: 125%;
     text-decoration: none;

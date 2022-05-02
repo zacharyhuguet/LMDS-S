@@ -2,7 +2,7 @@
     width: 100%;
     max-width: 330px;
     padding: 15px;
-    margin: 50px auto 50px;
+    margin: 50px auto;
   }
   .form-signin .checkbox {
     font-weight: 400;
@@ -91,7 +91,6 @@
   }
   .file > label {
     font-size: 1rem;
-    font-weight: 300;
     cursor: pointer;
     outline: 0;
     user-select: none;
